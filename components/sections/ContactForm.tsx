@@ -1,8 +1,75 @@
 "use client";
 import { useState } from "react";
 import { Loader2, Send, MapPin, Phone, Mail } from "lucide-react";
+import { useLanguage } from "@/components/contexts/LanguageContext";
+
+const CONTENT = {
+  vi: {
+    header: "Liên hệ tư vấn",
+    quote: '"Kiến tạo hình ảnh – Nâng tầm thương hiệu"',
+    contact: {
+      addressLabel: "Địa chỉ",
+      address: "21/08/103 Vạn Phúc, Hà Đông, Hà Nội",
+      hotlineLabel: "Hotline",
+      emailLabel: "Email",
+    },
+    form: {
+      successTitle: "Đăng ký thành công!",
+      successMessage: "Cảm ơn bạn đã quan tâm. Chúng tôi sẽ gọi lại trong thời gian sớm nhất.",
+      nameLabel: "Họ và tên *",
+      phoneLabel: "Số điện thoại *",
+      emailLabel: "Email công việc *",
+      serviceLabel: "Dịch vụ quan tâm *",
+      servicePlaceholder: "Chọn dịch vụ",
+      services: [
+        { value: "tvc", label: "Sản xuất TVC/Video Quảng Cáo" },
+        { value: "event", label: "Tổ chức Sự Kiện (Event)" },
+        { value: "livestream", label: "Dịch vụ Livestream" },
+        { value: "ai", label: "Video AI" },
+        { value: "other", label: "Tư vấn tổng thể" },
+      ],
+      messageLabel: "Lời nhắn (Không bắt buộc)",
+      messagePlaceholder: "Mô tả ngắn về dự án hoặc yêu cầu của bạn...",
+      processing: "Đang xử lý...",
+      submitBtn: "Nhận tư vấn ngay",
+    }
+  },
+  en: {
+    header: "Contact for Consultation",
+    quote: '"Creating images – Elevating brands"',
+    contact: {
+      addressLabel: "Address",
+      address: "21/08/103 Van Phuc, Ha Dong, Hanoi",
+      hotlineLabel: "Hotline",
+      emailLabel: "Email",
+    },
+    form: {
+      successTitle: "Registration successful!",
+      successMessage: "Thank you for your interest. We will call you back as soon as possible.",
+      nameLabel: "Full Name *",
+      phoneLabel: "Phone Number *",
+      emailLabel: "Work Email *",
+      serviceLabel: "Interested Service *",
+      servicePlaceholder: "Select a service",
+      services: [
+        { value: "tvc", label: "TVC/Advertising Video Production" },
+        { value: "event", label: "Event Organization" },
+        { value: "livestream", label: "Livestream Service" },
+        { value: "ai", label: "AI Video" },
+        { value: "other", label: "Overall Consultation" },
+      ],
+      messageLabel: "Message (Optional)",
+      messagePlaceholder: "Brief description of your project or requirements...",
+      processing: "Processing...",
+      submitBtn: "Get consultation now",
+    }
+  }
+};
 
 export function ContactForm() {
+  const { lang } = useLanguage();
+  const t = CONTENT[lang];
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -23,7 +90,7 @@ export function ContactForm() {
         {/* Section Title */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold tracking-widest uppercase text-deep-navy">
-            Liên hệ tư vấn
+            {t.header}
           </h2>
         </div>
 
@@ -34,7 +101,7 @@ export function ContactForm() {
           <div className="flex flex-col gap-8">
             <div>
               <p className="text-xl md:text-2xl font-bold text-deep-navy leading-snug mb-6">
-                "Kiến tạo hình ảnh – Nâng tầm thương hiệu"
+                {t.quote}
               </p>
 
             </div>
@@ -46,8 +113,8 @@ export function ContactForm() {
                   <MapPin className="w-5 h-5 text-bbs-blue" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Địa chỉ</p>
-                  <p className="text-deep-navy font-medium">21/08/103 Vạn Phúc, Hà Đông, Hà Nội</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">{t.contact.addressLabel}</p>
+                  <p className="text-deep-navy font-medium">{t.contact.address}</p>
                 </div>
               </div>
 
@@ -56,7 +123,7 @@ export function ContactForm() {
                   <Phone className="w-5 h-5 text-bbs-blue" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Hotline</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">{t.contact.hotlineLabel}</p>
                   <a href="tel:0343603760" className="block text-deep-navy font-medium hover:text-bbs-blue transition-colors">
                     034.360.3760
                   </a>
@@ -71,7 +138,7 @@ export function ContactForm() {
                   <Mail className="w-5 h-5 text-bbs-blue" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Email</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">{t.contact.emailLabel}</p>
                   <a href="mailto:bbsmedia1368@gmail.com" className="text-deep-navy font-medium hover:text-bbs-blue transition-colors break-all">
                     bbsmedia1368@gmail.com
                   </a>
@@ -80,7 +147,7 @@ export function ContactForm() {
             </div>
 
             {/* Google Map embed */}
-            <div className="rounded-[16px] overflow-hidden border border-border-gray shadow-sm w-full h-74">
+            <div className="rounded-[16px] overflow-hidden border border-border-gray shadow-sm w-full h-64 md:h-72">
               <iframe
                 title="BBS Media Location"
                 src="https://www.google.com/maps/embed?pb=!1m17!1m11!1m3!1d167.30641154682363!2d105.770344!3d20.981068999999998!2m2!1f0!2f1.9092642779217295!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x3135ad43cc1397ef%3A0xc819f2d66fcfa455!2sBBS%20Studio%20%26%20Concepts!5e1!3m2!1svi!2s!4v1777444056146!5m2!1svi!2s"
@@ -103,48 +170,40 @@ export function ContactForm() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2">Đăng ký thành công!</h3>
-                <p className="text-green-800">Cảm ơn bạn đã quan tâm. Chúng tôi sẽ gọi lại trong thời gian sớm nhất.</p>
+                <h3 className="text-xl font-bold mb-2">{t.form.successTitle}</h3>
+                <p className="text-green-800">{t.form.successMessage}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-deep-navy mb-2">Họ và tên *</label>
+                    <label className="block text-sm font-medium text-deep-navy mb-2">{t.form.nameLabel}</label>
                     <input type="text" required disabled={isSubmitting} className="w-full h-12 px-4 rounded-button border border-border-gray bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-bbs-blue/50 disabled:opacity-50 transition-colors" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-deep-navy mb-2">Tên công ty</label>
-                    <input type="text" disabled={isSubmitting} className="w-full h-12 px-4 rounded-button border border-border-gray bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-bbs-blue/50 disabled:opacity-50 transition-colors" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-medium text-deep-navy mb-2">Số điện thoại *</label>
+                    <label className="block text-sm font-medium text-deep-navy mb-2">{t.form.phoneLabel}</label>
                     <input type="tel" required disabled={isSubmitting} className="w-full h-12 px-4 rounded-button border border-border-gray bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-bbs-blue/50 disabled:opacity-50 transition-colors" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-deep-navy mb-2">Email công ty *</label>
-                    <input type="email" required disabled={isSubmitting} className="w-full h-12 px-4 rounded-button border border-border-gray bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-bbs-blue/50 disabled:opacity-50 transition-colors" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-deep-navy mb-2">Dịch vụ quan tâm *</label>
+                  <label className="block text-sm font-medium text-deep-navy mb-2">{t.form.emailLabel}</label>
+                  <input type="email" required disabled={isSubmitting} className="w-full h-12 px-4 rounded-button border border-border-gray bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-bbs-blue/50 disabled:opacity-50 transition-colors" />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-deep-navy mb-2">{t.form.serviceLabel}</label>
                   <select required disabled={isSubmitting} className="w-full h-12 px-4 rounded-button border border-border-gray bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-bbs-blue/50 text-gray-700 disabled:opacity-50 transition-colors">
-                    <option value="">Chọn dịch vụ</option>
-                    <option value="tvc">Sản xuất TVC/Video Quảng Cáo</option>
-                    <option value="event">Tổ chức Sự Kiện (Event)</option>
-                    <option value="livestream">Dịch vụ Livestream</option>
-                    <option value="ai">Video AI</option>
-                    <option value="other">Tư vấn tổng thể</option>
+                    <option value="">{t.form.servicePlaceholder}</option>
+                    {t.form.services.map((s) => (
+                      <option key={s.value} value={s.value}>{s.label}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-deep-navy mb-2">Yêu cầu cụ thể (Không bắt buộc)</label>
-                  <textarea disabled={isSubmitting} rows={4} className="w-full p-4 rounded-[16px] border border-border-gray bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-bbs-blue/50 disabled:opacity-50 transition-colors resize-none" />
+                  <label className="block text-sm font-medium text-deep-navy mb-2">{t.form.messageLabel}</label>
+                  <textarea disabled={isSubmitting} rows={4} className="w-full p-4 rounded-[16px] border border-border-gray bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-bbs-blue/50 disabled:opacity-50 transition-colors resize-none" placeholder={t.form.messagePlaceholder} />
                 </div>
 
                 <div className="pt-2">
@@ -156,11 +215,11 @@ export function ContactForm() {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                        Đang xử lý...
+                        {t.form.processing}
                       </>
                     ) : (
                       <>
-                        Nhận tư vấn ngay
+                        {t.form.submitBtn}
                         <Send className="w-4 h-4 ml-2" />
                       </>
                     )}

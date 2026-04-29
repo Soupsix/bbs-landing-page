@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/components/contexts/LanguageContext";
+import { FloatingContact } from "@/components/ui/FloatingContact";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -22,7 +26,12 @@ export default function RootLayout({
       lang="vi"
       className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans relative">
+        <LanguageProvider>
+          {children}
+          <FloatingContact />
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

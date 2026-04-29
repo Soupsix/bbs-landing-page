@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/components/contexts/LanguageContext";
 
 const FacebookIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -17,17 +18,42 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const NAV_LINKS = [
-  { href: "/", label: "TRANG CHỦ" },
-  { href: "#about", label: "GIỚI THIỆU" },
-  { href: "#services", label: "DỊCH VỤ" },
-  { href: "#products", label: "SẢN PHẨM" },
-  { href: "#contact", label: "LIÊN HỆ" },
-  { href: "#blogs", label: "BLOGS" },
+const NAV_LINKS_VI = [
+  { href: null,       label: "TRANG CHỦ" },
+  { href: "team",     label: "GIỚI THIỆU" },
+  { href: "services", label: "DỊCH VỤ" },
+  { href: "cases",    label: "SẢN PHẨM" },
+  { href: "contact",  label: "LIÊN HỆ" },
+  { href: "faq",      label: "BLOGS" },
 ];
+
+const NAV_LINKS_EN = [
+  { href: null,       label: "HOME" },
+  { href: "team",     label: "ABOUT" },
+  { href: "services", label: "SERVICES" },
+  { href: "cases",    label: "PORTFOLIO" },
+  { href: "contact",  label: "CONTACT" },
+  { href: "faq",      label: "BLOGS" },
+];
+
+function scrollToSection(id: string | null) {
+  if (!id) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+  const el = document.getElementById(id);
+  if (el) {
+    const headerOffset = 80; // height of sticky header
+    const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+}
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang, setLang } = useLanguage();
+
+  const NAV_LINKS = lang === "vi" ? NAV_LINKS_VI : NAV_LINKS_EN;
 
   // Đóng sidebar khi resize lên desktop
   useEffect(() => {
@@ -46,6 +72,11 @@ export function Header() {
 
   const closeMenu = () => setMobileOpen(false);
 
+  const handleNavClick = (href: string | null) => {
+    closeMenu();
+    scrollToSection(href);
+  };
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border-gray backdrop-blur-md" style={{ backgroundColor: "rgba(243, 248, 242, 0.85)" }}>
@@ -61,13 +92,13 @@ export function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6">
               {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors"
+                <button
+                  key={link.label}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors cursor-pointer"
                 >
                   {link.label}
-                </Link>
+                </button>
               ))}
             </nav>
 
@@ -75,10 +106,10 @@ export function Header() {
             <div className="flex items-center gap-5">
               {/* Social Icons */}
               <div className="hidden md:flex items-center gap-3">
-                <a href="#" className="text-gray-400 hover:text-bbs-blue transition-colors">
+                <a href="https://www.facebook.com/BBSProduction.media" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bbs-blue transition-colors">
                   <FacebookIcon className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-bbs-red transition-colors">
+                <a href="https://www.youtube.com/watch?v=vgPUtfnfsyk" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bbs-red transition-colors">
                   <YoutubeIcon className="w-5 h-5" />
                 </a>
               </div>
@@ -87,10 +118,26 @@ export function Header() {
 
               {/* Language Switcher */}
               <div className="hidden md:flex items-center gap-2">
-                <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
+                <button
+                  onClick={() => setLang("vi")}
+                  aria-label="Tiếng Việt"
+                  className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${
+                    lang === "vi"
+                      ? "border-2 border-bbs-blue shadow-sm scale-110"
+                      : "border border-gray-200 hover:opacity-80"
+                  }`}
+                >
                   <Image src="/vn-flag.jpg" alt="Vietnamese" fill sizes="32px" className="object-cover" />
                 </button>
-                <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
+                <button
+                  onClick={() => setLang("en")}
+                  aria-label="English"
+                  className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${
+                    lang === "en"
+                      ? "border-2 border-bbs-blue shadow-sm scale-110"
+                      : "border border-gray-200 hover:opacity-80"
+                  }`}
+                >
                   <Image src="/uk-flag.jpg" alt="English" fill sizes="32px" className="object-cover" />
                 </button>
               </div>
@@ -141,32 +188,47 @@ export function Header() {
         {/* Nav Links */}
         <nav className="flex flex-col px-4 py-6 gap-1 flex-grow">
           {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={closeMenu}
-              className="text-sm font-semibold text-deep-navy hover:text-bbs-blue hover:bg-bbs-blue/5 px-4 py-3 rounded-lg transition-colors"
+            <button
+              key={link.label}
+              onClick={() => handleNavClick(link.href)}
+              className="text-sm font-semibold text-deep-navy hover:text-bbs-blue hover:bg-bbs-blue/5 px-4 py-3 rounded-lg transition-colors text-left cursor-pointer"
             >
               {link.label}
-            </Link>
+            </button>
           ))}
         </nav>
 
         {/* Bottom: Socials + Language */}
         <div className="px-6 py-5 border-t border-border-gray space-y-4">
           <div className="flex items-center gap-4">
-            <a href="#" className="text-gray-400 hover:text-bbs-blue transition-colors">
+            <a href="https://www.facebook.com/BBSProduction.media" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bbs-blue transition-colors">
               <FacebookIcon className="w-5 h-5" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-bbs-red transition-colors">
+            <a href="https://www.youtube.com/watch?v=vgPUtfnfsyk" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bbs-red transition-colors">
               <YoutubeIcon className="w-5 h-5" />
             </a>
           </div>
           <div className="flex items-center gap-2">
-            <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
+            <button
+              onClick={() => setLang("vi")}
+              aria-label="Tiếng Việt"
+              className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${
+                lang === "vi"
+                  ? "border-2 border-bbs-blue shadow-sm scale-110"
+                  : "border border-gray-200 hover:opacity-80"
+              }`}
+            >
               <Image src="/vn-flag.jpg" alt="Vietnamese" fill sizes="32px" className="object-cover" />
             </button>
-            <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
+            <button
+              onClick={() => setLang("en")}
+              aria-label="English"
+              className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${
+                lang === "en"
+                  ? "border-2 border-bbs-blue shadow-sm scale-110"
+                  : "border border-gray-200 hover:opacity-80"
+              }`}
+            >
               <Image src="/uk-flag.jpg" alt="English" fill sizes="32px" className="object-cover" />
             </button>
           </div>

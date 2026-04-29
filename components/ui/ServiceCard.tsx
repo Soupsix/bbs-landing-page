@@ -60,7 +60,7 @@ export function ServiceCard({
 
   return (
     <>
-      <div className="bg-white rounded-[24px] h-full shadow-sm border border-border-gray hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden group">
+      <div className="bg-white rounded-[24px] h-full min-h-[400px] shadow-sm border border-border-gray hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden group">
         {/* ===== Image Grid ===== */}
         {hasImages ? (
           <div

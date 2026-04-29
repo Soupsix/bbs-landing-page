@@ -1,5 +1,36 @@
+"use client";
 import Link from "next/link";
 import { MapPin, Mail, Phone } from "lucide-react";
+import { useLanguage } from "@/components/contexts/LanguageContext";
+
+const CONTENT = {
+  vi: {
+    description: "Giải pháp truyền thông & sự kiện giúp doanh nghiệp tăng trưởng nhanh. Triển khai nhanh, tối ưu chi phí và tạo ra kết quả đo lường rõ ràng.",
+    quickLinksTitle: "Liên kết nhanh",
+    links: [
+      { href: "#services", label: "Dịch vụ" },
+      { href: "#cases", label: "Case Study" },
+      { href: "#process", label: "Quy trình" },
+      { href: "#faq", label: "FAQ" },
+    ],
+    contactTitle: "Liên hệ",
+    privacy: "Chính sách bảo mật",
+    terms: "Điều khoản sử dụng",
+  },
+  en: {
+    description: "Media & event solutions to help businesses grow quickly. Fast deployment, cost optimization, and clear measurable results.",
+    quickLinksTitle: "Quick Links",
+    links: [
+      { href: "#services", label: "Services" },
+      { href: "#cases", label: "Case Studies" },
+      { href: "#process", label: "Workflow" },
+      { href: "#faq", label: "FAQ" },
+    ],
+    contactTitle: "Contact",
+    privacy: "Privacy Policy",
+    terms: "Terms of Use",
+  }
+};
 
 const FacebookIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -14,8 +45,11 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
 );
 
 export function Footer() {
+  const { lang } = useLanguage();
+  const t = CONTENT[lang];
+
   return (
-    <footer className="relative text-white pt-16 pb-8 border-t border-white/10 bg-[url('/FlycamFooter.jpeg')] bg-cover bg-bottom">
+    <footer className="relative text-white pt-16 pb-8 border-t border-white/10 min-h-[400px] bg-[url('/FlycamFooter.jpeg')] bg-cover bg-bottom">
       {/* Overlay để làm nổi bật text */}
       <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px]"></div>
 
@@ -25,7 +59,7 @@ export function Footer() {
           <div>
             <h3 className="text-2xl font-bold text-bbs-blue mb-4">BBS Media</h3>
             <p className="text-gray-400 mb-6 max-w-sm">
-              Giải pháp truyền thông & sự kiện giúp doanh nghiệp tăng trưởng nhanh. Triển khai nhanh, tối ưu chi phí và tạo ra kết quả đo lường rõ ràng.
+              {t.description}
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-gray-400 hover:text-bbs-blue transition-colors">
@@ -39,30 +73,36 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Liên kết nhanh</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">{t.quickLinksTitle}</h4>
             <ul className="space-y-3">
-              <li><Link href="#services" className="text-gray-400 hover:text-white transition-colors">Dịch vụ</Link></li>
-              <li><Link href="#cases" className="text-gray-400 hover:text-white transition-colors">Case Study</Link></li>
-              <li><Link href="#process" className="text-gray-400 hover:text-white transition-colors">Quy trình</Link></li>
-              <li><Link href="#faq" className="text-gray-400 hover:text-white transition-colors">FAQ</Link></li>
+              {t.links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Liên hệ</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">{t.contactTitle}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 text-bbs-blue shrink-0 mt-0.5" />
-                <span>Tòa nhà FPT, Phạm Văn Bạch, Cầu Giấy, Hà Nội</span>
+                <span>21/08/103 Vạn Phúc, Hà Đông, Hà Nội</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400">
-                <Phone className="w-5 h-5 text-bbs-blue shrink-0" />
-                <span>0123 456 789</span>
+              <li className="flex items-start gap-3 text-gray-400">
+                <Phone className="w-5 h-5 text-bbs-blue shrink-0 mt-0.5" />
+                <span>
+                  <a href="tel:0343603760" className="hover:text-white transition-colors block">034.360.3760</a>
+                  <a href="tel:0368248696" className="hover:text-white transition-colors block">0368.24.8696</a>
+                </span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail className="w-5 h-5 text-bbs-blue shrink-0" />
-                <span>contact@bbsmedia.vn</span>
+                <a href="mailto:bbsmedia1368@gmail.com" className="hover:text-white transition-colors break-all">bbsmedia1368@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -71,8 +111,8 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
           <p>© {new Date().getFullYear()} BBS Media. All rights reserved.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition-colors">Chính sách bảo mật</Link>
-            <Link href="#" className="hover:text-white transition-colors">Điều khoản sử dụng</Link>
+            <Link href="#" className="hover:text-white transition-colors">{t.privacy}</Link>
+            <Link href="#" className="hover:text-white transition-colors">{t.terms}</Link>
           </div>
         </div>
       </div>
