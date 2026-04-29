@@ -1,5 +1,8 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const FacebookIcon = ({ className }: { className?: string }) => (
@@ -14,69 +17,161 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const NAV_LINKS = [
+  { href: "/", label: "TRANG CHỦ" },
+  { href: "#about", label: "GIỚI THIỆU" },
+  { href: "#services", label: "DỊCH VỤ" },
+  { href: "#products", label: "SẢN PHẨM" },
+  { href: "#contact", label: "LIÊN HỆ" },
+  { href: "#blogs", label: "BLOGS" },
+];
+
 export function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Đóng sidebar khi resize lên desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setMobileOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // Khoá scroll body khi sidebar mở
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  const closeMenu = () => setMobileOpen(false);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border-gray bg-[#F3F8F2]/90 backdrop-blur-md">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-bbs-blue">BBS Media</span>
-            </Link>
+    <>
+      <header className="sticky top-0 z-50 w-full border-b border-border-gray backdrop-blur-md" style={{ backgroundColor: "rgba(243, 248, 242, 0.85)" }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex h-20 items-center justify-between">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link href="/" className="flex items-center gap-2">
+                <span className="text-2xl font-bold text-bbs-blue">BBS Media</span>
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-6">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Right Area */}
+            <div className="flex items-center gap-5">
+              {/* Social Icons */}
+              <div className="hidden md:flex items-center gap-3">
+                <a href="#" className="text-gray-400 hover:text-bbs-blue transition-colors">
+                  <FacebookIcon className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-bbs-red transition-colors">
+                  <YoutubeIcon className="w-5 h-5" />
+                </a>
+              </div>
+
+              <div className="hidden md:block w-px h-6 bg-border-gray"></div>
+
+              {/* Language Switcher */}
+              <div className="hidden md:flex items-center gap-2">
+                <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
+                  <Image src="/vn-flag.jpg" alt="Vietnamese" fill sizes="32px" className="object-cover" />
+                </button>
+                <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
+                  <Image src="/uk-flag.jpg" alt="English" fill sizes="32px" className="object-cover" />
+                </button>
+              </div>
+
+              {/* Mobile Menu Toggle */}
+              <button
+                className="lg:hidden p-2 text-deep-navy hover:text-bbs-blue transition-colors"
+                onClick={() => setMobileOpen((prev) => !prev)}
+                aria-label={mobileOpen ? "Đóng menu" : "Mở menu"}
+                aria-expanded={mobileOpen}
+              >
+                {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
+        </div>
+      </header>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
-            <Link href="/" className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors">TRANG CHỦ</Link>
-            <Link href="#about" className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors">GIỚI THIỆU</Link>
-            <Link href="#services" className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors">DỊCH VỤ</Link>
-            <Link href="#products" className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors">SẢN PHẨM</Link>
-            <Link href="#contact" className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors">LIÊN HỆ</Link>
-            <Link href="#blogs" className="text-sm font-semibold text-deep-navy hover:text-bbs-blue transition-colors">BLOGS</Link>
-          </nav>
+      {/* Mobile Sidebar Overlay */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
 
-          {/* Right Area: Language & Socials & Mobile Toggle */}
-          <div className="flex items-center gap-5">
-            {/* Social Icons */}
-            <div className="hidden md:flex items-center gap-3">
-              <a href="#" className="text-gray-400 hover:text-bbs-blue transition-colors">
-                <FacebookIcon className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-bbs-red transition-colors">
-                <YoutubeIcon className="w-5 h-5" />
-              </a>
-            </div>
+      {/* Mobile Sidebar Drawer */}
+      <aside
+        className={`fixed top-0 right-0 z-50 h-full w-72 shadow-2xl lg:hidden flex flex-col transition-transform duration-300 ease-in-out ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        style={{ backgroundColor: "rgba(243, 248, 242, 0.97)" }}
+        aria-label="Mobile navigation"
+      >
+        {/* Sidebar Header */}
+        <div className="flex items-center justify-between px-6 py-5 border-b border-border-gray">
+          <span className="text-xl font-bold text-bbs-blue">BBS Media</span>
+          <button
+            onClick={closeMenu}
+            className="p-2 text-deep-navy hover:text-bbs-blue transition-colors"
+            aria-label="Đóng menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
-            <div className="hidden md:block w-px h-6 bg-border-gray"></div>
+        {/* Nav Links */}
+        <nav className="flex flex-col px-4 py-6 gap-1 flex-grow">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={closeMenu}
+              className="text-sm font-semibold text-deep-navy hover:text-bbs-blue hover:bg-bbs-blue/5 px-4 py-3 rounded-lg transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
-            {/* Language Switcher */}
-            <div className="hidden md:flex items-center gap-2">
-              <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
-                <Image
-                  src="/vn-flag.jpg"
-                  alt="Vietnamese"
-                  fill
-                  className="object-cover"
-                />
-              </button>
-              <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
-                <Image
-                  src="/uk-flag.jpg"
-                  alt="English"
-                  fill
-                  className="object-cover"
-                />
-              </button>
-            </div>
-
-            {/* Mobile Menu Toggle */}
-            <button className="lg:hidden p-2 text-deep-navy hover:text-bbs-blue">
-              <Menu className="h-6 w-6" />
+        {/* Bottom: Socials + Language */}
+        <div className="px-6 py-5 border-t border-border-gray space-y-4">
+          <div className="flex items-center gap-4">
+            <a href="#" className="text-gray-400 hover:text-bbs-blue transition-colors">
+              <FacebookIcon className="w-5 h-5" />
+            </a>
+            <a href="#" className="text-gray-400 hover:text-bbs-red transition-colors">
+              <YoutubeIcon className="w-5 h-5" />
+            </a>
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
+              <Image src="/vn-flag.jpg" alt="Vietnamese" fill sizes="32px" className="object-cover" />
+            </button>
+            <button className="relative w-8 h-6 overflow-hidden rounded-[4px] border border-gray-200 hover:opacity-80 transition-opacity">
+              <Image src="/uk-flag.jpg" alt="English" fill sizes="32px" className="object-cover" />
             </button>
           </div>
         </div>
-      </div>
-    </header>
+      </aside>
+    </>
   );
 }
