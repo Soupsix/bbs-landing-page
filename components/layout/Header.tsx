@@ -19,21 +19,21 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
 );
 
 const NAV_LINKS_VI = [
-  { href: null,       label: "TRANG CHỦ" },
-  { href: "team",     label: "GIỚI THIỆU" },
+  { href: null, label: "TRANG CHỦ" },
+  { href: "team", label: "GIỚI THIỆU" },
   { href: "services", label: "DỊCH VỤ" },
-  { href: "cases",    label: "SẢN PHẨM" },
-  { href: "contact",  label: "LIÊN HỆ" },
-  { href: "faq",      label: "BLOGS" },
+  { href: "cases", label: "SẢN PHẨM" },
+  { href: "contact", label: "LIÊN HỆ" },
+  { href: "faq", label: "BLOGS" },
 ];
 
 const NAV_LINKS_EN = [
-  { href: null,       label: "HOME" },
-  { href: "team",     label: "ABOUT" },
+  { href: null, label: "HOME" },
+  { href: "team", label: "ABOUT" },
   { href: "services", label: "SERVICES" },
-  { href: "cases",    label: "PORTFOLIO" },
-  { href: "contact",  label: "CONTACT" },
-  { href: "faq",      label: "BLOGS" },
+  { href: "cases", label: "PORTFOLIO" },
+  { href: "contact", label: "CONTACT" },
+  { href: "faq", label: "BLOGS" },
 ];
 
 function scrollToSection(id: string | null) {
@@ -83,9 +83,16 @@ export function Header() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <div className={`flex-shrink-0 transition-all duration-300 ${mobileOpen ? 'opacity-0 invisible lg:opacity-100 lg:visible' : 'opacity-100 visible'}`}>
               <Link href="/" className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-bbs-blue">BBS Media</span>
+                <Image
+                  src="/logo/logo.png"
+                  alt="BBS Media Logo"
+                  width={180}
+                  height={60}
+                  className="h-[70px] w-auto object-contain"
+                  priority
+                />
               </Link>
             </div>
 
@@ -121,22 +128,20 @@ export function Header() {
                 <button
                   onClick={() => setLang("vi")}
                   aria-label="Tiếng Việt"
-                  className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${
-                    lang === "vi"
-                      ? "border-2 border-bbs-blue shadow-sm scale-110"
-                      : "border border-gray-200 hover:opacity-80"
-                  }`}
+                  className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${lang === "vi"
+                    ? "border-2 border-bbs-blue shadow-sm scale-110"
+                    : "border border-gray-200 hover:opacity-80"
+                    }`}
                 >
                   <Image src="/vn-flag.jpg" alt="Vietnamese" fill sizes="32px" className="object-cover" />
                 </button>
                 <button
                   onClick={() => setLang("en")}
                   aria-label="English"
-                  className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${
-                    lang === "en"
-                      ? "border-2 border-bbs-blue shadow-sm scale-110"
-                      : "border border-gray-200 hover:opacity-80"
-                  }`}
+                  className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${lang === "en"
+                    ? "border-2 border-bbs-blue shadow-sm scale-110"
+                    : "border border-gray-200 hover:opacity-80"
+                    }`}
                 >
                   <Image src="/uk-flag.jpg" alt="English" fill sizes="32px" className="object-cover" />
                 </button>
@@ -167,15 +172,20 @@ export function Header() {
 
       {/* Mobile Sidebar Drawer */}
       <aside
-        className={`fixed top-0 right-0 z-50 h-full w-72 shadow-2xl lg:hidden flex flex-col transition-transform duration-300 ease-in-out ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 z-50 h-full w-72 shadow-2xl lg:hidden flex flex-col transition-transform duration-300 ease-in-out ${mobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         style={{ backgroundColor: "rgba(243, 248, 242, 0.97)" }}
         aria-label="Mobile navigation"
       >
         {/* Sidebar Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-border-gray">
-          <span className="text-xl font-bold text-bbs-blue">BBS Media</span>
+          <Image
+            src="/logo/logo.png"
+            alt="BBS Media Logo"
+            width={180}
+            height={60}
+            className="h-[70px] w-auto object-contain"
+          />
           <button
             onClick={closeMenu}
             className="p-2 text-deep-navy hover:text-bbs-blue transition-colors"
@@ -212,22 +222,20 @@ export function Header() {
             <button
               onClick={() => setLang("vi")}
               aria-label="Tiếng Việt"
-              className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${
-                lang === "vi"
-                  ? "border-2 border-bbs-blue shadow-sm scale-110"
-                  : "border border-gray-200 hover:opacity-80"
-              }`}
+              className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${lang === "vi"
+                ? "border-2 border-bbs-blue shadow-sm scale-110"
+                : "border border-gray-200 hover:opacity-80"
+                }`}
             >
               <Image src="/vn-flag.jpg" alt="Vietnamese" fill sizes="32px" className="object-cover" />
             </button>
             <button
               onClick={() => setLang("en")}
               aria-label="English"
-              className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${
-                lang === "en"
-                  ? "border-2 border-bbs-blue shadow-sm scale-110"
-                  : "border border-gray-200 hover:opacity-80"
-              }`}
+              className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${lang === "en"
+                ? "border-2 border-bbs-blue shadow-sm scale-110"
+                : "border border-gray-200 hover:opacity-80"
+                }`}
             >
               <Image src="/uk-flag.jpg" alt="English" fill sizes="32px" className="object-cover" />
             </button>
