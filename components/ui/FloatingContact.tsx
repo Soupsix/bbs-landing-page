@@ -13,7 +13,7 @@ export function FloatingContact() {
           {/* Tooltip Arrow */}
           <span className="absolute right-[-4px] top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></span>
         </span>
-        
+
         <Link
           href="https://www.messenger.com/t/107488542199286/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0"
           target="_blank"
@@ -21,7 +21,7 @@ export function FloatingContact() {
           className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
         >
           <Image
-            src="/logo/facebook.webp"
+            src="/logo/facebook.png"
             alt="Facebook Messenger"
             width={40}
             height={40}
@@ -41,7 +41,7 @@ export function FloatingContact() {
 
         {/* Pulse Background */}
         <div className="absolute inset-0 animate-ping rounded-full bg-bbs-blue/40 opacity-75 duration-1000"></div>
-        
+
         <Link
           href="tel:0343603760"
           className="relative flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
