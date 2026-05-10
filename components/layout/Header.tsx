@@ -23,7 +23,6 @@ const NAV_LINKS_VI = [
   { href: "team", label: "GIỚI THIỆU" },
   { href: "services", label: "DỊCH VỤ" },
   { href: "cases", label: "SẢN PHẨM" },
-  { href: "contact", label: "LIÊN HỆ" },
   { href: "faq", label: "BLOGS" },
 ];
 
@@ -32,7 +31,6 @@ const NAV_LINKS_EN = [
   { href: "team", label: "ABOUT" },
   { href: "services", label: "SERVICES" },
   { href: "cases", label: "PORTFOLIO" },
-  { href: "contact", label: "CONTACT" },
   { href: "faq", label: "BLOGS" },
 ];
 

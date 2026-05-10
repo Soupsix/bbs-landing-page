@@ -58,7 +58,7 @@ export function TeamSection() {
   const t = CONTENT[lang];
 
   return (
-    <section id="team" className="py-20 md:py-32 bg-transparent border-t border-border-gray/30">
+    <section id="team" className="py-16 md:py-24 bg-transparent border-t border-border-gray/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}

@@ -129,7 +129,7 @@ export function CaseStudies() {
   const t = CONTENT[lang];
 
   return (
-    <section id="cases" className="py-20 md:py-32 bg-transparent">
+    <section id="cases" className="py-16 md:py-24 bg-transparent">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -137,15 +137,9 @@ export function CaseStudies() {
           <h2 className="text-3xl md:text-4xl font-semibold text-deep-navy mb-4">
             {t.header}
           </h2>
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-gray-600">
             {t.subHeader}
           </p>
-          <Link
-            href="#contact"
-            className="inline-flex items-center font-semibold text-bbs-blue hover:text-blue-700 transition-colors"
-          >
-            {t.linkText} <ArrowRight className="w-4 h-4 ml-2" />
-          </Link>
         </div>
 
         {/* Swiper Carousel */}

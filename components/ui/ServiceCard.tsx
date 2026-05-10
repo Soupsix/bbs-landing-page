@@ -128,17 +128,6 @@ export function ServiceCard({
           <p className="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">
             {description}
           </p>
-          <Link
-            href={href}
-            className={`inline-flex items-center text-sm font-semibold mt-auto transition-colors ${
-              isEventCategory
-                ? "text-bbs-red hover:text-red-700"
-                : "text-bbs-blue hover:text-blue-700"
-            }`}
-          >
-            Nhận tư vấn ngay
-            <ArrowRight className="w-4 h-4 ml-1.5" />
-          </Link>
         </div>
       </div>
 
