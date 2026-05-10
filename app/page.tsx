@@ -19,13 +19,13 @@ export default function Home() {
       <main className="flex-1 flex flex-col w-full bg-white">
         <Hero />
         <SocialProof />
-        <PainPoints />
         <Solutions />
         <CoreValues />
         <TeamSection />
         <CaseStudies />
         <TechCapabilities />
         <Process />
+        <PainPoints />
         <ContactForm />
         <FAQ />
       </main>

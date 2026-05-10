@@ -22,8 +22,8 @@ const CONTENT = {
       {
         icon: Cpu,
         title: "Trạm dựng phim AI Hậu kỳ",
-        description: "Trạm máy cấu hình cao xử lý mượt mà video 4K/8K, tích hợp AI tạo hiệu ứng thị giác độc đáo, tinh chỉnh màu sắc và âm thanh đạt chuẩn quốc tế.",
-        tags: ["AI Color Grading", "4K/8K Editing", "Chuẩn quốc tế"],
+        description: "Trạm máy cấu hình cao xử lý mượt mà video 4K, tích hợp AI tạo hiệu ứng thị giác độc đáo, tinh chỉnh màu sắc và âm thanh đạt chuẩn quốc tế.",
+        tags: ["AI Color Grading", "4K Editing", "Chuẩn quốc tế"],
       },
       {
         icon: Speaker,
@@ -52,8 +52,8 @@ const CONTENT = {
       {
         icon: Cpu,
         title: "AI Post-Production Editing Station",
-        description: "High-configuration workstation smoothly processing 4K/8K videos, integrating AI to create unique visual effects, and refining colors and sound to international standards.",
-        tags: ["AI Color Grading", "4K/8K Editing", "International standards"],
+        description: "High-configuration workstation smoothly processing 4K videos, integrating AI to create unique visual effects, and refining colors and sound to international standards.",
+        tags: ["AI Color Grading", "4K Editing", "International standards"],
       },
       {
         icon: Speaker,

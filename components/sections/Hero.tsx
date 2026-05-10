@@ -43,12 +43,12 @@ export function Hero() {
       {/* Overlay mờ để dễ đọc chữ */}
       <div className="absolute inset-0 bg-white/80 md:bg-white/70"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Content */}
-          <div className="max-w-2xl">
+          <div className="max-w-5xl lg:col-span-8 xl:col-span-9">
             <h1 className="text-4xl md:text-5xl lg:text-[60px] font-bold leading-tight tracking-tight text-bbs-blue mb-6 uppercase">
               {t.title1}
-              <span className="text-deep-navy">{t.title2}</span>
+              <span className="text-deep-navy lg:block lg:whitespace-nowrap lg:mt-2">{t.title2}</span>
             </h1>
             <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-xl">
               {t.description}

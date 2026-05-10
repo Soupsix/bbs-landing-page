@@ -12,9 +12,41 @@ import "swiper/css/pagination";
 
 const CONTENT = {
   vi: {
-    header: "Giải pháp của BBS Media",
+    header: "Hệ sinh thái dịch vụ",
     subHeader: "Cung cấp các dịch vụ chuyên biệt giúp giải quyết triệt để bài toán truyền thông của doanh nghiệp.",
     solutions: [
+      {
+        id: 6,
+        title: "Tổ chức Sự kiện trọn gói",
+        description: "Thực thi chuyên nghiệp từ khâu lên ý tưởng đến vận hành cho các chương trình đa dạng quy mô như: Lễ hội, sự kiện doanh nghiệp, lễ khởi công, khánh thành, và Gala Dinner.",
+        category: "Tổ chức Sự kiện",
+        catColor: "bg-bbs-red text-white",
+        images: ["/sukientrongoi/sukientrongoi.JPG", "/sukientrongoi/sukientrongoi2.JPG", "/sukientrongoi/sukientrongoi3.jpeg", "/sukientrongoi/sukientrongoi4.JPG"],
+      },
+      {
+        id: 7,
+        title: "Sự kiện Trải nghiệm",
+        description: "Thiết kế và tổ chức các chương trình đặc thù như Team building sinh tồn hay các sự kiện văn hóa, lịch sử mang lại giá trị kết nối thực tế cao.",
+        category: "Tổ chức Sự kiện",
+        catColor: "bg-bbs-red text-white",
+        images: ["/sukientrainghiem/sukien1.JPG", "/sukientrainghiem/sukien2.JPG", "/sukientrainghiem/sukien3.JPG", "/sukientrainghiem/sukien4.JPG"],
+      },
+      {
+        id: 8,
+        title: "Livestream Đa nền tảng",
+        description: "Cung cấp hệ thống truyền hình trực tiếp chuyên nghiệp với trạm máy Livestream kết hợp bàn trộn hình ảnh, đảm bảo hình ảnh chuẩn truyền hình.",
+        category: "Tổ chức Sự kiện",
+        catColor: "bg-bbs-red text-white",
+        images: ["/livestream/livestream.jpeg", "/livestream/livestream2.jpeg", "/livestream/livestream3.jpeg", "/livestream/livestream4.jpeg"],
+      },
+      {
+        id: 9,
+        title: "Giải pháp Kỹ thuật Sự kiện",
+        description: "Cho thuê và trực tiếp vận hành hệ thống Âm thanh – Ánh sáng công suất lớn cùng Màn hình LED độ phân giải cao, đáp ứng tiêu chuẩn khắt khe.",
+        category: "Tổ chức Sự kiện",
+        catColor: "bg-bbs-red text-white",
+        images: ["/giaiphapkythuat/giaiphapkythuat1.JPG", "/giaiphapkythuat/giaiphapkythuat2.JPG", "/giaiphapkythuat/giaiphapkythuat3.jpeg", "/giaiphapkythuat/giaiphapkythuat4.jpeg"],
+      },
       {
         id: 1,
         title: "Sản xuất TVC & Video Quảng cáo",
@@ -50,42 +82,10 @@ const CONTENT = {
       {
         id: 5,
         title: "Công nghệ Hậu kỳ",
-        description: "Cung cấp trạm dựng phim cấu hình cao chuyên xử lý mượt mà video 4K/8K, kết hợp AI để tạo hiệu ứng độc đáo và tinh chỉnh âm thanh, màu sắc đạt tiêu chuẩn quốc tế.",
+        description: "Cung cấp trạm dựng phim cấu hình cao chuyên xử lý mượt mà video 4K, kết hợp AI để tạo hiệu ứng độc đáo và tinh chỉnh âm thanh, màu sắc đạt tiêu chuẩn quốc tế.",
         category: "Sản xuất Truyền thông",
         catColor: "bg-bbs-blue text-white",
         images: ["/congnghehauky/hauky1.jpeg", "/congnghehauky/hauky2.jpeg", "/congnghehauky/hauky3.jpeg", "/congnghehauky/hauky4.jpeg"],
-      },
-      {
-        id: 6,
-        title: "Tổ chức Sự kiện trọn gói",
-        description: "Thực thi chuyên nghiệp từ khâu lên ý tưởng đến vận hành cho các chương trình đa dạng quy mô như: Lễ hội, sự kiện doanh nghiệp, lễ khởi công, khánh thành, và Gala Dinner.",
-        category: "Tổ chức Sự kiện",
-        catColor: "bg-bbs-red text-white",
-        images: ["/sukientrongoi/sukientrongoi.JPG", "/sukientrongoi/sukientrongoi2.JPG", "/sukientrongoi/sukientrongoi3.jpeg", "/sukientrongoi/sukientrongoi4.JPG"],
-      },
-      {
-        id: 7,
-        title: "Sự kiện Trải nghiệm",
-        description: "Thiết kế và tổ chức các chương trình đặc thù như Team building sinh tồn hay các sự kiện văn hóa, lịch sử mang lại giá trị kết nối thực tế cao.",
-        category: "Tổ chức Sự kiện",
-        catColor: "bg-bbs-red text-white",
-        images: ["/sukientrainghiem/sukien1.JPG", "/sukientrainghiem/sukien2.JPG", "/sukientrainghiem/sukien3.JPG", "/sukientrainghiem/sukien4.JPG"],
-      },
-      {
-        id: 8,
-        title: "Livestream Đa nền tảng",
-        description: "Cung cấp hệ thống truyền hình trực tiếp chuyên nghiệp với trạm máy Livestream kết hợp bàn trộn hình ảnh, đảm bảo hình ảnh chuẩn truyền hình.",
-        category: "Tổ chức Sự kiện",
-        catColor: "bg-bbs-red text-white",
-        images: ["/livestream/livestream.jpeg", "/livestream/livestream2.jpeg", "/livestream/livestream3.jpeg", "/livestream/livestream4.jpeg"],
-      },
-      {
-        id: 9,
-        title: "Giải pháp Kỹ thuật Sự kiện",
-        description: "Cho thuê và trực tiếp vận hành hệ thống Âm thanh – Ánh sáng công suất lớn cùng Màn hình LED độ phân giải cao, đáp ứng tiêu chuẩn khắt khe.",
-        category: "Tổ chức Sự kiện",
-        catColor: "bg-bbs-red text-white",
-        images: ["/giaiphapkythuat/giaiphapkythuat1.JPG", "/giaiphapkythuat/giaiphapkythuat2.JPG", "/giaiphapkythuat/giaiphapkythuat3.jpeg", "/giaiphapkythuat/giaiphapkythuat4.jpeg"],
       },
     ]
   },
@@ -93,6 +93,38 @@ const CONTENT = {
     header: "Solutions by BBS Media",
     subHeader: "Providing specialized services to comprehensively solve your business communication challenges.",
     solutions: [
+      {
+        id: 6,
+        title: "Comprehensive Event Organization",
+        description: "Professional execution from ideation to operation for diverse scale programs such as: Festivals, corporate events, groundbreaking ceremonies, inaugurations, and Gala Dinners.",
+        category: "Event Organization",
+        catColor: "bg-bbs-red text-white",
+        images: ["/sukientrongoi/sukientrongoi.JPG", "/sukientrongoi/sukientrongoi2.JPG", "/sukientrongoi/sukientrongoi3.jpeg", "/sukientrongoi/sukientrongoi4.JPG"],
+      },
+      {
+        id: 7,
+        title: "Experiential Events",
+        description: "Designing and organizing specific programs like survival Team building or cultural and historical events that bring high practical connection value.",
+        category: "Event Organization",
+        catColor: "bg-bbs-red text-white",
+        images: ["/sukientrainghiem/sukien1.JPG", "/sukientrainghiem/sukien2.JPG", "/sukientrainghiem/sukien3.JPG", "/sukientrainghiem/sukien4.JPG"],
+      },
+      {
+        id: 8,
+        title: "Multi-Platform Livestreaming",
+        description: "Providing professional live broadcasting systems with Livestream camera stations combined with image mixing desks, ensuring broadcast-standard imagery.",
+        category: "Event Organization",
+        catColor: "bg-bbs-red text-white",
+        images: ["/livestream/livestream.jpeg", "/livestream/livestream2.jpeg", "/livestream/livestream3.jpeg", "/livestream/livestream4.jpeg"],
+      },
+      {
+        id: 9,
+        title: "Event Technical Solutions",
+        description: "Renting and directly operating high-power Audio - Lighting systems and high-resolution LED Screens, meeting strict standards.",
+        category: "Event Organization",
+        catColor: "bg-bbs-red text-white",
+        images: ["/giaiphapkythuat/giaiphapkythuat1.JPG", "/giaiphapkythuat/giaiphapkythuat2.JPG", "/giaiphapkythuat/giaiphapkythuat3.jpeg", "/giaiphapkythuat/giaiphapkythuat4.jpeg"],
+      },
       {
         id: 1,
         title: "TVC & Video Commercial Production",
@@ -128,42 +160,10 @@ const CONTENT = {
       {
         id: 5,
         title: "Post-Production Technology",
-        description: "Providing high-configuration editing stations specialized in smoothly processing 4K/8K videos, combining AI for unique effects and refining audio and color to international standards.",
+        description: "Providing high-configuration editing stations specialized in smoothly processing 4K videos, combining AI for unique effects and refining audio and color to international standards.",
         category: "Media Production",
         catColor: "bg-bbs-blue text-white",
         images: ["/congnghehauky/hauky1.jpeg", "/congnghehauky/hauky2.jpeg", "/congnghehauky/hauky3.jpeg", "/congnghehauky/hauky4.jpeg"],
-      },
-      {
-        id: 6,
-        title: "Comprehensive Event Organization",
-        description: "Professional execution from ideation to operation for diverse scale programs such as: Festivals, corporate events, groundbreaking ceremonies, inaugurations, and Gala Dinners.",
-        category: "Event Organization",
-        catColor: "bg-bbs-red text-white",
-        images: ["/sukientrongoi/sukientrongoi.JPG", "/sukientrongoi/sukientrongoi2.JPG", "/sukientrongoi/sukientrongoi3.jpeg", "/sukientrongoi/sukientrongoi4.JPG"],
-      },
-      {
-        id: 7,
-        title: "Experiential Events",
-        description: "Designing and organizing specific programs like survival Team building or cultural and historical events that bring high practical connection value.",
-        category: "Event Organization",
-        catColor: "bg-bbs-red text-white",
-        images: ["/sukientrainghiem/sukien1.JPG", "/sukientrainghiem/sukien2.JPG", "/sukientrainghiem/sukien3.JPG", "/sukientrainghiem/sukien4.JPG"],
-      },
-      {
-        id: 8,
-        title: "Multi-Platform Livestreaming",
-        description: "Providing professional live broadcasting systems with Livestream camera stations combined with image mixing desks, ensuring broadcast-standard imagery.",
-        category: "Event Organization",
-        catColor: "bg-bbs-red text-white",
-        images: ["/livestream/livestream.jpeg", "/livestream/livestream2.jpeg", "/livestream/livestream3.jpeg", "/livestream/livestream4.jpeg"],
-      },
-      {
-        id: 9,
-        title: "Event Technical Solutions",
-        description: "Renting and directly operating high-power Audio - Lighting systems and high-resolution LED Screens, meeting strict standards.",
-        category: "Event Organization",
-        catColor: "bg-bbs-red text-white",
-        images: ["/giaiphapkythuat/giaiphapkythuat1.JPG", "/giaiphapkythuat/giaiphapkythuat2.JPG", "/giaiphapkythuat/giaiphapkythuat3.jpeg", "/giaiphapkythuat/giaiphapkythuat4.jpeg"],
       },
     ]
   }
@@ -217,7 +217,8 @@ export function Solutions() {
       </div>
 
       {/* Global CSS cho Swiper Pagination & Navigation */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         /* Equal height cards */
         .swiper-equal-height .swiper-wrapper {
           align-items: stretch;

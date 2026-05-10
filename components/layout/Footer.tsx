@@ -9,7 +9,7 @@ const CONTENT = {
     quickLinksTitle: "Liên kết nhanh",
     links: [
       { href: "#services", label: "Dịch vụ" },
-      { href: "#cases", label: "Case Study" },
+      { href: "#cases", label: "Dự án tiêu biểu" },
       { href: "#process", label: "Quy trình" },
       { href: "#faq", label: "FAQ" },
     ],
@@ -57,7 +57,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-bbs-blue mb-4">BBS Media</h3>
+            <h3 className="text-2xl font-bold text-bbs-blue mb-4">Công ty TNHH truyền thông BBS Media</h3>
+            <p className="text-gray-400 mb-2">MST: 0111450131</p>
             <p className="text-gray-400 mb-6 max-w-sm">
               {t.description}
             </p>
@@ -96,8 +97,8 @@ export function Footer() {
               <li className="flex items-start gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-bbs-blue shrink-0 mt-0.5" />
                 <span>
-                  <a href="tel:0343603760" className="hover:text-white transition-colors block">034.360.3760</a>
-                  <a href="tel:0368248696" className="hover:text-white transition-colors block">0368.24.8696</a>
+                  <a href="tel:0343603760" className="hover:text-white transition-colors block">SĐT Hotline: 0343603760</a>
+                  <a href="https://zalo.me/0368248696" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block mt-1">Zalo hỗ trợ: 0368248696</a>
                 </span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
