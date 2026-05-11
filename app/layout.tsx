@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/contexts/LanguageContext";
 import { FloatingContact } from "@/components/ui/FloatingContact";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,6 +31,7 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
           <FloatingContact />
+          <SpeedInsights />
         </LanguageProvider>
       </body>
     </html>
