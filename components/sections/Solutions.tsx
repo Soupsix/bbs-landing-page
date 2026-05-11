@@ -61,7 +61,7 @@ const CONTENT = {
         description: "Tiên phong ứng dụng trí tuệ nhân tạo (AI) để tối ưu hóa quy trình, tạo ra những sản phẩm hình ảnh và video sáng tạo độc bản, dẫn đầu xu hướng thị trường.",
         category: "Sản xuất Truyền thông",
         catColor: "bg-bbs-blue text-white",
-        images: ["/aiproduction/a04.jpg", "/aiproduction/ai01.jpg", "/aiproduction/ai02.jpg", "/aiproduction/ai03.jpg"],
+        images: ["/aiproduction/Ai4.webp", "/aiproduction/Ai1.webp", "/aiproduction/Ai2.webp", "/aiproduction/Ai3re.webp"],
       },
       {
         id: 3,
@@ -139,7 +139,7 @@ const CONTENT = {
         description: "Pioneering the application of Artificial Intelligence (AI) to optimize processes, creating uniquely creative image and video products that lead market trends.",
         category: "Media Production",
         catColor: "bg-bbs-blue text-white",
-        images: ["/aiproduction/a04.jpg", "/aiproduction/ai01.jpg", "/aiproduction/ai02.jpg", "/aiproduction/ai03.jpg"],
+        images: ["/aiproduction/Ai4.webp", "/aiproduction/Ai1.webp", "/aiproduction/Ai2.webp", "/aiproduction/Ai3re.webp"],
       },
       {
         id: 3,
