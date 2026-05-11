@@ -9,9 +9,9 @@ const CONTENT = {
     equipment: [
       {
         icon: Camera,
-        title: "Camera Cinema 4K/8K",
+        title: "Camera Cinema 4K",
         description: "Hệ thống máy quay Cinema chuyên nghiệp, cho ra những thước phim sắc nét chuẩn điện ảnh — phục vụ TVC, phim doanh nghiệp và nội dung thương hiệu cao cấp.",
-        tags: ["4K / 8K", "Cinema Grade", "RAW Output"],
+        tags: ["4K", "Cinema Grade", "RAW Output"],
       },
       {
         icon: Wind,
@@ -39,9 +39,9 @@ const CONTENT = {
     equipment: [
       {
         icon: Camera,
-        title: "4K/8K Cinema Camera",
+        title: "4K Cinema Camera",
         description: "Professional Cinema camera system producing sharp, cinematic footage — serving TVCs, corporate films, and premium brand content.",
-        tags: ["4K / 8K", "Cinema Grade", "RAW Output"],
+        tags: ["4K", "Cinema Grade", "RAW Output"],
       },
       {
         icon: Wind,

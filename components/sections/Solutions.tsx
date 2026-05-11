@@ -69,7 +69,7 @@ const CONTENT = {
         description: "Ghi lại những khoảnh khắc đắt giá dưới góc nhìn nghệ thuật, phục vụ nhu cầu làm Profile, Lookbook và phóng sự doanh nghiệp.",
         category: "Sản xuất Truyền thông",
         catColor: "bg-bbs-blue text-white",
-        images: ["/media_professional/media_professional1.jpeg", "/media_professional/media_professional2.jpeg", "/media_professional/media_professional3.JPG", "/media_professional/media_professional4.png"],
+        images: ["/media_professional/media_professional1.webp", "/media_professional/media_professional2.webp", "/media_professional/media_professional3.webp", "/media_professional/media_professional4_1.png"],
       },
       {
         id: 4,
@@ -147,7 +147,7 @@ const CONTENT = {
         description: "Capturing priceless moments from an artistic perspective, serving needs for Profiles, Lookbooks, and corporate reportage.",
         category: "Media Production",
         catColor: "bg-bbs-blue text-white",
-        images: ["/media_professional/media_professional1.jpeg", "/media_professional/media_professional2.jpeg", "/media_professional/media_professional3.JPG", "/media_professional/media_professional4.png"],
+        images: ["/media_professional/media_professional1.webp", "/media_professional/media_professional2.webp", "/media_professional/media_professional3.webp", "/media_professional/media_professional4_1.png"],
       },
       {
         id: 4,

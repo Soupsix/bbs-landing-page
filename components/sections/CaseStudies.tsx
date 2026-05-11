@@ -23,7 +23,7 @@ const CONTENT = {
         badge: "Sự kiện văn hóa cấp Tỉnh/Thành phố",
         description: "Thu hút hàng chục nghìn lượt khách tham dự cùng nhiều đơn vị thông tấn báo chí, giúp lan tỏa mạnh mẽ các giá trị văn hóa truyền thống.",
         tags: ["Tổ chức sự kiện", "Văn hóa", "Quy mô lớn"],
-        image: "/casestudy/sukienaodai.webp",
+        image: "/casestudy/sukienaodai2.webp",
       },
       {
         id: 2,
@@ -78,7 +78,7 @@ const CONTENT = {
         badge: "Provincial/City cultural event",
         description: "Attracting tens of thousands of visitors and many press agencies, helping to strongly spread traditional cultural values.",
         tags: ["Event organization", "Culture", "Large scale"],
-        image: "/casestudy/sukienaodai.webp",
+        image: "/casestudy/sukienaodai2.webp",
       },
       {
         id: 2,
