@@ -7,10 +7,10 @@ import { useLanguage } from "@/components/contexts/LanguageContext";
 const CONTENT = {
   vi: {
     brand: "BBS MEDIA",
-    tagline1: "Creative Production",
-    tagline2: "& Event Agency",
+    tagline1: "Sản Xuất Hình Ảnh",
+    tagline2: "& Tổ Chức Sự Kiện",
     description: "Chuyên sản xuất hình ảnh, tổ chức sự kiện\nvà phát triển nội dung sáng tạo dành cho doanh nghiệp.",
-    btnPrimary: "Xem dự án",
+    btnPrimary: "Hệ sinh thái dịch vụ",
     btnSecondary: "Nhận tư vấn",
   },
   en: {
