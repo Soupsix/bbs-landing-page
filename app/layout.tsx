@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/contexts/LanguageContext";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/ui/FloatingContact";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
@@ -30,7 +32,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans relative">
         <LanguageProvider>
-          {children}
+          <Header />
+          <main className="flex-1 flex flex-col w-full bg-white">
+            {children}
+          </main>
+          <Footer />
           <FloatingContact />
           <SpeedInsights />
           <Analytics />

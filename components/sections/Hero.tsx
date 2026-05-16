@@ -1,42 +1,31 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
 const CONTENT = {
   vi: {
-    title1: "Kiến tạo hình ảnh – ",
-    title2: "Nâng tầm thương hiệu",
-    description: "BBS Media là đối tác chiến lược chuyên cung cấp giải pháp tư vấn truyền thông, sản xuất nội dung hình ảnh và tổ chức sự kiện chuyên nghiệp. Chúng tôi cam kết đồng hành cùng doanh nghiệp kiến tạo sản phẩm chỉn chu, mang lại hiệu quả thực tế.",
-    btnPrimary: "Hệ sinh thái dịch vụ",
-    btnSecondary: "Xem sản phẩm"
+    brand: "BBS MEDIA",
+    tagline1: "Creative Production",
+    tagline2: "& Event Agency",
+    description: "Chuyên sản xuất hình ảnh, tổ chức sự kiện\nvà phát triển nội dung sáng tạo dành cho doanh nghiệp.",
+    btnPrimary: "Xem dự án",
+    btnSecondary: "Nhận tư vấn",
   },
   en: {
-    title1: "Crafting Visions – ",
-    title2: "Elevating Brands",
-    description: "BBS Media is a strategic partner specializing in media consulting, visual content production, and professional event organization. We are committed to accompanying businesses in creating meticulous products that deliver practical results.",
-    btnPrimary: "Service Ecosystem",
-    btnSecondary: "View Portfolio"
-  }
+    brand: "BBS MEDIA",
+    tagline1: "Creative Production",
+    tagline2: "& Event Agency",
+    description: "Specializing in visual production, event organization\nand creative content development for businesses.",
+    btnPrimary: "View Projects",
+    btnSecondary: "Get Consultation",
+  },
 };
 
 export function Hero() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const { lang } = useLanguage();
   const t = CONTENT[lang];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
-  };
 
   return (
     <section className="relative flex items-center overflow-hidden min-h-[560px] lg:min-h-[680px] pt-12 md:pt-16 lg:pt-24 pb-12 lg:pb-24 bg-[url('/HeroImage.jpg')] bg-cover bg-center">
@@ -46,22 +35,26 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Content */}
           <div className="max-w-5xl lg:col-span-8 xl:col-span-9">
-            <h1 className="text-4xl md:text-5xl lg:text-[60px] font-bold leading-tight tracking-tight text-bbs-blue mb-6 uppercase">
-              {t.title1}
-              <span className="text-deep-navy lg:block lg:whitespace-nowrap lg:mt-2">{t.title2}</span>
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-tight tracking-tight text-bbs-blue mb-4 uppercase">
+              {t.brand}
             </h1>
-            <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-xl">
+            <p className="text-2xl md:text-3xl lg:text-[40px] font-semibold leading-snug text-deep-navy mb-6">
+              {t.tagline1}
+              <br />
+              {t.tagline2}
+            </p>
+            <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-xl whitespace-pre-line">
               {t.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="#services"
+                href="/danh-muc-du-an"
                 className="inline-flex h-13 items-center justify-center rounded-button bg-bbs-red px-8 py-4 text-sm font-bold tracking-widest uppercase text-white transition-colors hover:bg-bbs-red/90 w-full sm:w-auto"
               >
                 {t.btnPrimary}
               </Link>
               <Link
-                href="#cases"
+                href="/lien-he"
                 className="inline-flex h-13 items-center justify-center rounded-button border border-border-gray bg-white px-8 py-4 text-sm font-bold tracking-widest uppercase text-deep-navy transition-colors hover:bg-gray-50 hover:border-gray-300 w-full sm:w-auto"
               >
                 {t.btnSecondary}
@@ -69,8 +62,6 @@ export function Hero() {
               </Link>
             </div>
           </div>
-
-
         </div>
       </div>
 
