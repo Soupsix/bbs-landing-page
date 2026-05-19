@@ -6,15 +6,15 @@ import { useLanguage } from "@/components/contexts/LanguageContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+// // Import Swiper styles
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
 
 const CONTENT = {
   vi: {
-    header: "Dự án nổi bật",
-    subHeader: "Những dự án thực tế minh chứng cho năng lực triển khai và cam kết hiệu quả từ BBS Media.",
+    header: "Sản phẩm nổi bật",
+    subHeader: "Chất lượng sản phẩm luôn là tiêu chí hàng đầu của BBS MEDIA.",
     linkText: "Nhận tư vấn ngay",
     cases: [
       {

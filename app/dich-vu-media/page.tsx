@@ -24,14 +24,13 @@ const PAGE_CONTENT = {
 const ICON_MAP: Record<string, React.ElementType> = {
   "tu-van-truyen-thong": MessageCircle,
   "quay-chup-event": Camera,
+  "livestream": Radio,
   "quay-chup-wedding": Heart,
+  "quay-chup-san-pham-thuong-hieu": Package,
   "studio-sang-tao": Aperture,
   "tvc-doanh-nghiep": Film,
-  "viral-video": Zap,
-  "tiktok-reels": Smartphone,
-  "livestream": Radio,
-  "flycam": Wind,
-  "chup-anh-san-pham": Package,
+  "viral-video-tiktok-reels-content": Smartphone,
+  "san-xuat-video-ai": Zap,
 };
 
 export default function DichVuMediaOverviewPage() {

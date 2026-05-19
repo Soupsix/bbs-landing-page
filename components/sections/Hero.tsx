@@ -7,17 +7,17 @@ import { useLanguage } from "@/components/contexts/LanguageContext";
 const CONTENT = {
   vi: {
     brand: "BBS MEDIA",
-    tagline1: "Sản Xuất Hình Ảnh",
-    tagline2: "& Tổ Chức Sự Kiện",
-    description: "Chuyên sản xuất hình ảnh, tổ chức sự kiện\nvà phát triển nội dung sáng tạo dành cho doanh nghiệp.",
+    tagline1: "Đơn Vị Sản Xuất Hình Ảnh",
+    tagline2: "& Tổ Chức Sự Kiện Chuyên Nghiệp",
+    description: "BBS Media là đơn vị hoạt động trong lĩnh vực Media, Event và Creative Production.\nChúng tôi chuyên sản xuất hình ảnh, tổ chức sự kiện và phát triển nội dung sáng tạo dành cho doanh nghiệp, thương hiệu và cá nhân với phong cách hiện đại, cinematic và chuyên nghiệp.",
     btnPrimary: "Xem dự án",
     btnSecondary: "Nhận tư vấn",
   },
   en: {
     brand: "BBS MEDIA",
-    tagline1: "Creative Production",
-    tagline2: "& Event Agency",
-    description: "Specializing in visual production, event organization\nand creative content development for businesses.",
+    tagline1: "Professional Visual Production",
+    tagline2: "& Event Organization Agency",
+    description: "BBS Media operates in the fields of Media, Event and Creative Production.\nWe specialize in visual production, event organization and creative content development for businesses, brands and individuals with a modern, cinematic and professional style.",
     btnPrimary: "View Projects",
     btnSecondary: "Get Consultation",
   },
@@ -35,7 +35,7 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Content */}
           <div className="max-w-5xl lg:col-span-8 xl:col-span-9">
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-tight tracking-tight text-bbs-blue mb-4 uppercase">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-tight tracking-tight text-bbs-blue mb-4 uppercase [text-wrap:balance]">
               {t.brand}
             </h1>
             <p className="text-2xl md:text-3xl lg:text-[40px] font-semibold leading-snug text-deep-navy mb-6">
@@ -43,7 +43,7 @@ export function Hero() {
               <br />
               {t.tagline2}
             </p>
-            <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-xl whitespace-pre-line">
+            <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl whitespace-pre-line">
               {t.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

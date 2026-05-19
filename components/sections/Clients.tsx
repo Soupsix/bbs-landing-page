@@ -134,9 +134,6 @@ export function Clients() {
                 md:w-[120px] md:h-[60px]
                 rounded-xl border border-border-gray bg-white
                 px-3 py-2
-                grayscale-0 opacity-100
-                md:grayscale md:opacity-55
-                hover:grayscale-0 hover:opacity-100
                 hover:border-bbs-blue/30 hover:shadow-md hover:scale-[1.06]
                 transition-all duration-300 ease-out
                 cursor-pointer flex-shrink-0

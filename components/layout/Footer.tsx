@@ -1,19 +1,20 @@
 "use client";
 import Link from "next/link";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Mail, Phone, Send, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
 const CONTENT = {
   vi: {
     description: "Giải pháp truyền thông & sự kiện giúp doanh nghiệp tăng trưởng nhanh. Triển khai nhanh, tối ưu chi phí và tạo ra kết quả đo lường rõ ràng.",
-    quickLinksTitle: "Liên kết nhanh",
+    quickLinksTitle: "Dịch vụ",
     links: [
-      { href: "/gioi-thieu", label: "Giới thiệu" },
-      { href: "/dich-vu-media", label: "Dịch vụ Media" },
-      { href: "/to-chuc-su-kien", label: "Tổ chức Sự kiện" },
-      { href: "/danh-muc-du-an", label: "Danh mục Dự án" },
-      { href: "/khach-hang", label: "Khách hàng" },
-      { href: "/lien-he", label: "Liên hệ" },
+      { href: "/dich-vu-media/tu-van-truyen-thong", label: "Tư Vấn Truyền Thông" },
+      { href: "/to-chuc-su-kien", label: "Tổ Chức Sự Kiện" },
+      { href: "/dich-vu-media/quay-chup-event", label: "Quay Chụp Event" },
+      { href: "/dich-vu-media/quay-chup-wedding", label: "Wedding Cinematic" },
+      { href: "/dich-vu-media/studio-sang-tao", label: "Studio Creative" },
+      { href: "/dich-vu-media/tvc-doanh-nghiep", label: "TVC Doanh Nghiệp" },
     ],
     contactTitle: "Liên hệ",
     privacy: "Chính sách bảo mật",
@@ -21,14 +22,14 @@ const CONTENT = {
   },
   en: {
     description: "Media & event solutions to help businesses grow quickly. Fast deployment, cost optimization, and clear measurable results.",
-    quickLinksTitle: "Quick Links",
+    quickLinksTitle: "Services",
     links: [
-      { href: "/gioi-thieu", label: "About" },
-      { href: "/dich-vu-media", label: "Media Services" },
+      { href: "/dich-vu-media/tu-van-truyen-thong", label: "Media Consulting" },
       { href: "/to-chuc-su-kien", label: "Event Organization" },
-      { href: "/danh-muc-du-an", label: "Projects" },
-      { href: "/khach-hang", label: "Clients" },
-      { href: "/lien-he", label: "Contact" },
+      { href: "/dich-vu-media/quay-chup-event", label: "Event Filming" },
+      { href: "/dich-vu-media/quay-chup-wedding", label: "Wedding Cinematic" },
+      { href: "/dich-vu-media/studio-sang-tao", label: "Creative Studio" },
+      { href: "/dich-vu-media/tvc-doanh-nghiep", label: "Corporate TVC" },
     ],
     contactTitle: "Contact",
     privacy: "Privacy Policy",
@@ -42,6 +43,22 @@ const FacebookIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const SERVICES = [
+  "Tư Vấn Truyền Thông",
+  "Tổ Chức Sự Kiện",
+  "Quay Chụp Event",
+  "Livestream",
+  "Quay Chụp Wedding",
+  "Sản Phẩm / Thương Hiệu",
+  "Studio Sáng Tạo",
+  "TVC Doanh Nghiệp",
+  "Viral Video / TikTok / Reels",
+  "Sản Xuất Video AI",
+];
+
+const inputCls =
+  "w-full rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-gray-400 outline-none transition-all hover:border-white/25 focus:border-bbs-blue focus:bg-white/15 focus:ring-2 focus:ring-bbs-blue/25";
+
 const YoutubeIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path fillRule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.769-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clipRule="evenodd" />
@@ -51,6 +68,25 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
 export function Footer() {
   const { lang } = useLanguage();
   const t = CONTENT[lang];
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    hoTen: "",
+    tenCongTy: "",
+    linhVuc: "",
+    email: "",
+    soDienThoai: "",
+    dichVu: "",
+    noiDung: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
     <footer className="relative text-white pt-16 pb-8 border-t border-white/10 min-h-[400px] bg-[url('/FlycamFooter.jpeg')] bg-cover bg-bottom">
@@ -58,9 +94,9 @@ export function Footer() {
       <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px]"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 xl:gap-12 mb-12">
           {/* Company Info */}
-          <div>
+          <div className="lg:col-span-3">
             <h3 className="text-2xl font-bold text-bbs-blue mb-4">Công ty TNHH truyền thông BBS Media</h3>
             <p className="text-gray-400 mb-2">MST: 0111450131</p>
             <p className="text-gray-400 mb-6 max-w-sm">
@@ -76,8 +112,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
+          {/* Services */}
+          <div className="lg:col-span-2">
             <h4 className="text-lg font-semibold mb-4 text-white">{t.quickLinksTitle}</h4>
             <ul className="space-y-3">
               {t.links.map((link) => (
@@ -90,8 +126,52 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Contact Form */}
+          <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-white/[0.07] p-6 text-white shadow-2xl shadow-black/20 backdrop-blur-md">
+            <p className="text-bbs-blue text-xs font-bold tracking-widest uppercase mb-2">Liên hệ ngay</p>
+            <h4 className="text-white text-xl font-bold mb-5">Kết Nối Ngay Với Chúng Tôi</h4>
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-10 text-center gap-3">
+                <div className="w-14 h-14 rounded-full bg-green-500/20 flex items-center justify-center">
+                  <CheckCircle2 className="w-7 h-7 text-green-400" />
+                </div>
+                <p className="text-white font-semibold">Gửi thông tin thành công!</p>
+                <p className="text-gray-400 text-sm">Cảm ơn bạn! BBS Media sẽ liên hệ lại trong thời gian sớm nhất.</p>
+                <button
+                  onClick={() => { setSubmitted(false); setForm({ hoTen: "", tenCongTy: "", linhVuc: "", email: "", soDienThoai: "", dichVu: "", noiDung: "" }); }}
+                  className="mt-1 text-bbs-blue text-sm font-semibold hover:underline"
+                >
+                  Gửi thêm yêu cầu
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-3" noValidate>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <input required name="hoTen" value={form.hoTen} onChange={handleChange} placeholder="Họ tên *" className={inputCls} />
+                  <input name="tenCongTy" value={form.tenCongTy} onChange={handleChange} placeholder="Tên công ty" className={inputCls} />
+                </div>
+                <input name="linhVuc" value={form.linhVuc} onChange={handleChange} placeholder="Lĩnh vực hoạt động" className={inputCls} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <input required type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email *" className={inputCls} />
+                  <input required type="tel" name="soDienThoai" value={form.soDienThoai} onChange={handleChange} placeholder="Số điện thoại *" className={inputCls} />
+                </div>
+                <select required name="dichVu" value={form.dichVu} onChange={handleChange} className={inputCls}>
+                  <option className="text-gray-900" value="">-- Chọn dịch vụ bạn quan tâm --</option>
+                  {SERVICES.map((svc) => (
+                    <option className="text-gray-900" key={svc} value={svc}>{svc}</option>
+                  ))}
+                </select>
+                <textarea required name="noiDung" value={form.noiDung} onChange={handleChange} rows={3} placeholder="Nội dung cần tư vấn *" className={`${inputCls} resize-none`} />
+                <button type="submit" className="w-full flex items-center justify-center gap-2 bg-[#d81e25] hover:bg-[#b71920] text-white font-bold text-sm py-3.5 rounded-lg transition-all shadow-lg shadow-red-950/30">
+                  <Send className="w-4 h-4" />
+                  GỬI THÔNG TIN
+                </button>
+              </form>
+            )}
+          </div>
+
           {/* Contact */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-lg font-semibold mb-4 text-white">{t.contactTitle}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-gray-400">

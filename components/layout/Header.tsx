@@ -23,29 +23,27 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
 type MenuCard = { href: string; label: string; desc: string; Icon: React.ElementType };
 
 const MEDIA_CARDS_VI: MenuCard[] = [
-  { href: "/dich-vu-media/tu-van-truyen-thong", label: "Tư Vấn Truyền Thông", desc: "Chiến lược & kế hoạch truyền thông tổng thể", Icon: MessageCircle },
-  { href: "/dich-vu-media/quay-chup-event", label: "Quay Chụp Event", desc: "Ghi lại mọi khoảnh khắc sự kiện chuyên nghiệp", Icon: Camera },
-  { href: "/dich-vu-media/quay-chup-wedding", label: "Quay Chụp Wedding", desc: "Phong cách cinematic, tự nhiên & cảm xúc", Icon: Heart },
-  { href: "/dich-vu-media/studio-sang-tao", label: "Studio Sáng Tạo", desc: "Không gian studio hiện đại, đầy đủ tiện nghi", Icon: Aperture },
-  { href: "/dich-vu-media/tvc-doanh-nghiep", label: "TVC Doanh Nghiệp", desc: "Sản xuất TVC & phim quảng cáo trọn gói", Icon: Film },
-  { href: "/dich-vu-media/viral-video", label: "Viral Video", desc: "Video có sức lan tỏa mạnh trên mạng xã hội", Icon: Zap },
-  { href: "/dich-vu-media/tiktok-reels", label: "TikTok / Reels", desc: "Content ngắn tối ưu cho mọi nền tảng số", Icon: Smartphone },
-  { href: "/dich-vu-media/livestream", label: "Livestream", desc: "Multi-cam, đồ họa real-time, âm thanh chuẩn", Icon: Radio },
-  { href: "/dich-vu-media/flycam", label: "Flycam", desc: "Góc aerial ấn tượng với thiết bị thế hệ mới", Icon: Wind },
-  { href: "/dich-vu-media/chup-anh-san-pham", label: "Chụp Ảnh Sản Phẩm", desc: "Packshot, flatlay & lifestyle chuẩn e-commerce", Icon: Package },
+  { href: "/dich-vu-media/tu-van-truyen-thong", label: "Tư Vấn Truyền Thông", desc: "Chiến lược & kế hoạch truyền thông", Icon: MessageCircle },
+  { href: "/dich-vu-media/quay-chup-event", label: "Quay Chụp Event", desc: "Ghi lại mọi khoảnh khắc sự kiện", Icon: Camera },
+  { href: "/dich-vu-media/livestream", label: "Livestream", desc: "Multi-cam, đồ họa real-time", Icon: Radio },
+  { href: "/dich-vu-media/quay-chup-wedding", label: "Quay Chụp Wedding", desc: "Phong cách cinematic tự nhiên", Icon: Heart },
+  { href: "/dich-vu-media/quay-chup-san-pham-thuong-hieu", label: "Sản Phẩm / Thương Hiệu", desc: "Tôn vinh giá trị sản phẩm", Icon: Package },
+  { href: "/dich-vu-media/studio-sang-tao", label: "Studio Sáng Tạo", desc: "Không gian studio hiện đại", Icon: Aperture },
+  { href: "/dich-vu-media/tvc-doanh-nghiep", label: "TVC Doanh Nghiệp", desc: "Sản xuất TVC & phim quảng cáo", Icon: Film },
+  { href: "/dich-vu-media/viral-video-tiktok-reels-content", label: "Viral / TikTok / Reels", desc: "Nội dung ngắn tối ưu lan tỏa", Icon: Smartphone },
+  { href: "/dich-vu-media/san-xuat-video-ai", label: "Sản Xuất Video AI", desc: "Tạo nội dung ấn tượng bằng AI", Icon: Zap },
 ];
 
 const MEDIA_CARDS_EN: MenuCard[] = [
-  { href: "/dich-vu-media/tu-van-truyen-thong", label: "Media Consulting", desc: "Strategy & comprehensive communication planning", Icon: MessageCircle },
-  { href: "/dich-vu-media/quay-chup-event", label: "Event Filming", desc: "Professional capture of every event moment", Icon: Camera },
-  { href: "/dich-vu-media/quay-chup-wedding", label: "Wedding Filming", desc: "Cinematic, natural & emotional wedding style", Icon: Heart },
-  { href: "/dich-vu-media/studio-sang-tao", label: "Creative Studio", desc: "Modern studio with full equipment", Icon: Aperture },
-  { href: "/dich-vu-media/tvc-doanh-nghiep", label: "Corporate TVC", desc: "Full-package TVC & ad film production", Icon: Film },
-  { href: "/dich-vu-media/viral-video", label: "Viral Video", desc: "Powerful social media reach videos", Icon: Zap },
-  { href: "/dich-vu-media/tiktok-reels", label: "TikTok / Reels", desc: "Short content optimized for every platform", Icon: Smartphone },
-  { href: "/dich-vu-media/livestream", label: "Livestream", desc: "Multi-cam, real-time graphics, clear audio", Icon: Radio },
-  { href: "/dich-vu-media/flycam", label: "Flycam / Drone", desc: "Impressive aerial shots with next-gen drones", Icon: Wind },
-  { href: "/dich-vu-media/chup-anh-san-pham", label: "Product Photography", desc: "Packshot, flatlay & e-commerce lifestyle", Icon: Package },
+  { href: "/dich-vu-media/tu-van-truyen-thong", label: "Media Consulting", desc: "Strategy & communication planning", Icon: MessageCircle },
+  { href: "/dich-vu-media/quay-chup-event", label: "Event Filming", desc: "Professional event capturing", Icon: Camera },
+  { href: "/dich-vu-media/livestream", label: "Livestream", desc: "Multi-cam, real-time graphics", Icon: Radio },
+  { href: "/dich-vu-media/quay-chup-wedding", label: "Wedding Cinematic", desc: "Natural & emotional wedding style", Icon: Heart },
+  { href: "/dich-vu-media/quay-chup-san-pham-thuong-hieu", label: "Product / Brand Media", desc: "Elevating product value", Icon: Package },
+  { href: "/dich-vu-media/studio-sang-tao", label: "Creative Studio", desc: "Modern studio production space", Icon: Aperture },
+  { href: "/dich-vu-media/tvc-doanh-nghiep", label: "Corporate TVC", desc: "TVC & ad film production", Icon: Film },
+  { href: "/dich-vu-media/viral-video-tiktok-reels-content", label: "Viral / TikTok / Reels", desc: "Optimized short content", Icon: Smartphone },
+  { href: "/dich-vu-media/san-xuat-video-ai", label: "AI Video Production", desc: "Impressive AI-generated videos", Icon: Zap },
 ];
 
 /* ── Mega-menu data for "Tổ Chức Sự Kiện" ── */
