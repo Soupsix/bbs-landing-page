@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { VideoShowcase } from "@/components/sections/VideoShowcase";
 import { FeaturedProducts } from "@/components/sections/FeaturedProducts";
+import { FeaturedMediaServices } from "@/components/sections/FeaturedMediaServices";
 import { SocialProof } from "@/components/sections/SocialProof";
 import { PainPoints } from "@/components/sections/PainPoints";
 import { Solutions } from "@/components/sections/Solutions";
@@ -18,6 +19,7 @@ export default function Home() {
       <SocialProof />
       <VideoShowcase />
       <FeaturedProducts />
+      <FeaturedMediaServices />
       <CaseStudies />
       <Solutions />
       <Clients />
