@@ -1,5 +1,5 @@
 "use client";
-import { MessageSquare, Lightbulb, Clapperboard, Sparkles, HandshakeIcon } from "lucide-react";
+import { Lightbulb, Sparkles, Clapperboard, PackageCheck } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
 const CONTENT = {
@@ -9,48 +9,39 @@ const CONTENT = {
     steps: [
       {
         num: "01",
-        title: "Tiếp nhận & Tư vấn",
+        title: "IDEA",
         points: [
-          "Lắng nghe chi tiết nhu cầu, mong muốn và mục tiêu cốt lõi của khách hàng.",
-          "Nghiên cứu thị trường & đối tượng mục tiêu để đề xuất giải pháp tối ưu nhất.",
-        ],
-        icon: MessageSquare,
-      },
-      {
-        num: "02",
-        title: "Xây dựng ý tưởng & Kịch bản",
-        points: [
-          "Đội ngũ Creative lên ý tưởng độc bản, phác thảo concept riêng biệt cho từng thương hiệu.",
-          "Xây dựng kịch bản chi tiết (script) hoặc bản kế hoạch tổ chức (proposal) để khách hàng phê duyệt.",
+          "Lắng nghe nhu cầu & mục tiêu của khách hàng.",
+          "Nghiên cứu thị trường, đề xuất ý tưởng độc đáo phù hợp thương hiệu.",
         ],
         icon: Lightbulb,
       },
       {
-        num: "03",
-        title: "Triển khai sản xuất",
+        num: "02",
+        title: "CREATIVE",
         points: [
-          "Huy động nhân sự chuyên môn cùng thiết bị hiện đại: Camera Cinema, Flycam, âm thanh/ánh sáng chuẩn.",
-          "Trực tiếp thực thi quay phim, chụp ảnh hoặc dàn dựng sự kiện, giám sát kỹ thuật & mỹ thuật.",
+          "Đội ngũ Creative xây dựng concept, kịch bản và mood board chi tiết.",
+          "Lên kế hoạch sản xuất & phê duyệt nội dung cùng khách hàng.",
+        ],
+        icon: Sparkles,
+      },
+      {
+        num: "03",
+        title: "PRODUCTION",
+        points: [
+          "Triển khai quay phim, chụp ảnh hoặc tổ chức sự kiện với thiết bị Cinema, Flycam hiện đại.",
+          "Hậu kỳ chuyên nghiệp: dựng phim, chỉnh màu, AI effect chuẩn quốc tế.",
         ],
         icon: Clapperboard,
       },
       {
         num: "04",
-        title: "Hậu kỳ & Hoàn thiện",
+        title: "DELIVERY",
         points: [
-          "Dựng phim, chỉnh sửa hình ảnh trên trạm máy cấu hình cao — đảm bảo tiến độ nhanh chóng.",
-          "Ứng dụng AI tạo hiệu ứng độc đáo; tinh chỉnh âm thanh, màu sắc đạt chuẩn quốc tế.",
+          "Bàn giao sản phẩm hoàn thiện đúng tiến độ đã cam kết.",
+          "Hỗ trợ triển khai chiến dịch sau dự án, đồng hành lâu dài cùng thương hiệu.",
         ],
-        icon: Sparkles,
-      },
-      {
-        num: "05",
-        title: "Bàn giao & Đồng hành",
-        points: [
-          "Nghiệm thu và bàn giao sản phẩm hoàn thiện đúng tiến độ đã thỏa thuận.",
-          "Tiếp tục hỗ trợ triển khai chiến dịch truyền thông sau dự án để tối đa hiệu quả chuyển đổi.",
-        ],
-        icon: HandshakeIcon,
+        icon: PackageCheck,
       },
     ]
   },
@@ -60,48 +51,39 @@ const CONTENT = {
     steps: [
       {
         num: "01",
-        title: "Reception & Consultation",
+        title: "IDEA",
         points: [
-          "Listen in detail to the core needs, desires, and goals of the client.",
-          "Research the market & target audience to propose the most optimal solution.",
-        ],
-        icon: MessageSquare,
-      },
-      {
-        num: "02",
-        title: "Ideation & Scripting",
-        points: [
-          "The Creative team brainstorms unique ideas, sketching separate concepts for each brand.",
-          "Develop detailed scripts or event proposals for client approval.",
+          "Listen to client needs & core objectives.",
+          "Research the market and propose unique ideas tailored to each brand.",
         ],
         icon: Lightbulb,
       },
       {
-        num: "03",
-        title: "Production Execution",
+        num: "02",
+        title: "CREATIVE",
         points: [
-          "Mobilize professional personnel and modern equipment: Cinema Camera, Drone, standard audio/lighting.",
-          "Directly execute filming, photography, or event staging, supervising technical & artistic aspects.",
+          "Creative team builds concept, script, and detailed mood board.",
+          "Plan production & approve content together with the client.",
+        ],
+        icon: Sparkles,
+      },
+      {
+        num: "03",
+        title: "PRODUCTION",
+        points: [
+          "Execute filming, photography or event setup with Cinema & Drone equipment.",
+          "Professional post-production: editing, color grading, AI effects to international standards.",
         ],
         icon: Clapperboard,
       },
       {
         num: "04",
-        title: "Post-Production & Finalization",
+        title: "DELIVERY",
         points: [
-          "Edit videos, refine images on high-configuration workstations — ensuring fast progress.",
-          "Apply AI to create unique effects; refine sound and color to international standards.",
+          "Handover the finished product on the agreed schedule.",
+          "Support post-project campaign deployment, partnering with the brand long-term.",
         ],
-        icon: Sparkles,
-      },
-      {
-        num: "05",
-        title: "Handover & Companionship",
-        points: [
-          "Accept and handover the finished product exactly on the agreed schedule.",
-          "Continue to support media campaign deployment post-project to maximize conversion effectiveness.",
-        ],
-        icon: HandshakeIcon,
+        icon: PackageCheck,
       },
     ]
   }
@@ -118,8 +100,8 @@ export function Process() {
           <p className="text-lg text-gray-600">{t.subHeader}</p>
         </div>
 
-        {/* Steps grid — 5 cols desktop, 2 cols tablet, 1 col mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative">
+        {/* Steps grid — 4 cols desktop, 2 cols tablet, 1 col mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           {/* Connector Line (Desktop only) */}
           <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-[2px] bg-border-gray" />
 

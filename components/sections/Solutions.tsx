@@ -12,7 +12,7 @@ import "swiper/css/pagination";
 
 const CONTENT = {
   vi: {
-    header: "Hệ sinh thái dịch vụ",
+    header: "Dịch vụ nổi bật",
     subHeader: "Cung cấp các dịch vụ chuyên biệt giúp giải quyết triệt để bài toán truyền thông của doanh nghiệp.",
     solutions: [
       {

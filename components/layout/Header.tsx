@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, MessageCircle, Camera, Heart, Aperture, Film, Zap, Smartphone, Radio, Wind, Package, PartyPopper, Utensils, Users, Tent, Cake, Megaphone, Tv2, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
@@ -19,55 +19,63 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-/* ── Dropdown sub-items for "Dịch vụ Media" ── */
-const MEDIA_SUBS_VI = [
-  { href: "/dich-vu-media/tu-van-truyen-thong", label: "Tư Vấn Truyền Thông" },
-  { href: "/dich-vu-media/quay-chup-event", label: "Quay Chụp Event" },
-  { href: "/dich-vu-media/quay-chup-wedding", label: "Quay Chụp Wedding" },
-  { href: "/dich-vu-media/studio-sang-tao", label: "Studio Sáng Tạo" },
-  { href: "/dich-vu-media/tvc-doanh-nghiep", label: "TVC Doanh Nghiệp" },
-  { href: "/dich-vu-media/viral-video", label: "Viral Video" },
-  { href: "/dich-vu-media/tiktok-reels", label: "TikTok/Reels Content" },
-  { href: "/dich-vu-media/livestream", label: "Livestream" },
-  { href: "/dich-vu-media/flycam", label: "Flycam" },
-  { href: "/dich-vu-media/chup-anh-san-pham", label: "Chụp Ảnh Sản Phẩm" },
+/* ── Mega-menu data for "Dịch vụ Media" ── */
+type MenuCard = { href: string; label: string; desc: string; Icon: React.ElementType };
+
+const MEDIA_CARDS_VI: MenuCard[] = [
+  { href: "/dich-vu-media/tu-van-truyen-thong", label: "Tư Vấn Truyền Thông", desc: "Chiến lược & kế hoạch truyền thông tổng thể", Icon: MessageCircle },
+  { href: "/dich-vu-media/quay-chup-event", label: "Quay Chụp Event", desc: "Ghi lại mọi khoảnh khắc sự kiện chuyên nghiệp", Icon: Camera },
+  { href: "/dich-vu-media/quay-chup-wedding", label: "Quay Chụp Wedding", desc: "Phong cách cinematic, tự nhiên & cảm xúc", Icon: Heart },
+  { href: "/dich-vu-media/studio-sang-tao", label: "Studio Sáng Tạo", desc: "Không gian studio hiện đại, đầy đủ tiện nghi", Icon: Aperture },
+  { href: "/dich-vu-media/tvc-doanh-nghiep", label: "TVC Doanh Nghiệp", desc: "Sản xuất TVC & phim quảng cáo trọn gói", Icon: Film },
+  { href: "/dich-vu-media/viral-video", label: "Viral Video", desc: "Video có sức lan tỏa mạnh trên mạng xã hội", Icon: Zap },
+  { href: "/dich-vu-media/tiktok-reels", label: "TikTok / Reels", desc: "Content ngắn tối ưu cho mọi nền tảng số", Icon: Smartphone },
+  { href: "/dich-vu-media/livestream", label: "Livestream", desc: "Multi-cam, đồ họa real-time, âm thanh chuẩn", Icon: Radio },
+  { href: "/dich-vu-media/flycam", label: "Flycam", desc: "Góc aerial ấn tượng với thiết bị thế hệ mới", Icon: Wind },
+  { href: "/dich-vu-media/chup-anh-san-pham", label: "Chụp Ảnh Sản Phẩm", desc: "Packshot, flatlay & lifestyle chuẩn e-commerce", Icon: Package },
 ];
 
-const MEDIA_SUBS_EN = [
-  { href: "/dich-vu-media/tu-van-truyen-thong", label: "Media Consulting" },
-  { href: "/dich-vu-media/quay-chup-event", label: "Event Photography" },
-  { href: "/dich-vu-media/quay-chup-wedding", label: "Wedding Photography" },
-  { href: "/dich-vu-media/studio-sang-tao", label: "Creative Studio" },
-  { href: "/dich-vu-media/tvc-doanh-nghiep", label: "Corporate TVC" },
-  { href: "/dich-vu-media/viral-video", label: "Viral Video" },
-  { href: "/dich-vu-media/tiktok-reels", label: "TikTok/Reels Content" },
-  { href: "/dich-vu-media/livestream", label: "Livestream" },
-  { href: "/dich-vu-media/flycam", label: "Flycam" },
-  { href: "/dich-vu-media/chup-anh-san-pham", label: "Product Photography" },
+const MEDIA_CARDS_EN: MenuCard[] = [
+  { href: "/dich-vu-media/tu-van-truyen-thong", label: "Media Consulting", desc: "Strategy & comprehensive communication planning", Icon: MessageCircle },
+  { href: "/dich-vu-media/quay-chup-event", label: "Event Filming", desc: "Professional capture of every event moment", Icon: Camera },
+  { href: "/dich-vu-media/quay-chup-wedding", label: "Wedding Filming", desc: "Cinematic, natural & emotional wedding style", Icon: Heart },
+  { href: "/dich-vu-media/studio-sang-tao", label: "Creative Studio", desc: "Modern studio with full equipment", Icon: Aperture },
+  { href: "/dich-vu-media/tvc-doanh-nghiep", label: "Corporate TVC", desc: "Full-package TVC & ad film production", Icon: Film },
+  { href: "/dich-vu-media/viral-video", label: "Viral Video", desc: "Powerful social media reach videos", Icon: Zap },
+  { href: "/dich-vu-media/tiktok-reels", label: "TikTok / Reels", desc: "Short content optimized for every platform", Icon: Smartphone },
+  { href: "/dich-vu-media/livestream", label: "Livestream", desc: "Multi-cam, real-time graphics, clear audio", Icon: Radio },
+  { href: "/dich-vu-media/flycam", label: "Flycam / Drone", desc: "Impressive aerial shots with next-gen drones", Icon: Wind },
+  { href: "/dich-vu-media/chup-anh-san-pham", label: "Product Photography", desc: "Packshot, flatlay & e-commerce lifestyle", Icon: Package },
 ];
 
-/* ── Dropdown sub-items for "Tổ Chức Sự Kiện" ── */
-const EVENT_SUBS_VI = [
-  { href: "/to-chuc-su-kien/khai-truong-khanh-thanh", label: "Khai Trương - Khánh Thành" },
-  { href: "/to-chuc-su-kien/gala-dinner", label: "Gala Dinner" },
-  { href: "/to-chuc-su-kien/hoi-nghi-hoi-thao", label: "Hội Nghị - Hội Thảo - Kí Kết" },
-  { href: "/to-chuc-su-kien/team-building", label: "Team Building" },
-  { href: "/to-chuc-su-kien/year-end-party", label: "Year End Party" },
-  { href: "/to-chuc-su-kien/sinh-nhat", label: "Sinh Nhật" },
-  { href: "/to-chuc-su-kien/activation", label: "Activation" },
-  { href: "/to-chuc-su-kien/thiet-bi-su-kien", label: "Thiết Bị Sự Kiện" },
+/* ── Mega-menu data for "Tổ Chức Sự Kiện" ── */
+const EVENT_CARDS_VI: MenuCard[] = [
+  { href: "/to-chuc-su-kien/khai-truong-khanh-thanh", label: "Khai Trương - Khánh Thành", desc: "Lễ khai trương ấn tượng, chuyên nghiệp", Icon: PartyPopper },
+  { href: "/to-chuc-su-kien/gala-dinner", label: "Gala Dinner", desc: "Tiệc gala sang trọng, đẳng cấp", Icon: Utensils },
+  { href: "/to-chuc-su-kien/hoi-nghi-hoi-thao", label: "Hội Nghị - Hội Thảo", desc: "Tổ chức hội nghị, kí kết chuyên nghiệp", Icon: Users },
+  { href: "/to-chuc-su-kien/team-building", label: "Team Building", desc: "Hoạt động gắn kết, sáng tạo cho doanh nghiệp", Icon: Tent },
+  { href: "/to-chuc-su-kien/year-end-party", label: "Year End Party", desc: "Tiệc cuối năm ấm áp, đáng nhớ", Icon: Tv2 },
+  { href: "/to-chuc-su-kien/sinh-nhat", label: "Sinh Nhật", desc: "Tổ chức sinh nhật độc đáo, riêng biệt", Icon: Cake },
+  { href: "/to-chuc-su-kien/activation", label: "Brand Activation", desc: "Kích hoạt thương hiệu, tiếp cận khách hàng", Icon: Megaphone },
+  { href: "/to-chuc-su-kien/thiet-bi-su-kien", label: "Thiết Bị Sự Kiện", desc: "Âm thanh, ánh sáng, màn hình LED chuyên dụng", Icon: Radio },
 ];
 
-const EVENT_SUBS_EN = [
-  { href: "/to-chuc-su-kien/khai-truong-khanh-thanh", label: "Grand Opening" },
-  { href: "/to-chuc-su-kien/gala-dinner", label: "Gala Dinner" },
-  { href: "/to-chuc-su-kien/hoi-nghi-hoi-thao", label: "Conferences & Seminars" },
-  { href: "/to-chuc-su-kien/team-building", label: "Team Building" },
-  { href: "/to-chuc-su-kien/year-end-party", label: "Year End Party" },
-  { href: "/to-chuc-su-kien/sinh-nhat", label: "Birthday Party" },
-  { href: "/to-chuc-su-kien/activation", label: "Brand Activation" },
-  { href: "/to-chuc-su-kien/thiet-bi-su-kien", label: "Event Equipment" },
+const EVENT_CARDS_EN: MenuCard[] = [
+  { href: "/to-chuc-su-kien/khai-truong-khanh-thanh", label: "Grand Opening", desc: "Impressive, professional grand opening events", Icon: PartyPopper },
+  { href: "/to-chuc-su-kien/gala-dinner", label: "Gala Dinner", desc: "Luxurious and prestigious gala dinners", Icon: Utensils },
+  { href: "/to-chuc-su-kien/hoi-nghi-hoi-thao", label: "Conferences & Seminars", desc: "Professional conferences & signing ceremonies", Icon: Users },
+  { href: "/to-chuc-su-kien/team-building", label: "Team Building", desc: "Creative bonding activities for businesses", Icon: Tent },
+  { href: "/to-chuc-su-kien/year-end-party", label: "Year End Party", desc: "Warm, memorable year-end celebrations", Icon: Tv2 },
+  { href: "/to-chuc-su-kien/sinh-nhat", label: "Birthday Party", desc: "Unique and personalized birthday events", Icon: Cake },
+  { href: "/to-chuc-su-kien/activation", label: "Brand Activation", desc: "Brand activation & customer engagement", Icon: Megaphone },
+  { href: "/to-chuc-su-kien/thiet-bi-su-kien", label: "Event Equipment", desc: "Sound, lighting & LED screen rental", Icon: Radio },
 ];
+
+/* Legacy flat lists kept for mobile sidebar */
+const MEDIA_SUBS_VI = MEDIA_CARDS_VI.map(({ href, label }) => ({ href, label }));
+const MEDIA_SUBS_EN = MEDIA_CARDS_EN.map(({ href, label }) => ({ href, label }));
+const EVENT_SUBS_VI = EVENT_CARDS_VI.map(({ href, label }) => ({ href, label }));
+const EVENT_SUBS_EN = EVENT_CARDS_EN.map(({ href, label }) => ({ href, label }));
 
 
 type NavLink = { href: string; label: string; dropdownId?: "media" | "event" };
@@ -104,11 +112,37 @@ export function Header() {
   const NAV_LINKS = lang === "vi" ? NAV_LINKS_VI : NAV_LINKS_EN;
   const MEDIA_SUBS = lang === "vi" ? MEDIA_SUBS_VI : MEDIA_SUBS_EN;
   const EVENT_SUBS = lang === "vi" ? EVENT_SUBS_VI : EVENT_SUBS_EN;
+  const MEDIA_CARDS = lang === "vi" ? MEDIA_CARDS_VI : MEDIA_CARDS_EN;
+  const EVENT_CARDS = lang === "vi" ? EVENT_CARDS_VI : EVENT_CARDS_EN;
 
   const getSubLinks = (dropdownId?: string) => {
     if (dropdownId === "media") return MEDIA_SUBS;
     if (dropdownId === "event") return EVENT_SUBS;
     return [];
+  };
+
+  const getMegaCards = (dropdownId?: string) => {
+    if (dropdownId === "media") return MEDIA_CARDS;
+    if (dropdownId === "event") return EVENT_CARDS;
+    return [];
+  };
+
+  const getMegaMeta = (dropdownId?: string) => {
+    if (dropdownId === "media") return {
+      title: lang === "vi" ? "DỊCH VỤ MEDIA" : "MEDIA SERVICES",
+      subtitle: lang === "vi" ? "Chuyên nghiệp · Sáng tạo · Tận tâm" : "Professional · Creative · Dedicated",
+      accent: "#27abde",
+      allHref: "/dich-vu-media",
+      allLabel: lang === "vi" ? "Xem tất cả dịch vụ Media" : "View all Media services",
+    };
+    if (dropdownId === "event") return {
+      title: lang === "vi" ? "TỔ CHỨC SỰ KIỆN" : "EVENT ORGANIZATION",
+      subtitle: lang === "vi" ? "Trọn gói · Chuyên nghiệp · Hiệu quả" : "Full-package · Professional · Effective",
+      accent: "#d81e25",
+      allHref: "/to-chuc-su-kien",
+      allLabel: lang === "vi" ? "Xem tất cả dịch vụ Sự kiện" : "View all Event services",
+    };
+    return null;
   };
 
   // Đóng sidebar khi resize lên desktop
@@ -201,27 +235,73 @@ export function Header() {
                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${desktopDropdown === link.dropdownId ? "rotate-180" : ""}`} />
                     </Link>
 
-                    {/* Dropdown panel */}
-                    <div
-                      className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 transition-all duration-200 ${
-                        desktopDropdown === link.dropdownId
-                          ? "opacity-100 visible translate-y-0"
-                          : "opacity-0 invisible -translate-y-2"
-                      }`}
-                    >
-                      <div className="w-[280px] bg-white rounded-xl shadow-xl border border-border-gray p-2">
-                        {getSubLinks(link.dropdownId).map((sub) => (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            onClick={() => setDesktopDropdown(null)}
-                            className="block px-4 py-2.5 text-sm text-deep-navy hover:text-bbs-blue hover:bg-bbs-blue/5 rounded-lg transition-colors"
-                          >
-                            {sub.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
+                    {/* Mega-menu panel */}
+                    {(() => {
+                      const meta = getMegaMeta(link.dropdownId);
+                      const cards = getMegaCards(link.dropdownId);
+                      const isMedia = link.dropdownId === "media";
+                      const cols = isMedia ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" : "grid-cols-2 sm:grid-cols-2 lg:grid-cols-4";
+                      return (
+                        <div
+                          className={`fixed left-0 right-0 top-[80px] transition-all duration-200 z-50 ${
+                            desktopDropdown === link.dropdownId
+                              ? "opacity-100 visible translate-y-0"
+                              : "opacity-0 invisible -translate-y-2"
+                          }`}
+                        >
+                          <div className="bg-white border-t border-border-gray shadow-2xl">
+                            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+                              {/* Header */}
+                              {meta && (
+                                <div className="text-center mb-6">
+                                  <h3 className="text-lg font-bold tracking-widest text-deep-navy mb-1">
+                                    {meta.title}
+                                  </h3>
+                                  <p className="text-xs text-gray-400 mb-2">{meta.subtitle}</p>
+                                  <div className="mx-auto h-0.5 w-10 rounded-full" style={{ backgroundColor: meta.accent }} />
+                                </div>
+                              )}
+                              {/* Cards grid */}
+                              <div className={`grid ${cols} gap-3`}>
+                                {cards.map(({ href, label, desc, Icon }) => (
+                                  <Link
+                                    key={href}
+                                    href={href}
+                                    onClick={() => setDesktopDropdown(null)}
+                                    className="group flex flex-col items-center text-center p-4 rounded-xl border border-transparent hover:border-border-gray hover:bg-[#f8fafc] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                                  >
+                                    <div
+                                      className="w-12 h-12 rounded-full flex items-center justify-center mb-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"
+                                      style={{ backgroundColor: link.dropdownId === "media" ? "#27abde" : "#d81e25" }}
+                                    >
+                                      <Icon className="w-5 h-5 text-white" />
+                                    </div>
+                                    <span className="text-sm font-semibold text-deep-navy group-hover:text-bbs-blue mb-1 leading-tight transition-colors">
+                                      {label}
+                                    </span>
+                                    <span className="text-xs text-gray-400 leading-snug line-clamp-2">{desc}</span>
+                                  </Link>
+                                ))}
+                              </div>
+                              {/* Footer link */}
+                              {meta && (
+                                <div className="mt-6 pt-4 border-t border-border-gray flex justify-center">
+                                  <Link
+                                    href={meta.allHref}
+                                    onClick={() => setDesktopDropdown(null)}
+                                    className="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase transition-colors hover:opacity-80"
+                                    style={{ color: meta.accent }}
+                                  >
+                                    {meta.allLabel}
+                                    <ArrowRight className="w-3.5 h-3.5" />
+                                  </Link>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })()}
                   </div>
                 ) : (
                   <Link

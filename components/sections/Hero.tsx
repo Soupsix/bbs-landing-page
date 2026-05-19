@@ -28,9 +28,9 @@ export function Hero() {
   const t = CONTENT[lang];
 
   return (
-    <section className="relative flex items-center overflow-hidden min-h-[560px] lg:min-h-[680px] pt-12 md:pt-16 lg:pt-24 pb-12 lg:pb-24 bg-[url('/HeroImage.jpg')] bg-cover bg-center">
+    <section className="relative flex items-center overflow-hidden min-h-[560px] lg:min-h-[680px] pt-12 md:pt-16 lg:pt-24 pb-12 lg:pb-24 bg-[url('https://res.cloudinary.com/dss1zawkj/image/upload/v1779162613/BBS-Event_ng54cv.webp')] bg-cover bg-center">
       {/* Overlay mờ để dễ đọc chữ */}
-      <div className="absolute inset-0 bg-white/80 md:bg-white/70"></div>
+      <div className="absolute inset-0 bg-white/90 md:bg-white/85"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Content */}

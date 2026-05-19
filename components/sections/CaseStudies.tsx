@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 
 const CONTENT = {
   vi: {
-    header: "Dự án tiêu biểu",
+    header: "Dự án nổi bật",
     subHeader: "Những dự án thực tế minh chứng cho năng lực triển khai và cam kết hiệu quả từ BBS Media.",
     linkText: "Nhận tư vấn ngay",
     cases: [

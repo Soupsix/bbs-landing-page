@@ -1,24 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle, Camera, Heart, Aperture, Film, Zap, Smartphone, Radio, Wind, Package } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 import { SERVICES_VI, SERVICES_EN } from "./data";
 
 const PAGE_CONTENT = {
   vi: {
     badge: "Tất cả dịch vụ",
-    title: "Hệ Sinh Thái Dịch Vụ",
-    subtitle: "Khám phá các giải pháp truyền thông và sự kiện toàn diện, được thiết kế chuyên biệt để nâng tầm giá trị thương hiệu của bạn.",
-    viewDetail: "Xem chi tiết",
+    title: "DỊCH VỤ MEDIA",
+    subtitle: "Chuyên nghiệp - Sáng tạo - Tận tâm",
+    viewMore: "Xem thêm",
   },
   en: {
     badge: "All Services",
-    title: "Service Ecosystem",
-    subtitle: "Explore our comprehensive media and event solutions, specially designed to elevate your brand value.",
-    viewDetail: "View details",
+    title: "MEDIA SERVICES",
+    subtitle: "Professional - Creative - Dedicated",
+    viewMore: "View more",
   },
+};
+
+// Map service ID to Lucide icon components
+const ICON_MAP: Record<string, React.ElementType> = {
+  "tu-van-truyen-thong": MessageCircle,
+  "quay-chup-event": Camera,
+  "quay-chup-wedding": Heart,
+  "studio-sang-tao": Aperture,
+  "tvc-doanh-nghiep": Film,
+  "viral-video": Zap,
+  "tiktok-reels": Smartphone,
+  "livestream": Radio,
+  "flycam": Wind,
+  "chup-anh-san-pham": Package,
 };
 
 export default function DichVuMediaOverviewPage() {
@@ -27,24 +40,25 @@ export default function DichVuMediaOverviewPage() {
   const page = PAGE_CONTENT[lang];
 
   return (
-    <div className="bg-white min-h-screen">
-      {/* ═══════ PAGE HEADER ═══════ */}
-      <section className="relative pt-16 pb-12 md:pt-24 md:pb-20 overflow-hidden">
-        {/* Decorative background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-bbs-blue/[0.04] via-white to-white pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-bbs-red/[0.03] rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute top-20 left-0 w-80 h-80 bg-bbs-blue/[0.04] rounded-full blur-3xl pointer-events-none -translate-x-1/2" />
+    <div className="bg-[#f8fafc] min-h-screen">
+      {/* ═══════ HEADER SECTION ═══════ */}
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-white border-b border-gray-100">
+        <div className="absolute inset-0 bg-gradient-to-b from-bbs-blue/[0.02] via-white to-white pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-bbs-red/[0.01] rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute top-20 left-0 w-80 h-80 bg-bbs-blue/[0.02] rounded-full blur-3xl pointer-events-none -translate-x-1/2" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-flex items-center gap-2 bg-bbs-blue/10 text-bbs-blue text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+          <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+            <span className="inline-flex items-center gap-2 bg-bbs-blue/10 text-bbs-blue text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-bbs-blue animate-pulse" />
               {page.badge}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-deep-navy mb-6 tracking-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-deep-navy mb-4 tracking-tight uppercase">
               {page.title}
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            {/* Elegant small accent underline */}
+            <div className="w-16 h-[3px] bg-bbs-blue rounded-full mb-6" />
+            <p className="text-gray-500 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl font-medium">
               {page.subtitle}
             </p>
           </div>
@@ -52,53 +66,47 @@ export default function DichVuMediaOverviewPage() {
       </section>
 
       {/* ═══════ SERVICES GRID ═══════ */}
-      <section className="pb-20 md:pb-28">
+      <section className="py-20 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-16">
             {services.map((service, idx) => {
-              // Alternate subtle border colors
-              const accentColor = idx % 2 === 0 ? "group-hover:border-bbs-blue/50" : "group-hover:border-bbs-red/50";
-              const titleColor = idx % 2 === 0 ? "group-hover:text-bbs-blue" : "group-hover:text-bbs-red";
-              const iconBg = idx % 2 === 0 ? "bg-bbs-blue" : "bg-bbs-red";
+              const IconComponent = ICON_MAP[service.id] || MessageCircle;
+              // Alternate branding colors
+              const isEven = idx % 2 === 0;
+              const brandColor = isEven ? "bg-bbs-blue" : "bg-bbs-red";
+              const hoverTextColor = isEven ? "group-hover:text-bbs-blue" : "group-hover:text-bbs-red";
+              const hoverIconBg = isEven ? "group-hover:bg-bbs-blue/10" : "group-hover:bg-bbs-red/10";
+              const hoverArrowColor = isEven ? "group-hover:bg-bbs-blue group-hover:text-white" : "group-hover:bg-bbs-red group-hover:text-white";
 
               return (
                 <Link
                   key={service.id}
                   href={`/dich-vu-media/${service.id}`}
-                  className={`group bg-white rounded-3xl overflow-hidden border border-border-gray shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col ${accentColor}`}
+                  className="group relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-[6px] transition-all duration-300 flex flex-col p-6 pt-12 mt-8 w-full sm:w-[calc(50%-16px)] lg:w-[calc(25%-24px)]"
                 >
-                  {/* Thumbnail */}
-                  <div className="relative h-56 w-full overflow-hidden bg-gray-100">
-                    <Image
-                      src={service.images[0]}
-                      alt={service.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                    
-                    {/* Index Number Badge */}
-                    <div className="absolute bottom-4 left-4">
-                      <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold flex items-center justify-center">
-                        {String(idx + 1).padStart(2, "0")}
-                      </div>
+                  {/* Circular Icon Overlapping Slightly Above */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className={`w-16 h-16 rounded-full ${brandColor} text-white flex items-center justify-center shadow-md transform group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className="w-7 h-7" />
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6 md:p-8 flex flex-col flex-grow relative">
-                    <h2 className={`text-xl font-bold text-deep-navy mb-3 transition-colors ${titleColor}`}>
+                  {/* Card Content */}
+                  <div className="flex flex-col flex-grow">
+                    <h3 className="text-lg font-bold text-deep-navy mb-3 line-clamp-1">
                       {service.title}
-                    </h2>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-4 flex-grow">
                       {service.desc}
                     </p>
 
-                    <div className="flex items-center gap-2 text-sm font-semibold text-deep-navy mt-auto">
-                      {page.viewDetail}
-                      <span className={`w-6 h-6 rounded-full ${iconBg} text-white flex items-center justify-center transition-transform group-hover:translate-x-1`}>
-                        <ArrowRight className="w-3 h-3" />
+                    {/* Xem thêm Link/Button */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-50 mt-auto">
+                      <span className={`text-sm font-semibold text-gray-700 transition-colors ${hoverTextColor}`}>
+                        {page.viewMore}
+                      </span>
+                      <span className={`w-8 h-8 rounded-full bg-gray-50 text-gray-500 flex items-center justify-center transition-all ${hoverArrowColor}`}>
+                        <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" />
                       </span>
                     </div>
                   </div>
