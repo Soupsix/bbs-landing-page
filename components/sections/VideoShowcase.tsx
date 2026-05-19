@@ -3,10 +3,27 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
+import { useLanguage } from "@/components/contexts/LanguageContext";
 
 const videoId = "OmV4zmJCG3s";
 
+const CONTENT = {
+  vi: {
+    heading1: "BBS Media là đơn vị hoạt động trong lĩnh vực",
+    heading2: "Media, Event và Creative Production.",
+    description: "Chúng tôi mang đến giải pháp hình ảnh\nvà truyền thông hiện đại dành cho doanh nghiệp, thương hiệu và cá nhân.",
+  },
+  en: {
+    heading1: "BBS Media operates in the fields of",
+    heading2: "Media, Event, and Creative Production.",
+    description: "We provide modern visual and communication solutions\nfor businesses, brands, and individuals.",
+  },
+};
+
 export function VideoShowcase() {
+  const { lang } = useLanguage();
+  const t = CONTENT[lang];
+
   const [playVideo, setPlayVideo] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -18,45 +35,58 @@ export function VideoShowcase() {
 
   return (
     <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
 
-        {/* Cinematic Thumbnail Card / Inline Video */}
-        <div
-          className={`group relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-700 ${!playVideo ? 'cursor-pointer hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)]' : ''}`}
-          onClick={() => !playVideo && setPlayVideo(true)}
-        >
-          {!playVideo ? (
-            <>
-              {/* Thumbnail */}
-              <Image
-                src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                alt="BBS Media Showcase"
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                priority
-              />
+          {/* Content Left */}
+          <div className="lg:col-span-5 xl:col-span-4">
+            <h2 className="text-2xl md:text-3xl lg:text-[32px] font-bold leading-tight text-deep-navy mb-4 lg:mb-6">
+              {t.heading1} <br className="hidden md:block" />
+              <span className="text-bbs-blue block mt-1 md:mt-2">{t.heading2}</span>
+            </h2>
+            <p className="text-base text-gray-600 leading-relaxed whitespace-pre-line">
+              {t.description}
+            </p>
+          </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/30 transition-all duration-500 group-hover:bg-black/10" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+          {/* Video Right */}
+          <div
+            className={`lg:col-span-7 xl:col-span-8 group relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-700 ${!playVideo ? 'cursor-pointer hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)]' : ''}`}
+            onClick={() => !playVideo && setPlayVideo(true)}
+          >
+            {!playVideo ? (
+              <>
+                {/* Thumbnail */}
+                <Image
+                  src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                  alt="BBS Media Showcase"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                  priority
+                />
 
-              {/* Play Button - Glassmorphism */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.2)] transition-all duration-500 ease-out group-hover:scale-110 group-hover:bg-white/30">
-                  <Play className="w-8 h-8 md:w-12 md:h-12 text-white ml-2 drop-shadow-md" fill="currentColor" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/30 transition-all duration-500 group-hover:bg-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+
+                {/* Play Button - Glassmorphism */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 shadow-[0_8px_32px_0_rgba(255,255,255,0.2)] transition-all duration-500 ease-out group-hover:scale-110 group-hover:bg-white/30">
+                    <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1 drop-shadow-md" fill="currentColor" />
+                  </div>
                 </div>
-              </div>
-            </>
-          ) : (
-            <iframe
-              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full border-0 absolute inset-0 bg-black"
-            />
-          )}
+              </>
+            ) : (
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0 absolute inset-0 bg-black"
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>

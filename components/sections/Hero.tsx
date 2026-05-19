@@ -10,7 +10,7 @@ const CONTENT = {
     tagline1: "Sản Xuất Hình Ảnh",
     tagline2: "& Tổ Chức Sự Kiện",
     description: "Chuyên sản xuất hình ảnh, tổ chức sự kiện\nvà phát triển nội dung sáng tạo dành cho doanh nghiệp.",
-    btnPrimary: "Hệ sinh thái dịch vụ",
+    btnPrimary: "Xem dự án",
     btnSecondary: "Nhận tư vấn",
   },
   en: {

@@ -36,7 +36,7 @@ export default function EventOverviewPage() {
         <div className="absolute top-20 right-0 w-80 h-80 bg-bbs-red/[0.04] rounded-full blur-3xl pointer-events-none translate-x-1/2" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <span className="inline-flex items-center gap-2 bg-bbs-red/10 text-bbs-red text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
               <CalendarDays className="w-4 h-4" />
               {page.badge}
@@ -77,7 +77,7 @@ export default function EventOverviewPage() {
                     />
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                    
+
                     {/* Index Number Badge */}
                     <div className="absolute bottom-4 left-4">
                       <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold flex items-center justify-center">
