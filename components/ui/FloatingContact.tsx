@@ -26,7 +26,7 @@ export function FloatingContact() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4 md:bottom-8 md:right-8">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 md:bottom-8 md:right-8">
       {/* Scroll to Top Button */}
       <div 
         className={`group relative flex items-center transition-all duration-500 ${
@@ -42,10 +42,10 @@ export function FloatingContact() {
 
         <button
           onClick={scrollToTop}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-gray-500 shadow-xl transition-transform duration-300 hover:scale-110 hover:text-gray-700 md:h-16 md:w-16"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-100 bg-white text-gray-500 shadow-md transition-all duration-300 hover:scale-105 hover:text-gray-700 hover:shadow-lg sm:h-12 sm:w-12 lg:h-14 lg:w-14"
           aria-label="Lên đầu trang"
         >
-          <ArrowUp className="h-6 w-6 md:h-7 md:w-7" strokeWidth={1.5} />
+          <ArrowUp className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7" strokeWidth={1.5} />
         </button>
       </div>
 
@@ -62,14 +62,14 @@ export function FloatingContact() {
           href="https://www.messenger.com/t/107488542199286/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
+          className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-gray-100 bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg sm:h-12 sm:w-12 lg:h-14 lg:w-14"
         >
           <Image
-            src="/logo/facebook.png"
+            src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779250277/facebook_vi3kpa.png"
             alt="Facebook Messenger"
-            width={64}
-            height={64}
-            className="h-full w-full scale-110 object-cover"
+            width={48}
+            height={48}
+            className="h-7 w-7 object-contain sm:h-8 sm:w-8 lg:h-9 lg:w-9"
           />
         </Link>
       </div>
@@ -84,18 +84,18 @@ export function FloatingContact() {
         </span>
 
         {/* Pulse Background */}
-        <div className="absolute inset-0 animate-ping rounded-full bg-bbs-blue/40 opacity-75 duration-1000"></div>
+        <div className="absolute inset-0 animate-ping rounded-full bg-bbs-blue/30 opacity-60 duration-1000"></div>
 
         <Link
           href="tel:0343603760"
-          className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
+          className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-gray-100 bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg sm:h-12 sm:w-12 lg:h-14 lg:w-14"
         >
           <Image
-            src="/logo/phone.webp"
+            src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779250275/phone_phyxtr.webp"
             alt="Gọi điện thoại"
-            width={64}
-            height={64}
-            className="h-full w-full scale-125 object-cover"
+            width={48}
+            height={48}
+            className="h-7 w-7 object-contain sm:h-8 sm:w-8 lg:h-9 lg:w-9"
           />
         </Link>
       </div>
@@ -113,14 +113,14 @@ export function FloatingContact() {
           href="https://zalo.me/0368248696"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
+          className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-gray-100 bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg sm:h-12 sm:w-12 lg:h-14 lg:w-14"
         >
           <Image
-            src="/logo/zalo-icon.png"
+            src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779250276/zalo-icon_fmm3au.png"
             alt="Zalo"
-            width={64}
-            height={64}
-            className="h-full w-full scale-125 object-cover"
+            width={48}
+            height={48}
+            className="h-7 w-7 object-contain sm:h-8 sm:w-8 lg:h-9 lg:w-9"
           />
         </Link>
       </div>

@@ -123,22 +123,22 @@ export function Clients() {
         {/* ── Divider ── */}
         <div className="w-12 h-px bg-border-gray mx-auto mb-10" />
 
-        {/* ── Logo wall — flex wrap, many small rows ── */}
-        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
-          {logos.map((logo) => (
+        {/* ── Logo wall — desktop: 9 columns x 6 rows ── */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-9 justify-items-center gap-3 md:gap-4">
+          {logos.slice(0, 54).map((logo) => (
             <div
               key={logo.name}
               title={logo.name}
               className="
                 group flex items-center justify-center
-                w-[100px] h-[52px]
-                sm:w-[110px] sm:h-[56px]
-                md:w-[120px] md:h-[60px]
+                w-full h-[52px]
+                sm:h-[56px]
+                md:h-[60px]
                 rounded-xl border border-border-gray bg-white
                 px-3 py-2
                 hover:border-bbs-blue/30 hover:shadow-md hover:scale-[1.06]
                 transition-all duration-300 ease-out
-                cursor-pointer flex-shrink-0
+                cursor-pointer
               "
             >
               <Image

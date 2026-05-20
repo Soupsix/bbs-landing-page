@@ -89,7 +89,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative text-white pt-16 pb-8 border-t border-white/10 min-h-[400px] bg-[url('/FlycamFooter.jpeg')] bg-cover bg-bottom">
+    <footer className="relative text-white pt-16 pb-8 border-t border-white/10 min-h-[400px] bg-[url('https://res.cloudinary.com/dss1zawkj/image/upload/v1779249740/FlycamFooter_he9qmj.webp')] bg-cover bg-bottom">
       {/* Overlay để làm nổi bật text */}
       <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px]"></div>
 

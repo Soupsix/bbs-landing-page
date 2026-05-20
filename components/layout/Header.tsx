@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, MessageCircle, Camera, Heart, Aperture, Film, Zap, Smartphone, Radio, Wind, Package, PartyPopper, Utensils, Users, Tent, Cake, Megaphone, Tv2, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, MessageCircle, Camera, Heart, Aperture, Film, Zap, Smartphone, Radio, Wind, Package, PartyPopper, Users, Tent, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
@@ -48,25 +48,17 @@ const MEDIA_CARDS_EN: MenuCard[] = [
 
 /* ── Mega-menu data for "Tổ Chức Sự Kiện" ── */
 const EVENT_CARDS_VI: MenuCard[] = [
-  { href: "/to-chuc-su-kien/khai-truong-khanh-thanh", label: "Khai Trương - Khánh Thành", desc: "Lễ khai trương ấn tượng, chuyên nghiệp", Icon: PartyPopper },
-  { href: "/to-chuc-su-kien/gala-dinner", label: "Gala Dinner", desc: "Tiệc gala sang trọng, đẳng cấp", Icon: Utensils },
-  { href: "/to-chuc-su-kien/hoi-nghi-hoi-thao", label: "Hội Nghị - Hội Thảo", desc: "Tổ chức hội nghị, kí kết chuyên nghiệp", Icon: Users },
-  { href: "/to-chuc-su-kien/team-building", label: "Team Building", desc: "Hoạt động gắn kết, sáng tạo cho doanh nghiệp", Icon: Tent },
-  { href: "/to-chuc-su-kien/year-end-party", label: "Year End Party", desc: "Tiệc cuối năm ấm áp, đáng nhớ", Icon: Tv2 },
-  { href: "/to-chuc-su-kien/sinh-nhat", label: "Sinh Nhật", desc: "Tổ chức sinh nhật độc đáo, riêng biệt", Icon: Cake },
-  { href: "/to-chuc-su-kien/activation", label: "Brand Activation", desc: "Kích hoạt thương hiệu, tiếp cận khách hàng", Icon: Megaphone },
-  { href: "/to-chuc-su-kien/thiet-bi-su-kien", label: "Thiết Bị Sự Kiện", desc: "Âm thanh, ánh sáng, màn hình LED chuyên dụng", Icon: Radio },
+  { href: "/to-chuc-su-kien#loai-hinh-su-kien", label: "Loại Hình Sự Kiện", desc: "Khai trương, Gala, Hội nghị, Team Building...", Icon: PartyPopper },
+  { href: "/to-chuc-su-kien#thiet-bi-su-kien", label: "Thiết Bị Sự Kiện", desc: "Âm thanh, ánh sáng, màn hình LED chuyên dụng", Icon: Radio },
+  { href: "/to-chuc-su-kien#thiet-ke-trang-tri", label: "Thiết Kế & Trang Trí", desc: "Thiết kế sân khấu 2D/3D và trang trí sự kiện", Icon: Tent },
+  { href: "/to-chuc-su-kien#quy-trinh-su-kien", label: "Quy Trình Tổ Chức", desc: "5 bước chuyên nghiệp từ khảo sát đến bàn giao", Icon: Users },
 ];
 
 const EVENT_CARDS_EN: MenuCard[] = [
-  { href: "/to-chuc-su-kien/khai-truong-khanh-thanh", label: "Grand Opening", desc: "Impressive, professional grand opening events", Icon: PartyPopper },
-  { href: "/to-chuc-su-kien/gala-dinner", label: "Gala Dinner", desc: "Luxurious and prestigious gala dinners", Icon: Utensils },
-  { href: "/to-chuc-su-kien/hoi-nghi-hoi-thao", label: "Conferences & Seminars", desc: "Professional conferences & signing ceremonies", Icon: Users },
-  { href: "/to-chuc-su-kien/team-building", label: "Team Building", desc: "Creative bonding activities for businesses", Icon: Tent },
-  { href: "/to-chuc-su-kien/year-end-party", label: "Year End Party", desc: "Warm, memorable year-end celebrations", Icon: Tv2 },
-  { href: "/to-chuc-su-kien/sinh-nhat", label: "Birthday Party", desc: "Unique and personalized birthday events", Icon: Cake },
-  { href: "/to-chuc-su-kien/activation", label: "Brand Activation", desc: "Brand activation & customer engagement", Icon: Megaphone },
-  { href: "/to-chuc-su-kien/thiet-bi-su-kien", label: "Event Equipment", desc: "Sound, lighting & LED screen rental", Icon: Radio },
+  { href: "/to-chuc-su-kien#loai-hinh-su-kien", label: "Event Types", desc: "Grand Opening, Gala, Conferences, Team Building...", Icon: PartyPopper },
+  { href: "/to-chuc-su-kien#thiet-bi-su-kien", label: "Event Equipment", desc: "Sound, lighting & LED screen rental", Icon: Radio },
+  { href: "/to-chuc-su-kien#thiet-ke-trang-tri", label: "Design & Decoration", desc: "2D/3D stage design & event decoration", Icon: Tent },
+  { href: "/to-chuc-su-kien#quy-trinh-su-kien", label: "Event Process", desc: "5 professional steps from survey to handover", Icon: Users },
 ];
 
 /* Legacy flat lists kept for mobile sidebar */
@@ -336,22 +328,22 @@ export function Header() {
                 <button
                   onClick={() => setLang("vi")}
                   aria-label="Tiếng Việt"
-                  className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${lang === "vi"
-                    ? "border-2 border-bbs-blue shadow-sm scale-110"
-                    : "border border-gray-200 hover:opacity-80"
+                  className={`relative w-9 h-6 overflow-hidden rounded-[4px] bg-white transition-all duration-200 ${lang === "vi"
+                    ? "border-2 border-bbs-blue shadow-md scale-110 ring-2 ring-bbs-blue/15"
+                    : "border border-gray-200 shadow-sm hover:border-bbs-blue/40 hover:shadow-md hover:scale-105"
                     }`}
                 >
-                  <Image src="/vn-flag.jpg" alt="Vietnamese" fill sizes="32px" className="object-cover" />
+                  <Image src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/vn-flag_oyawvw.jpg" alt="Vietnamese" fill sizes="36px" className="object-cover brightness-110 contrast-110 saturate-125" />
                 </button>
                 <button
                   onClick={() => setLang("en")}
                   aria-label="English"
-                  className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${lang === "en"
-                    ? "border-2 border-bbs-blue shadow-sm scale-110"
-                    : "border border-gray-200 hover:opacity-80"
+                  className={`relative w-9 h-6 overflow-hidden rounded-[4px] bg-white transition-all duration-200 ${lang === "en"
+                    ? "border-2 border-bbs-blue shadow-md scale-110 ring-2 ring-bbs-blue/15"
+                    : "border border-gray-200 shadow-sm hover:border-bbs-blue/40 hover:shadow-md hover:scale-105"
                     }`}
                 >
-                  <Image src="/uk-flag.jpg" alt="English" fill sizes="32px" className="object-cover" />
+                  <Image src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/uk-flag_aokgbz.jpg" alt="English" fill sizes="36px" className="object-cover brightness-110 contrast-110 saturate-125" />
                 </button>
               </div>
 
@@ -480,22 +472,22 @@ export function Header() {
             <button
               onClick={() => setLang("vi")}
               aria-label="Tiếng Việt"
-              className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${lang === "vi"
-                ? "border-2 border-bbs-blue shadow-sm scale-110"
-                : "border border-gray-200 hover:opacity-80"
+              className={`relative w-9 h-6 overflow-hidden rounded-[4px] bg-white transition-all duration-200 ${lang === "vi"
+                ? "border-2 border-bbs-blue shadow-md scale-110 ring-2 ring-bbs-blue/15"
+                : "border border-gray-200 shadow-sm hover:border-bbs-blue/40 hover:shadow-md hover:scale-105"
                 }`}
             >
-              <Image src="/vn-flag.jpg" alt="Vietnamese" fill sizes="32px" className="object-cover" />
+              <Image src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/vn-flag_oyawvw.jpg" alt="Vietnamese" fill sizes="36px" className="object-cover brightness-110 contrast-110 saturate-125" />
             </button>
             <button
               onClick={() => setLang("en")}
               aria-label="English"
-              className={`relative w-8 h-6 overflow-hidden rounded-[4px] transition-all ${lang === "en"
-                ? "border-2 border-bbs-blue shadow-sm scale-110"
-                : "border border-gray-200 hover:opacity-80"
+              className={`relative w-9 h-6 overflow-hidden rounded-[4px] bg-white transition-all duration-200 ${lang === "en"
+                ? "border-2 border-bbs-blue shadow-md scale-110 ring-2 ring-bbs-blue/15"
+                : "border border-gray-200 shadow-sm hover:border-bbs-blue/40 hover:shadow-md hover:scale-105"
                 }`}
             >
-              <Image src="/uk-flag.jpg" alt="English" fill sizes="32px" className="object-cover" />
+              <Image src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/uk-flag_aokgbz.jpg" alt="English" fill sizes="36px" className="object-cover brightness-110 contrast-110 saturate-125" />
             </button>
           </div>
         </div>

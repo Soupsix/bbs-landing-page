@@ -257,213 +257,6 @@ export default function GioiThieuPage() {
         </div>
       </section>
 
-      {/* SECTION: HỆ SINH THÁI KÊNH TRUYỀN THÔNG */}
-      <section className="relative py-20 md:py-24 bg-gradient-to-br from-[#050b14] via-[#0d1527] to-[#180913] overflow-hidden">
-        {/* Background Decorative Blur Circles */}
-        <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-bbs-blue/10 blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-bbs-red/10 blur-[100px] pointer-events-none" />
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Section Header */}
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <span className="inline-flex items-center gap-2 rounded-full border border-bbs-blue/20 bg-bbs-blue/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-bbs-blue mb-4">
-              Kênh truyền thông
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-              Hệ sinh thái kênh truyền thông BBS Media
-            </h2>
-            <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-300">
-              Kết nối cùng BBS Media qua các nền tảng chính thức, nơi chúng tôi chia sẻ dự án, sản phẩm và các hoạt động truyền thông mới nhất.
-            </p>
-          </div>
-
-          {/* Facebook Group */}
-          <div className="mb-20">
-            <div className="text-center mb-10">
-              <h3 className="text-sm font-extrabold tracking-[0.25em] uppercase text-white/60 mb-3">
-                FACEBOOK FANPAGE
-              </h3>
-              <div className="relative inline-flex items-center justify-center">
-                <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-bbs-blue to-transparent" />
-                <div className="h-1.5 w-1.5 rounded-full bg-bbs-blue mx-2" />
-                <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-bbs-blue to-transparent" />
-              </div>
-            </div>
-
-            {/* Slider Container */}
-            <div className="relative group/scroll px-4 md:px-12">
-              {/* Left Arrow */}
-              <button
-                onClick={() => scroll("left")}
-                aria-label="Scroll left"
-                className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 border border-white/10 text-white opacity-0 group-hover/scroll:opacity-100 transition-opacity duration-300 hover:bg-black/80 hover:scale-105 active:scale-95"
-              >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-
-              {/* Scroll Area */}
-              <div
-                ref={fbScrollRef}
-                className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 scroll-smooth scrollbar-none scrollbar-hide"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-              >
-                {facebookChannels.map((channel) => (
-                  <a
-                    key={channel.name}
-                    href={channel.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-950 border border-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-bbs-blue/20 hover:border-white/10 shrink-0 snap-start cursor-pointer"
-                  >
-                    <Image
-                      src={channel.image}
-                      alt={channel.name}
-                      fill
-                      className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
-                      sizes="(max-width: 768px) 256px, 288px"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500" />
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-blue-600" />
-
-                    {/* Facebook Icon SVG */}
-                    <div className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-transform duration-500 group-hover:scale-110">
-                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
-                      </svg>
-                    </div>
-
-                    <div className="relative z-10 p-5 md:p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase mb-2 border bg-blue-500/10 border-blue-500/20 text-blue-400">
-                        {channel.label}
-                      </span>
-                      <h4 className="text-lg md:text-xl font-bold text-white leading-tight tracking-tight">
-                        {channel.name}
-                      </h4>
-                    </div>
-                  </a>
-                ))}
-              </div>
-
-              {/* Right Arrow */}
-              <button
-                onClick={() => scroll("right")}
-                aria-label="Scroll right"
-                className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 border border-white/10 text-white opacity-0 group-hover/scroll:opacity-100 transition-opacity duration-300 hover:bg-black/80 hover:scale-105 active:scale-95"
-              >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* YouTube & TikTok side-by-side or centering */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {/* YouTube Group */}
-            <div className="flex flex-col items-center">
-              <div className="text-center mb-10 w-full">
-                <h3 className="text-sm font-extrabold tracking-[0.25em] uppercase text-white/60 mb-3">
-                  YOUTUBE CHANNEL
-                </h3>
-                <div className="relative inline-flex items-center justify-center">
-                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
-                  <div className="h-1.5 w-1.5 rounded-full bg-red-500 mx-2" />
-                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
-                </div>
-              </div>
-
-              {youtubeChannels.map((channel) => (
-                <a
-                  key={channel.name}
-                  href={channel.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-950 border border-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-bbs-red/20 hover:border-white/10 cursor-pointer"
-                >
-                  <Image
-                    src={channel.image}
-                    alt={channel.name}
-                    fill
-                    className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
-                    sizes="(max-width: 768px) 256px, 288px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-red-600" />
-
-                  {/* YouTube Icon SVG */}
-                  <div className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-transform duration-500 group-hover:scale-110">
-                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                      <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                    </svg>
-                  </div>
-
-                  <div className="relative z-10 p-5 md:p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase mb-2 border bg-red-500/10 border-red-500/20 text-red-400">
-                      {channel.label}
-                    </span>
-                    <h4 className="text-lg md:text-xl font-bold text-white leading-tight tracking-tight">
-                      {channel.name}
-                    </h4>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            {/* TikTok Group */}
-            <div className="flex flex-col items-center">
-              <div className="text-center mb-10 w-full">
-                <h3 className="text-sm font-extrabold tracking-[0.25em] uppercase text-white/60 mb-3">
-                  TIKTOK CHANNEL
-                </h3>
-                <div className="relative inline-flex items-center justify-center">
-                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
-                  <div className="h-1.5 w-1.5 rounded-full bg-cyan-400 mx-2" />
-                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
-                </div>
-              </div>
-
-              {tiktokChannels.map((channel) => (
-                <a
-                  key={channel.name}
-                  href={channel.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-950 border border-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-cyan-400/20 hover:border-white/10 cursor-pointer"
-                >
-                  <Image
-                    src={channel.image}
-                    alt={channel.name}
-                    fill
-                    className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
-                    sizes="(max-width: 768px) 256px, 288px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-cyan-500" />
-
-                  {/* TikTok Icon SVG */}
-                  <div className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-transform duration-500 group-hover:scale-110">
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.63 4.18 1.13 1.2 2.7 1.94 4.41 2.06v3.83c-1.87-.14-3.64-.97-4.88-2.4-.04 2.87-.02 5.73-.03 8.6-.07 2.04-.77 4.13-2.18 5.61-1.6 1.76-4.04 2.72-6.43 2.5-2.73-.13-5.28-1.84-6.42-4.32-1.34-2.73-.83-6.22 1.26-8.38 1.65-1.78 4.2-2.58 6.58-2.12v3.95c-1.18-.32-2.52-.07-3.47.74-.89.73-1.31 1.95-1.11 3.08.2 1.29 1.15 2.41 2.4 2.73 1.34.37 2.92-.23 3.65-1.42.34-.58.46-1.28.45-1.95V.02z" />
-                    </svg>
-                  </div>
-
-                  <div className="relative z-10 p-5 md:p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase mb-2 border bg-cyan-500/10 border-cyan-500/20 text-cyan-400">
-                      {channel.label}
-                    </span>
-                    <h4 className="text-lg md:text-xl font-bold text-white leading-tight tracking-tight">
-                      {channel.name}
-                    </h4>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -626,13 +419,13 @@ export default function GioiThieuPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-[#101827]">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader light title="Hình ảnh hoạt động" description="Không gian lưu trữ những khoảnh khắc trong quá trình sản xuất, vận hành sự kiện và đồng hành cùng khách hàng." />
+          <SectionHeader title="Hình ảnh hoạt động" description="Không gian lưu trữ những khoảnh khắc trong quá trình sản xuất, vận hành sự kiện và đồng hành cùng khách hàng." />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {activityImages.map((item, index) => (
-              <article key={item.id} className={`group relative overflow-hidden rounded-2xl bg-gray-900 ${index % 5 === 0 ? "lg:row-span-2" : ""}`}>
-                <div className={`relative ${index % 5 === 0 ? "h-96" : "h-56"}`}>
+              <article key={item.id} className={`group relative overflow-hidden rounded-2xl bg-gray-200 ${index % 5 === 0 ? "lg:row-span-2" : ""}`}>
+                <div className={`relative w-full ${index % 5 === 0 ? "h-96 lg:h-full" : "h-56"}`}>
                   <Image src={item.image} alt={item.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 1024px) 50vw, 25vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute left-4 right-4 bottom-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -642,6 +435,213 @@ export default function GioiThieuPage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: HỆ SINH THÁI KÊNH TRUYỀN THÔNG */}
+      <section className="relative py-20 md:py-24 bg-white overflow-hidden">
+        {/* Background Decorative Blur Circles */}
+        <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-bbs-blue/10 blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-bbs-red/10 blur-[100px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <span className="inline-flex items-center gap-2 rounded-full border border-bbs-blue/20 bg-bbs-blue/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-bbs-blue mb-4">
+              Kênh truyền thông
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-deep-navy tracking-tight">
+              Hệ sinh thái kênh truyền thông BBS Media
+            </h2>
+            <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-600">
+              Kết nối cùng BBS Media qua các nền tảng chính thức, nơi chúng tôi chia sẻ dự án, sản phẩm và các hoạt động truyền thông mới nhất.
+            </p>
+          </div>
+
+          {/* Facebook Group */}
+          <div className="mb-20">
+            <div className="text-center mb-10">
+              <h3 className="text-sm font-extrabold tracking-[0.25em] uppercase text-gray-500 mb-3">
+                FACEBOOK FANPAGE
+              </h3>
+              <div className="relative inline-flex items-center justify-center">
+                <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-bbs-blue to-transparent" />
+                <div className="h-1.5 w-1.5 rounded-full bg-bbs-blue mx-2" />
+                <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-bbs-blue to-transparent" />
+              </div>
+            </div>
+
+            {/* Slider Container */}
+            <div className="relative group/scroll px-4 md:px-12">
+              {/* Left Arrow */}
+              <button
+                onClick={() => scroll("left")}
+                aria-label="Scroll left"
+                className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-md border border-gray-200 text-deep-navy opacity-0 group-hover/scroll:opacity-100 transition-all duration-300 hover:bg-gray-50 hover:scale-105 active:scale-95"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Scroll Area */}
+              <div
+                ref={fbScrollRef}
+                className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 scroll-smooth scrollbar-none scrollbar-hide"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {facebookChannels.map((channel) => (
+                  <a
+                    key={channel.name}
+                    href={channel.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-900 border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-bbs-blue/20 hover:border-bbs-blue/30 shrink-0 snap-start cursor-pointer"
+                  >
+                    <Image
+                      src={channel.image}
+                      alt={channel.name}
+                      fill
+                      className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
+                      sizes="(max-width: 768px) 256px, 288px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-blue-600" />
+
+                    {/* Facebook Icon SVG */}
+                    <div className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-transform duration-500 group-hover:scale-110">
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
+                      </svg>
+                    </div>
+
+                    <div className="relative z-10 p-5 md:p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase mb-2 border bg-blue-500/10 border-blue-500/20 text-blue-400">
+                        {channel.label}
+                      </span>
+                      <h4 className="text-lg md:text-xl font-bold text-white leading-tight tracking-tight">
+                        {channel.name}
+                      </h4>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => scroll("right")}
+                aria-label="Scroll right"
+                className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-md border border-gray-200 text-deep-navy opacity-0 group-hover/scroll:opacity-100 transition-all duration-300 hover:bg-gray-50 hover:scale-105 active:scale-95"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* YouTube & TikTok side-by-side or centering */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {/* YouTube Group */}
+            <div className="flex flex-col items-center">
+              <div className="text-center mb-10 w-full">
+                <h3 className="text-sm font-extrabold tracking-[0.25em] uppercase text-gray-500 mb-3">
+                  YOUTUBE CHANNEL
+                </h3>
+                <div className="relative inline-flex items-center justify-center">
+                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-red-500 mx-2" />
+                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
+                </div>
+              </div>
+
+              {youtubeChannels.map((channel) => (
+                <a
+                  key={channel.name}
+                  href={channel.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-900 border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-bbs-red/20 hover:border-bbs-red/30 cursor-pointer"
+                >
+                  <Image
+                    src={channel.image}
+                    alt={channel.name}
+                    fill
+                    className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
+                    sizes="(max-width: 768px) 256px, 288px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-red-600" />
+
+                  {/* YouTube Icon SVG */}
+                  <div className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-transform duration-500 group-hover:scale-110">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                  </div>
+
+                  <div className="relative z-10 p-5 md:p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase mb-2 border bg-red-500/10 border-red-500/20 text-red-400">
+                      {channel.label}
+                    </span>
+                    <h4 className="text-lg md:text-xl font-bold text-white leading-tight tracking-tight">
+                      {channel.name}
+                    </h4>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            {/* TikTok Group */}
+            <div className="flex flex-col items-center">
+              <div className="text-center mb-10 w-full">
+                <h3 className="text-sm font-extrabold tracking-[0.25em] uppercase text-gray-500 mb-3">
+                  TIKTOK CHANNEL
+                </h3>
+                <div className="relative inline-flex items-center justify-center">
+                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-cyan-400 mx-2" />
+                  <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+                </div>
+              </div>
+
+              {tiktokChannels.map((channel) => (
+                <a
+                  key={channel.name}
+                  href={channel.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-900 border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-cyan-400/20 hover:border-cyan-400/30 cursor-pointer"
+                >
+                  <Image
+                    src={channel.image}
+                    alt={channel.name}
+                    fill
+                    className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
+                    sizes="(max-width: 768px) 256px, 288px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-cyan-500" />
+
+                  {/* TikTok Icon SVG */}
+                  <div className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-transform duration-500 group-hover:scale-110">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.63 4.18 1.13 1.2 2.7 1.94 4.41 2.06v3.83c-1.87-.14-3.64-.97-4.88-2.4-.04 2.87-.02 5.73-.03 8.6-.07 2.04-.77 4.13-2.18 5.61-1.6 1.76-4.04 2.72-6.43 2.5-2.73-.13-5.28-1.84-6.42-4.32-1.34-2.73-.83-6.22 1.26-8.38 1.65-1.78 4.2-2.58 6.58-2.12v3.95c-1.18-.32-2.52-.07-3.47.74-.89.73-1.31 1.95-1.11 3.08.2 1.29 1.15 2.41 2.4 2.73 1.34.37 2.92-.23 3.65-1.42.34-.58.46-1.28.45-1.95V.02z" />
+                    </svg>
+                  </div>
+
+                  <div className="relative z-10 p-5 md:p-6 transition-transform duration-500 group-hover:translate-y-[-4px]">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase mb-2 border bg-cyan-500/10 border-cyan-500/20 text-cyan-400">
+                      {channel.label}
+                    </span>
+                    <h4 className="text-lg md:text-xl font-bold text-white leading-tight tracking-tight">
+                      {channel.name}
+                    </h4>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
