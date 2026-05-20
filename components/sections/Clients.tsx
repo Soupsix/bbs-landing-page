@@ -7,17 +7,19 @@ import { useLanguage } from "@/components/contexts/LanguageContext";
 const CONTENT = {
   vi: {
     badge: "Khách Hàng & Đối Tác",
-    heading: "Những thương hiệu đã đồng hành cùng BBS Media",
+    heading: "BBS MEDIA luôn là đối tác tin cậy",
     subtitle:
-      "Chúng tôi tự hào được hợp tác cùng các doanh nghiệp, local brand và đối tác truyền thông trong nhiều dự án sáng tạo.",
+      "BBS MEDIA luôn là đối tác tin cậy của rất nhiều doanh nghiệp, đài truyền hình, cơ quan thông tấn, báo chí lớn trên cả nước.",
+    slogan: "Chúng tôi không chỉ cung cấp sản phẩm, dịch vụ mà còn đồng hành cùng Quý khách hàng",
     count: "61+",
     countLabel: "doanh nghiệp đã tin tưởng",
   },
   en: {
     badge: "Clients & Partners",
-    heading: "Brands that have partnered with BBS Media",
+    heading: "BBS MEDIA is always a trusted partner",
     subtitle:
-      "We are proud to collaborate with businesses, local brands, and media partners across many creative projects.",
+      "BBS MEDIA is a trusted partner of many businesses, television stations, news agencies, and major press organizations nationwide.",
+    slogan: "We do not only provide products and services, but also accompany our valued customers",
     count: "61+",
     countLabel: "businesses have trusted us",
   },
@@ -149,6 +151,10 @@ export function Clients() {
             </div>
           ))}
         </div>
+
+        <p className="mt-12 text-center text-lg md:text-xl font-semibold italic text-deep-navy max-w-4xl mx-auto leading-relaxed">
+          “{t.slogan}”
+        </p>
 
       </div>
     </section>
