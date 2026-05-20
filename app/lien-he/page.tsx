@@ -1,6 +1,7 @@
 "use client";
 
-import { Phone, Mail, MapPin } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 
 /* ─── SVG Icon helpers ─────────────────────────────────────── */
 const FacebookIcon = ({ className }: { className?: string }) => (
@@ -144,6 +145,35 @@ export default function ContactPage() {
                 />
               </div>
 
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════ FINAL CTA ══════════════════════════ */}
+      <section className="relative overflow-hidden bg-white py-16 md:py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f8fafc] to-white pointer-events-none" />
+        <div className="absolute -top-32 -right-32 h-80 w-80 rounded-full bg-bbs-blue/10 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-bbs-red/10 blur-3xl pointer-events-none" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mx-auto max-w-5xl rounded-3xl border border-gray-100 bg-white/90 p-8 text-center shadow-xl backdrop-blur md:p-12">
+            <span className="inline-flex items-center rounded-full border border-bbs-blue/20 bg-bbs-blue/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-bbs-blue mb-5">
+              BBS Media
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-deep-navy mb-5 tracking-tight">
+              Sẵn sàng đồng hành cùng BBS Media?
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+              Hãy để chúng tôi cùng bạn xây dựng hình ảnh thương hiệu chuyên nghiệp, sáng tạo và hiệu quả.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="tel:0343603760" className="inline-flex items-center justify-center rounded-xl bg-bbs-red px-7 py-4 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-bbs-red/90">
+                Liên hệ tư vấn
+              </Link>
+              <Link href="/danh-muc-du-an" className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-7 py-4 text-sm font-bold uppercase tracking-widest text-deep-navy transition-colors hover:border-bbs-blue/30 hover:bg-bbs-blue/5">
+                Xem dự án <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>

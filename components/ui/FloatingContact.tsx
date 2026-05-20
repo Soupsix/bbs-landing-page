@@ -62,14 +62,14 @@ export function FloatingContact() {
           href="https://www.messenger.com/t/107488542199286/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
+          className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
         >
           <Image
             src="/logo/facebook.png"
             alt="Facebook Messenger"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain md:h-12 md:w-12"
+            width={64}
+            height={64}
+            className="h-full w-full scale-110 object-cover"
           />
         </Link>
       </div>
@@ -88,14 +88,14 @@ export function FloatingContact() {
 
         <Link
           href="tel:0343603760"
-          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
+          className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
         >
           <Image
             src="/logo/phone.webp"
             alt="Gọi điện thoại"
-            width={40}
-            height={40}
-            className="h-9 w-9 object-contain md:h-10 md:w-10"
+            width={64}
+            height={64}
+            className="h-full w-full scale-125 object-cover"
           />
         </Link>
       </div>
@@ -113,14 +113,14 @@ export function FloatingContact() {
           href="https://zalo.me/0368248696"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
+          className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl transition-transform duration-300 hover:scale-110 md:h-16 md:w-16"
         >
           <Image
             src="/logo/zalo-icon.png"
             alt="Zalo"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain md:h-12 md:w-12"
+            width={64}
+            height={64}
+            className="h-full w-full scale-125 object-cover"
           />
         </Link>
       </div>
