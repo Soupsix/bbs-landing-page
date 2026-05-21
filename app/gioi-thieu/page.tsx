@@ -103,7 +103,7 @@ const departments = [
 const founders = [
   {
     name: "Hà Khánh",
-    role: "CEO - Founder",
+    role: "Owner and CEO",
     image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1779171072/Ha_Khanh_wuzset.webp",
     description:
       "Thuyền trưởng dẫn dắt cũng như chèo lái con thuyền của công ty BBS Media. Với 7 năm kinh nghiệm trong lĩnh vực truyền thông, luôn sẵn sàng hỗ trợ khách hàng những giá trị tốt nhất.",
@@ -302,7 +302,7 @@ export default function GioiThieuPage() {
                   {/* Dark overlay */}
                   <div className="absolute inset-0 bg-black/30 transition-all duration-500 group-hover:bg-black/15" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                  
+
                   {/* Custom Glassmorphic Play Button overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <PlayButton />
