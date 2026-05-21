@@ -36,7 +36,7 @@ const EVENT_TYPES = [
     desc: "Thiết kế và tổ chức Gala Dinner sang trọng với concept sáng tạo, visual hiện đại và trải nghiệm chuyên nghiệp dành cho khách mời.",
     Icon: Utensils,
     images: [
-      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302040/z7761932268536_f65c9478084d4901dd1f47da064293b6_lsokxf.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779358071/TOYOTA_FUSHO_3_tlv4gc.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302038/2026_01_14_18_21_IMG_9713_ojuv1s.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302037/BBS02934_esqhqv.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302036/DSC02616_qmfxx2.webp",

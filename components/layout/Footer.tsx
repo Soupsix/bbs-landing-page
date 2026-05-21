@@ -94,9 +94,9 @@ export function Footer() {
       <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px]"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 xl:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_2.2fr_1.4fr] xl:grid-cols-[1.4fr_1fr_2.2fr_1.5fr] gap-8 mb-12">
           {/* Company Info */}
-          <div className="lg:col-span-3">
+          <div>
             <h3 className="text-2xl font-bold text-bbs-blue mb-4">Công ty TNHH truyền thông BBS Media</h3>
             <p className="text-gray-400 mb-2">MST: 0111450131</p>
             <p className="text-gray-400 mb-6 max-w-sm">
@@ -113,7 +113,7 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div className="lg:col-span-2">
+          <div>
             <h4 className="text-lg font-semibold mb-4 text-white">{t.quickLinksTitle}</h4>
             <ul className="space-y-3">
               {t.links.map((link) => (
@@ -127,7 +127,7 @@ export function Footer() {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-white/[0.07] p-6 text-white shadow-2xl shadow-black/20 backdrop-blur-md">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-6 text-white shadow-2xl shadow-black/20 backdrop-blur-md">
             <p className="text-bbs-blue text-xs font-bold tracking-widest uppercase mb-2">Liên hệ ngay</p>
             <h4 className="text-white text-xl font-bold mb-5">Kết Nối Ngay Với Chúng Tôi</h4>
             {submitted ? (
@@ -171,23 +171,23 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="lg:col-span-2">
+          <div className="min-w-[260px]">
             <h4 className="text-lg font-semibold mb-4 text-white">{t.contactTitle}</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-gray-400">
+            <ul className="space-y-4 text-sm leading-relaxed">
+              <li className="flex items-start gap-3 text-gray-400 min-w-0">
                 <MapPin className="w-5 h-5 text-bbs-blue shrink-0 mt-0.5" />
-                <span>21/08/103 Vạn Phúc, Hà Đông, Hà Nội</span>
+                <span className="min-w-0 break-words">21/08/103 Vạn Phúc, Hà Đông, Hà Nội</span>
               </li>
-              <li className="flex items-start gap-3 text-gray-400">
+              <li className="flex items-start gap-3 text-gray-400 min-w-0">
                 <Phone className="w-5 h-5 text-bbs-blue shrink-0 mt-0.5" />
-                <span>
+                <div className="min-w-0 break-words">
                   <a href="tel:0343603760" className="hover:text-white transition-colors block">SĐT Hotline: 0343603760</a>
                   <a href="https://zalo.me/0368248696" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block mt-1">Zalo hỗ trợ: 0368248696</a>
-                </span>
+                </div>
               </li>
-              <li className="flex items-center gap-3 text-gray-400">
-                <Mail className="w-5 h-5 text-bbs-blue shrink-0" />
-                <a href="mailto:bbsmedia1368@gmail.com" className="hover:text-white transition-colors break-all">bbsmedia1368@gmail.com</a>
+              <li className="flex items-start gap-3 text-gray-400 min-w-0">
+                <Mail className="w-5 h-5 text-bbs-blue shrink-0 mt-0.5" />
+                <a href="mailto:bbsmedia1368@gmail.com" className="hover:text-white transition-colors break-words min-w-0 block">bbsmedia1368@gmail.com</a>
               </li>
             </ul>
           </div>

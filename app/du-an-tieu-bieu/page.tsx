@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Project, PROJECT_GROUPS, PROJECTS, CATEGORIES } from "./data";
-import { LayoutGrid, X, Eye } from "lucide-react";
+import { LayoutGrid, X, Eye, ArrowRight } from "lucide-react";
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -214,6 +215,38 @@ export default function ProjectsPage() {
           );
         })}
       </div>
+
+      {/* ═══════ CTA ═══════ */}
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+        <div className="absolute -top-32 -right-32 h-80 w-80 rounded-full bg-[#27abde]/10 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-[#d81e25]/10 blur-3xl" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="rounded-3xl border border-gray-100 bg-white/90 p-8 md:p-12 text-center shadow-xl relative overflow-hidden backdrop-blur">
+            <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#27abde]/10 blur-3xl" />
+            <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#d81e25]/10 blur-3xl" />
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <span className="inline-flex items-center rounded-full border border-[#27abde]/20 bg-[#27abde]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#27abde] mb-5">
+                BBS Media
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-[#101827] mb-5">
+                Sẵn sàng đồng hành cùng BBS Media?
+              </h2>
+              <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+                Hãy để chúng tôi cùng bạn xây dựng hình ảnh thương hiệu chuyên nghiệp, sáng tạo và hiệu quả.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link href="/lien-he" className="inline-flex items-center justify-center rounded-xl bg-[#d81e25] px-7 py-4 text-sm font-bold uppercase tracking-widest text-white hover:bg-[#d81e25]/90 transition-colors">
+                  Liên hệ tư vấn
+                </Link>
+                <Link href="/khach-hang" className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-7 py-4 text-sm font-bold uppercase tracking-widest text-[#101827] hover:border-[#27abde]/30 hover:bg-[#27abde]/5 transition-colors">
+                  Khách hàng & Đối tác <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ═══════ PROJECT DETAIL MODAL ═══════ */}
       {selectedProject && (

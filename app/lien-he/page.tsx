@@ -53,23 +53,35 @@ export default function ContactPage() {
           <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* ── Left: CONTACT INFO ────────────────────────────── */}
-              <div className="px-8 py-10 lg:py-12 bg-[#f8fafc]">
+              <div className="px-8 py-10 lg:py-12 bg-[#f8fafc] flex flex-col justify-center">
                 {/* Brand */}
                 <div className="mb-8">
-                  <p className="text-bbs-blue text-xs font-bold tracking-widest uppercase mb-3">Thông tin</p>
-                  <h3 className="text-deep-navy text-2xl font-extrabold tracking-tight">BBS MEDIA</h3>
-                  <p className="text-gray-500 text-sm mt-1">Creative Production & Event Agency</p>
+                  <p className="text-bbs-blue text-xs font-bold tracking-widest uppercase mb-3">Thông tin liên hệ</p>
+                  <h3 className="text-deep-navy text-xl font-extrabold tracking-tight leading-tight">CÔNG TY TNHH TRUYỀN THÔNG BBS MEDIA</h3>
+                  <p className="text-gray-500 text-sm mt-3 leading-relaxed">
+                    Giải pháp truyền thông & sự kiện giúp doanh nghiệp tăng trưởng nhanh. Triển khai nhanh, tối ưu chi phí và tạo ra kết quả đo lường rõ ràng.
+                  </p>
                 </div>
 
                 {/* Info items */}
                 <div className="space-y-6">
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-bbs-blue/10 group-hover:bg-bbs-blue flex items-center justify-center shrink-0 transition-colors">
+                      <MapPin className="w-4 h-4 text-bbs-blue group-hover:text-white transition-colors" />
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Địa chỉ</p>
+                      <p className="text-deep-navy font-semibold text-sm leading-relaxed">21/08/103 Vạn Phúc, Hà Đông</p>
+                    </div>
+                  </div>
+
                   <a href="tel:0343603760" className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-xl bg-bbs-blue/10 group-hover:bg-bbs-blue flex items-center justify-center shrink-0 transition-colors">
                       <Phone className="w-4 h-4 text-bbs-blue group-hover:text-white transition-colors" />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Điện thoại</p>
-                      <p className="text-deep-navy font-semibold text-sm group-hover:text-bbs-blue transition-colors">0343.603.760</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Hotline</p>
+                      <p className="text-deep-navy font-semibold text-sm group-hover:text-bbs-blue transition-colors">034.360.3760 - 0368.24.8696</p>
                     </div>
                   </a>
 
@@ -92,41 +104,28 @@ export default function ContactPage() {
                       <FacebookIcon className="w-4 h-4 text-blue-500 group-hover:text-white transition-colors" />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Facebook</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Fanpage</p>
                       <p className="text-deep-navy font-semibold text-sm group-hover:text-blue-600 transition-colors">BBSProduction.media</p>
                     </div>
                   </a>
-
-                  <a
-                    href="https://www.tiktok.com/@bbs.event"
-                    target="_blank" rel="noopener noreferrer"
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-gray-100 group-hover:bg-deep-navy flex items-center justify-center shrink-0 transition-colors">
-                      <TikTokIcon className="w-4 h-4 text-deep-navy group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">TikTok</p>
-                      <p className="text-deep-navy font-semibold text-sm group-hover:text-gray-600 transition-colors">@bbs.event</p>
-                    </div>
-                  </a>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center shrink-0">
-                      <MapPin className="w-4 h-4 text-gray-500" />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Địa chỉ</p>
-                      <p className="text-deep-navy font-semibold text-sm leading-relaxed">21/08/103 Vạn Phúc,<br />Hà Đông, Hà Nội</p>
-                    </div>
-                  </div>
                 </div>
 
-                {/* Divider + tagline */}
-                <div className="mt-10 pt-6 border-t border-gray-100">
-                  <p className="text-gray-400 text-xs leading-relaxed italic">
-                    "Chúng tôi không chỉ sản xuất nội dung — chúng tôi tạo ra những câu chuyện thương hiệu đáng nhớ."
-                  </p>
+                {/* Company details */}
+                <div className="mt-8 pt-6 border-t border-gray-200/60">
+                  <div className="space-y-3">
+                    <div className="flex gap-2">
+                      <span className="text-gray-500 font-medium text-sm w-24 shrink-0">Mã số thuế:</span>
+                      <span className="text-deep-navy font-semibold text-sm">0111450131</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="text-gray-500 font-medium text-sm w-24 shrink-0">Đại diện:</span>
+                      <span className="text-deep-navy font-semibold text-sm">Hà Khánh (Founder)</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="text-gray-500 font-medium text-sm w-24 shrink-0">Lĩnh vực:</span>
+                      <span className="text-deep-navy font-semibold text-sm leading-relaxed">Tư vấn truyền thông – Sản xuất Media – Tổ chức sự kiện.</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 

@@ -225,69 +225,61 @@ export function Header() {
                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${desktopDropdown === link.dropdownId ? "rotate-180" : ""}`} />
                     </Link>
 
-                    {/* Mega-menu panel */}
+                    {/* Compact Dropdown menu */}
                     {(() => {
                       const meta = getMegaMeta(link.dropdownId);
                       const cards = getMegaCards(link.dropdownId);
                       const isMedia = link.dropdownId === "media";
-                      const cols = isMedia ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" : "grid-cols-2 sm:grid-cols-2 lg:grid-cols-4";
+                      const menuWidth = isMedia ? "w-[600px]" : "w-[480px]";
+                      const cols = "grid-cols-2";
+
                       return (
                         <div
-                          className={`fixed left-0 right-0 top-[80px] transition-all duration-200 z-50 ${
+                          className={`absolute left-1/2 -translate-x-1/2 top-full mt-3 z-50 transition-all duration-200 ${
                             desktopDropdown === link.dropdownId
                               ? "opacity-100 visible translate-y-0"
                               : "opacity-0 invisible -translate-y-2"
                           }`}
                         >
-                          <div className="bg-white border-t border-border-gray shadow-2xl">
-                            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
-                              {/* Header */}
-                              {meta && (
-                                <div className="text-center mb-6">
-                                  <h3 className="text-lg font-bold tracking-widest text-deep-navy mb-1">
-                                    {meta.title}
-                                  </h3>
-                                  <p className="text-xs text-gray-400 mb-2">{meta.subtitle}</p>
-                                  <div className="mx-auto h-0.5 w-10 rounded-full" style={{ backgroundColor: meta.accent }} />
-                                </div>
-                              )}
-                              {/* Cards grid */}
-                              <div className={`grid ${cols} gap-3`}>
-                                {cards.map(({ href, label, desc, Icon }) => (
-                                  <Link
-                                    key={href}
-                                    href={href}
-                                    onClick={() => setDesktopDropdown(null)}
-                                    className="group flex flex-col items-center text-center p-4 rounded-xl border border-transparent hover:border-border-gray hover:bg-[#f8fafc] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                          <div className={`bg-white border border-gray-100 shadow-xl rounded-2xl p-4 ${menuWidth}`}>
+                            {/* Cards grid */}
+                            <div className={`grid ${cols} gap-2`}>
+                              {cards.map(({ href, label, desc, Icon }) => (
+                                <Link
+                                  key={href}
+                                  href={href}
+                                  onClick={() => setDesktopDropdown(null)}
+                                  className="group flex items-center gap-3 p-2.5 rounded-xl transition-all duration-200 hover:bg-[#27abde]/5"
+                                >
+                                  <div
+                                    className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${isMedia ? 'bg-[#27abde]/10 text-[#27abde]' : 'bg-[#d81e25]/10 text-[#d81e25]'}`}
                                   >
-                                    <div
-                                      className="w-12 h-12 rounded-full flex items-center justify-center mb-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"
-                                      style={{ backgroundColor: link.dropdownId === "media" ? "#27abde" : "#d81e25" }}
-                                    >
-                                      <Icon className="w-5 h-5 text-white" />
-                                    </div>
-                                    <span className="text-sm font-semibold text-deep-navy group-hover:text-bbs-blue mb-1 leading-tight transition-colors">
+                                    <Icon className="w-4 h-4" />
+                                  </div>
+                                  <div className="flex flex-col">
+                                    <span className="text-sm font-semibold text-deep-navy group-hover:text-[#27abde] mb-0.5 leading-tight transition-colors">
                                       {label}
                                     </span>
-                                    <span className="text-xs text-gray-400 leading-snug line-clamp-2">{desc}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                              {/* Footer link */}
-                              {meta && (
-                                <div className="mt-6 pt-4 border-t border-border-gray flex justify-center">
-                                  <Link
-                                    href={meta.allHref}
-                                    onClick={() => setDesktopDropdown(null)}
-                                    className="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase transition-colors hover:opacity-80"
-                                    style={{ color: meta.accent }}
-                                  >
-                                    {meta.allLabel}
-                                    <ArrowRight className="w-3.5 h-3.5" />
-                                  </Link>
-                                </div>
-                              )}
+                                    <span className="text-xs text-gray-500 leading-snug line-clamp-1">{desc}</span>
+                                  </div>
+                                </Link>
+                              ))}
                             </div>
+                            
+                            {/* Footer link */}
+                            {meta && (
+                              <div className="mt-3 pt-3 border-t border-gray-100 flex justify-center">
+                                <Link
+                                  href={meta.allHref}
+                                  onClick={() => setDesktopDropdown(null)}
+                                  className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide uppercase transition-colors hover:opacity-80"
+                                  style={{ color: meta.accent }}
+                                >
+                                  {meta.allLabel}
+                                  <ArrowRight className="w-3.5 h-3.5" />
+                                </Link>
+                              </div>
+                            )}
                           </div>
                         </div>
                       );
