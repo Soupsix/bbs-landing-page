@@ -5,6 +5,8 @@ import Image from "next/image";
 import { ArrowRight, PhoneCall, PartyPopper, Utensils, Users, Tent, Tv2, Cake, Megaphone, Volume2, Lightbulb, MonitorPlay, Layers, Frame, Armchair } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
+const PLACEHOLDER_IMG = "/casestudy/hanhtrinhbattu.webp";
+
 /* ── Section anchor nav ── */
 const SECTION_NAV = [
   { id: "loai-hinh-su-kien", label: "Loại hình sự kiện" },
@@ -18,44 +20,93 @@ const EVENT_TYPES = [
   {
     id: "khai-truong-khanh-thanh",
     title: "Khai Trương - Khánh Thành",
-    desc: "Tổ chức lễ khai trương, khánh thành chuyên nghiệp, mang lại sự khởi đầu may mắn và thu hút sự chú ý mạnh mẽ từ khách hàng mục tiêu.",
+    desc: "Tổ chức lễ khai trương và khánh thành chuyên nghiệp với setup sân khấu, âm thanh ánh sáng và kịch bản chương trình hiện đại giúp nâng cao hình ảnh thương hiệu.",
     Icon: PartyPopper,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779301712/z7761932268536_f65c9478084d4901dd1f47da064293b6_tz24sg.jpg",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779301712/2025_02_08_10_32_IMG_9244_yrhr9k.jpg",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779301714/DAT08622_dsptlf.jpg",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779301714/DSC06126_umeawd.jpg",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779301715/IMG_3554_result_bebjom.jpg"
+    ]
   },
   {
     id: "gala-dinner",
     title: "Gala Dinner / Chương trình biểu diễn",
-    desc: "Tổ chức đêm tiệc tri ân, Gala Dinner đầy cảm xúc và gắn kết. Cung cấp kịch bản sáng tạo, nghệ sĩ biểu diễn và không gian tiệc sang trọng.",
+    desc: "Thiết kế và tổ chức Gala Dinner sang trọng với concept sáng tạo, visual hiện đại và trải nghiệm chuyên nghiệp dành cho khách mời.",
     Icon: Utensils,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302040/z7761932268536_f65c9478084d4901dd1f47da064293b6_lsokxf.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302038/2026_01_14_18_21_IMG_9713_ojuv1s.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302037/BBS02934_esqhqv.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302036/DSC02616_qmfxx2.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302154/z7761935107134_1f1c8bf4feaaf2cda78d29d18ce37b59_tn6yhm.webp"
+    ]
   },
   {
     id: "hoi-nghi-hoi-thao",
     title: "Hội Nghị - Hội Thảo - Hội Thao - Ký Kết",
-    desc: "Cung cấp giải pháp tổ chức hội nghị, hội thảo và lễ ký kết trang trọng, chuyên nghiệp với hệ thống âm thanh, ánh sáng và phiên dịch đạt chuẩn quốc tế.",
+    desc: "Triển khai hội nghị, hội thảo và lễ ký kết với hệ thống sân khấu, LED và vận hành kỹ thuật chuyên nghiệp.",
     Icon: Users,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302328/BBS04977_rlluz3.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302326/DSC08112_qodq20.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302324/BBS07962_a8oikw.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302323/DSC09636_xlqlbg.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302322/DSC09994_xzfe4f.webp"
+    ]
   },
   {
     id: "team-building",
     title: "Team Building / Hoạt động ngoài trời",
-    desc: "Tổ chức hoạt động Team Building sáng tạo, các trò chơi gắn kết tập thể nhằm nâng cao tinh thần đồng đội và tái tạo năng lượng cho nhân viên.",
+    desc: "Xây dựng chương trình team building sáng tạo giúp kết nối tập thể và nâng cao tinh thần đội nhóm.",
     Icon: Tent,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302737/DSC03878_gpr1jr.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302735/IMG_0050_result_rvfurd.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302734/TVA_7009_result_wxsbj4.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302722/TVA_7246_result_1_marzso.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302722/TVA_7204_result_pkx1c6.webp"
+    ]
   },
   {
     id: "year-end-party",
     title: "Year End Party / Tổng kết",
-    desc: "Tổ chức tiệc tất niên hoành tráng, đánh dấu một năm thành công và tạo động lực cho năm mới với các tiết mục đặc sắc và kịch bản bùng nổ.",
+    desc: "Tổ chức tiệc cuối năm với concept hiện đại, sân khấu chuyên nghiệp và hệ thống vận hành đồng bộ.",
     Icon: Tv2,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302926/DAT09815_nlfeed.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303299/DAT09784_rrkd7i.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302924/DSC09335_hollaz.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302912/IMG_1398_result_fswgtw.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779302910/IMG_1380_result_cx2fm3.webp"
+    ]
   },
   {
     id: "sinh-nhat",
     title: "Sinh Nhật / Lễ Kỷ Niệm",
-    desc: "Tổ chức sinh nhật cá nhân, sinh nhật công ty với concept trang trí độc đáo, không gian ấm cúng và kịch bản được cá nhân hóa hoàn toàn.",
+    desc: "Thiết kế và trang trí tiệc sinh nhật theo nhiều phong cách từ sang trọng, hiện đại đến trẻ trung và sáng tạo.",
     Icon: Cake,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303313/BBS00164_kkagcx.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303312/BBS07889_result_kvocdp.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303309/BBS08135_result_fbe87m.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303307/IMG_0597_result_nq69gu.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303305/mec5_result_qnhu8l.webp"
+    ]
   },
   {
     id: "activation",
     title: "Activation",
-    desc: "Tổ chức các chiến dịch Brand Activation, chạy roadshow, booth tương tác nhằm tăng độ nhận diện thương hiệu và kích cầu tiêu dùng trực tiếp.",
+    desc: "Triển khai activation thương hiệu nhằm tăng trải nghiệm khách hàng và nâng cao khả năng nhận diện thương hiệu tại sự kiện.",
     Icon: Megaphone,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303457/IMG_3140_result_rjyhgq.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303454/IMG_3144_result_azteub.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303452/NAM03661_yfxpaa.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303450/NAM06079_dgcgxt.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779303439/NAM03668_jwgve9.webp"
+    ]
   },
 ];
 
@@ -64,57 +115,122 @@ const EQUIPMENT = [
   {
     id: "am-thanh",
     title: "Âm thanh",
-    desc: "Hệ thống âm thanh chuyên nghiệp, đảm bảo chất lượng âm thanh sắc nét, rõ ràng cho mọi quy mô sự kiện.",
+    desc: "Hệ thống loa, mixer và micro chuyên nghiệp phù hợp cho hội nghị, sân khấu và sự kiện ngoài trời.",
     Icon: Volume2,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325304/IMG_1724229438416_1724229519159_wdqbwh.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325304/IMG_1724229438295_1724229509529_tkbb2s.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325304/IMG_1724229438385_1724229518346_ztygb4.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325305/MARRIOTT_21_08_84_qd64iw.webp"
+    ]
   },
   {
     id: "anh-sang",
     title: "Ánh sáng",
-    desc: "Thiết kế và vận hành hệ thống ánh sáng hiện đại, tạo không gian ấn tượng và phù hợp với từng loại chương trình.",
+    desc: "Setup lighting hiện đại với moving light, beam light, par led và hiệu ứng sân khấu chuyên nghiệp.",
     Icon: Lightbulb,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325682/z7761932000303_c1316fd9e0a4bf98880a024365762b9a_aeomle.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325681/JAEYOUNG_B%E1%BA%AEC_NINH_5_rnejsy.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325681/z7761932530724_4f22413b0f860ca297e3b497ab226d75_ilu0w1.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325681/MARRIOTT_21_08_88_hozumt.webp"
+    ]
   },
   {
     id: "man-hinh-led",
     title: "Màn hình LED",
-    desc: "Màn hình LED độ phân giải cao, hiển thị nội dung sinh động phục vụ trình chiếu, quảng bá và truyền thông sự kiện.",
+    desc: "Cho thuê màn hình LED indoor và outdoor với khả năng hiển thị sắc nét và chuyên nghiệp P2, P3.",
     Icon: MonitorPlay,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325895/JAEYOUNG_B%E1%BA%AEC_NINH_-_Copy_gkcpbz.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325896/MARRIOTT_21_08_68_r9esx1.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325896/IMG_1724229438223_1724229503048_fkfull.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779325896/IMG_1724229438099_1724229498024_gctvti.webp"
+    ]
   },
   {
     id: "san-khau",
     title: "Sân khấu",
-    desc: "Thi công và lắp đặt sân khấu theo thiết kế, đảm bảo an toàn và thẩm mỹ cho toàn bộ không gian chương trình.",
+    desc: "Thi công sân khấu theo concept riêng phù hợp với từng loại hình chương trình và quy mô sự kiện.",
     Icon: Layers,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326198/JAEYOUNG_B%E1%BA%AEC_NINH_18_iea9tx.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326201/JAEYOUNG_B%E1%BA%AEC_NINH_10_qppwxs.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326199/JAEYOUNG_B%E1%BA%AEC_NINH_13_vqhw8w.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326200/JAEYOUNG_B%E1%BA%AEC_NINH_1_ayobym.webp"
+    ]
   },
   {
     id: "backdrop",
     title: "Backdrop",
-    desc: "Thiết kế và thi công backdrop sự kiện theo yêu cầu nhận diện thương hiệu, phù hợp với từng chủ đề chương trình.",
+    desc: "Thiết kế và thi công backdrop theo nhận diện thương hiệu và concept chương trình.",
     Icon: Frame,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326412/2025_11_10_13_10_IMG_4500_nbbtqd.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326410/CHI07914_xdwjhf.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326410/TVB07422_ymvhjr.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326411/BBS06417_idmzki.webp"
+    ]
   },
   {
     id: "ban-ghe",
     title: "Bàn ghế & Hạng mục đi kèm",
-    desc: "Cung cấp bàn ghế, bục, rạp và các hạng mục đi kèm chất lượng cao, đáp ứng đa dạng phong cách và quy mô sự kiện.",
+    desc: "Cung cấp bàn ghế, nhà bạt, thảm sân khấu và các hạng mục hỗ trợ sự kiện khác.",
     Icon: Armchair,
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326491/IMG_6829_mplzcb.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326491/IMG_7228_result_xaetjn.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326492/IMG_6828_nyzksi.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779326493/_NVT1197_yrtpbr.webp"
+    ]
   },
 ];
 
 /* ── Design & Decoration ── */
 const DECORATIONS = [
   {
+    id: "thiet-ke-khong-gian-su-kien",
+    title: "Thiết kế không gian sự kiện",
+    desc: "BBS Media hỗ trợ thiết kế và thi công không gian sự kiện với phong cách hiện đại và đồng bộ hình ảnh thương hiệu.",
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779328250/Image4_001_hgwldc.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779328251/CHI08753_b3tbg2.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779328252/CHI08544_pvmpx9.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779328253/CHI08494_ykhjob.webp"
+    ]
+  },
+  {
     id: "thiet-ke-san-khau-2d-3d",
     title: "Thiết kế sân khấu 2D/3D",
-    desc: "Xây dựng bản thiết kế sân khấu 2D và 3D chuyên nghiệp, giúp khách hàng hình dung tổng thể không gian và phong cách sự kiện trước khi thi công.",
+    desc: "Thiết kế mô phỏng sân khấu chuyên nghiệp giúp khách hàng dễ dàng hình dung không gian thực tế trước khi thi công.",
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779328492/z7815631462237_9ec0b3914f95a9e62fe928f70ad4117f_qvshwk.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779328492/z7815631444170_de9b09c9ab5f05ae17fc3831f3ff7aef_ls5uni.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779328494/z7815622939419_decbead7efc42e8d9f57383c0d9d2014_iesbcs.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329079/z7815631471600_17f07b064e3d906d80a75610e0089ac6_mame0y.webp"
+    ]
   },
   {
     id: "trang-tri-san-khau",
     title: "Trang trí sân khấu",
-    desc: "Trang trí sân khấu theo concept đã duyệt, đảm bảo sự đồng bộ hình ảnh thương hiệu và tạo điểm nhấn thẩm mỹ ấn tượng cho sự kiện.",
+    desc: "Setup sân khấu theo concept riêng với hệ thống hình ảnh, ánh sáng và bố cục hiện đại.",
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329357/z7815631535218_bdc7a94489a53656fa269509e49b1dfd_lj587j.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329360/z7815631498959_109efe2ad6227d31ac19eb24a80aab57_ma5vdg.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329357/z7815631957828_ecb6628ca78c1fd0d0bec89907db5c75_ei0dmt.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329360/z7815627456363_a5f4b2f74e528e993a9936d2997f1daf_smi5mi.webp"
+    ]
   },
   {
     id: "trang-tri-su-kien",
     title: "Trang trí sự kiện",
-    desc: "Trang trí toàn bộ không gian sự kiện từ sảnh đón khách, bàn tiệc đến backdrop và các điểm tương tác theo phong cách hiện đại và sáng tạo.",
+    desc: "Thi công khu vực check-in, photobooth, bàn gallery và không gian sự kiện chuyên nghiệp.",
+    images: [
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329453/BBS07630_q0yyms.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329457/BBS07541_qmkjvc.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329454/BBS07623_vduwxw.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1779329458/BBS07527_utqazp.webp"
+    ]
   },
 ];
 
@@ -142,7 +258,155 @@ const PROCESS_STEPS = [
   },
 ];
 
-const PLACEHOLDER_IMG = "/casestudy/hanhtrinhbattu.webp";
+// Reusable Showcase Component
+interface ShowcaseBlockProps {
+  title: string;
+  desc: string;
+  images: string[];
+  Icon?: any;
+  index?: number;
+}
+
+function ShowcaseBlock({ title, desc, images, Icon, index = 0 }: ShowcaseBlockProps) {
+  const isEven = index % 2 === 0;
+  const brandColor = isEven ? "#d81e25" : "#27abde";
+  const bgClass = isEven ? "bg-white" : "bg-[#f8fafc]";
+  
+  const mainImage = images[0] || PLACEHOLDER_IMG;
+  const supportingImages = images.slice(1, 5);
+  
+  const paddedSupportingImages = [...supportingImages];
+  while (paddedSupportingImages.length < 4) {
+    paddedSupportingImages.push(PLACEHOLDER_IMG);
+  }
+
+  return (
+    <div className={`w-full py-12 md:py-16 ${bgClass} border-b border-gray-100 last:border-b-0`}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        {/* Main Banner Image */}
+        <div className="relative w-full aspect-[16/7] rounded-2xl overflow-hidden shadow-md group/main">
+          <Image
+            src={mainImage}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover/main:scale-[1.02]"
+            loading="lazy"
+          />
+        </div>
+
+        {/* Text Details Row */}
+        <div className="mt-6 mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3">
+              {Icon && (
+                <div
+                  className="p-2 rounded-xl flex items-center justify-center text-white"
+                  style={{ backgroundColor: brandColor }}
+                >
+                  <Icon className="w-6 h-6" />
+                </div>
+              )}
+              <h3 className="text-2xl md:text-3xl font-bold text-[#101827] uppercase tracking-wide">
+                {title}
+              </h3>
+            </div>
+            <p className="text-gray-600 text-sm md:text-base mt-3 leading-relaxed">
+              {desc}
+            </p>
+          </div>
+          <div className="flex-shrink-0">
+            <Link
+              href="/lien-he?service=to-chuc-su-kien"
+              className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-md"
+              style={{ backgroundColor: brandColor }}
+            >
+              Nhận tư vấn
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Supporting Images Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {paddedSupportingImages.map((img, i) => (
+            <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group/support">
+              <Image
+                src={img}
+                alt={title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover/support:scale-105"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EquipmentShowcaseBlock({ title, desc, images, Icon, index = 0 }: ShowcaseBlockProps) {
+  const isEven = index % 2 === 0;
+  const brandColor = isEven ? "#d81e25" : "#27abde";
+  const bgClass = isEven ? "bg-white" : "bg-[#f8fafc]";
+  
+  return (
+    <div className={`w-full py-12 md:py-16 ${bgClass} border-b border-gray-100 last:border-b-0`}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="bg-white rounded-3xl border border-gray-100 shadow-md overflow-hidden">
+          {/* Text Area */}
+          <div className="p-6 md:p-8 lg:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-b border-gray-50">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-3">
+                {Icon && (
+                  <div
+                    className="p-2.5 rounded-xl flex items-center justify-center text-white"
+                    style={{ backgroundColor: brandColor }}
+                  >
+                    <Icon className="w-6 h-6" />
+                  </div>
+                )}
+                <h3 className="text-2xl md:text-3xl font-bold text-[#101827] uppercase tracking-wide">
+                  {title}
+                </h3>
+              </div>
+              <p className="text-gray-600 text-sm md:text-base mt-4 leading-relaxed">
+                {desc}
+              </p>
+            </div>
+            <div className="flex-shrink-0 w-full md:w-auto mt-2 md:mt-0">
+              <Link
+                href="/lien-he?service=to-chuc-su-kien"
+                className="inline-flex w-full md:w-auto items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-md"
+                style={{ backgroundColor: brandColor }}
+              >
+                Nhận tư vấn
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Image Area */}
+          <div className="p-6 md:p-8 lg:p-10 bg-gray-50/50">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              {images.map((img, i) => (
+                <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group">
+                  <Image
+                    src={img}
+                    alt={title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function EventPage() {
   const { lang } = useLanguage();
@@ -187,7 +451,7 @@ export default function EventPage() {
       {/* ═══════ ANCHOR NAV ═══════ */}
       <nav className="sticky top-[80px] z-30 bg-white border-b border-gray-100 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto py-3 no-scrollbar">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 overflow-x-auto py-3 no-scrollbar w-full">
             {SECTION_NAV.map((item) => (
               <button
                 key={item.id}
@@ -202,13 +466,13 @@ export default function EventPage() {
       </nav>
 
       {/* ═══════ SECTION 1: LOẠI HÌNH SỰ KIỆN ═══════ */}
-      <section id="loai-hinh-su-kien" className="py-20 md:py-28 bg-white scroll-mt-[130px]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16 flex flex-col items-center">
+      <section id="loai-hinh-su-kien" className="pt-20 md:pt-28 bg-white scroll-mt-[130px]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12">
+          <div className="text-center flex flex-col items-center">
             <span className="inline-block px-3 py-1 rounded-full bg-[#d81e25]/10 text-[#d81e25] border border-[#d81e25]/20 text-xs font-semibold uppercase tracking-widest mb-3">
               Dịch vụ
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-[#101827]">
+            <h2 className="text-3xl md:text-5xl pt-8 font-bold text-[#101827]">
               CÁC LOẠI HÌNH TỔ CHỨC SỰ KIỆN
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-[#d81e25] to-[#27abde] rounded-full mt-4 mb-6" />
@@ -216,65 +480,95 @@ export default function EventPage() {
               BBS Media tổ chức đa dạng các loại hình sự kiện từ quy mô nhỏ đến lớn, trong nhà và ngoài trời.
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {EVENT_TYPES.map((event, idx) => {
-              const isEven = idx % 2 === 0;
-              const brandColor = isEven ? "#d81e25" : "#27abde";
-              return (
-                <div
-                  key={event.id}
-                  className="group relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col p-6 pt-14 mt-6"
-                >
-                  {/* Icon badge */}
-                  <div className="absolute top-0 left-6 -translate-y-1/2">
-                    <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300"
-                      style={{ backgroundColor: brandColor }}
-                    >
-                      <event.Icon className="w-6 h-6 text-white" />
+        {/* Vertical Showcase Rows */}
+        <div className="w-full">
+          {EVENT_TYPES.map((event, idx) => {
+            const isEven = idx % 2 === 0;
+            const brandColor = isEven ? "#d81e25" : "#27abde";
+            const bgClass = isEven ? "bg-white" : "bg-[#f8fafc]";
+            
+            const mainImage = event.images[0];
+            const supportingImages = event.images.slice(1, 5);
+
+            return (
+              <div
+                key={event.id}
+                className={`w-full py-12 md:py-16 ${bgClass} border-b border-gray-100 last:border-b-0`}
+              >
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+                  {/* Main Banner Image */}
+                  <div className="relative w-full aspect-[16/7] md:aspect-[16/7] rounded-2xl overflow-hidden shadow-md group/main">
+                    <Image
+                      src={mainImage}
+                      alt={event.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover/main:scale-[1.02]"
+                      priority={idx === 0}
+                      loading={idx === 0 ? undefined : "lazy"}
+                    />
+                  </div>
+
+                  {/* Text Details Row */}
+                  <div className="mt-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="max-w-3xl">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="p-2 rounded-xl flex items-center justify-center text-white"
+                          style={{ backgroundColor: brandColor }}
+                        >
+                          <event.Icon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-[#101827] uppercase tracking-wide">
+                          {event.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-600 text-sm md:text-base mt-3 leading-relaxed">
+                        {event.desc}
+                      </p>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <Link
+                        href="/lien-he?service=to-chuc-su-kien"
+                        className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-md"
+                        style={{ backgroundColor: brandColor }}
+                      >
+                        Nhận tư vấn
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
                     </div>
                   </div>
 
-                  <h3 className="text-base font-bold text-[#101827] mb-3 leading-snug">
-                    {event.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed flex-grow mb-5">
-                    {event.desc}
-                  </p>
-
-                  {/* Gallery placeholder */}
-                  <div className="grid grid-cols-3 gap-1.5 mb-5">
-                    {[0, 1, 2].map((i) => (
-                      <div key={i} className="relative h-16 rounded-lg overflow-hidden">
-                        <Image src={PLACEHOLDER_IMG} alt={`${event.title} ${i + 1}`} fill className="object-cover" />
+                  {/* Supporting Images Grid */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {supportingImages.map((img, i) => (
+                      <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group/support">
+                        <Image
+                          src={img}
+                          alt={event.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover/support:scale-105"
+                          loading="lazy"
+                        />
                       </div>
                     ))}
                   </div>
-
-                  <Link
-                    href="/lien-he?service=to-chuc-su-kien"
-                    className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-md"
-                    style={{ backgroundColor: brandColor }}
-                  >
-                    Nhận tư vấn
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       {/* ═══════ SECTION 2: THIẾT BỊ SỰ KIỆN ═══════ */}
-      <section id="thiet-bi-su-kien" className="py-20 md:py-28 bg-gray-50 border-t border-gray-100 scroll-mt-[130px]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16 flex flex-col items-center">
+      <section id="thiet-bi-su-kien" className="pt-20 md:pt-28 bg-white scroll-mt-[130px]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12">
+          <div className="text-center flex flex-col items-center">
             <span className="inline-block px-3 py-1 rounded-full bg-[#27abde]/10 text-[#27abde] border border-[#27abde]/20 text-xs font-semibold uppercase tracking-widest mb-3">
               Thiết bị
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-[#101827]">
+            <h2 className="text-3xl md:text-5xl pt-8 font-bold text-[#101827]">
               HỆ THỐNG THIẾT BỊ SỰ KIỆN
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-[#27abde] to-[#d81e25] rounded-full mt-4 mb-6" />
@@ -282,89 +576,55 @@ export default function EventPage() {
               BBS Media cung cấp hệ thống thiết bị sự kiện chuyên nghiệp phục vụ đa dạng chương trình với chất lượng vận hành ổn định và hiện đại.
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {EQUIPMENT.map((item, idx) => (
-              <div
-                key={item.id}
-                className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-              >
-                {/* Image placeholder */}
-                <div className="relative h-48 overflow-hidden">
-                  <Image src={PLACEHOLDER_IMG} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-[#101827]/30" />
-                  <div
-                    className="absolute top-4 left-4 w-12 h-12 rounded-xl flex items-center justify-center shadow-md"
-                    style={{ backgroundColor: idx % 2 === 0 ? "#27abde" : "#d81e25" }}
-                  >
-                    <item.Icon className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-base font-bold text-[#101827] mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Vertical Showcase Rows */}
+        <div className="w-full">
+          {EQUIPMENT.map((item, idx) => (
+            <EquipmentShowcaseBlock
+              key={item.id}
+              title={item.title}
+              desc={item.desc}
+              images={item.images}
+              Icon={item.Icon}
+              index={idx}
+            />
+          ))}
         </div>
       </section>
 
       {/* ═══════ SECTION 3: THIẾT KẾ & TRANG TRÍ ═══════ */}
-      <section id="thiet-ke-trang-tri" className="py-20 md:py-28 bg-gradient-to-b from-white via-[#f8fafc] to-white border-t border-gray-100 scroll-mt-[130px] relative overflow-hidden">
+      <section id="thiet-ke-trang-tri" className="pt-20 md:pt-28 bg-white border-t border-gray-100 scroll-mt-[130px] relative overflow-hidden">
         {/* Subtle glow blobs */}
         <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#27abde]/5 rounded-full blur-3xl pointer-events-none -translate-x-1/2" />
         <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-[#d81e25]/5 rounded-full blur-3xl pointer-events-none translate-x-1/2" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="text-center mb-16 flex flex-col items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-12 relative z-10">
+          <div className="text-center flex flex-col items-center">
             <span className="inline-block px-3 py-1 rounded-full bg-[#27abde]/10 text-[#27abde] border border-[#27abde]/20 text-xs font-semibold uppercase tracking-widest mb-3">
               Thiết kế & Trang trí
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-[#101827]">
-              THIẾT KẾ SÂN KHẤU / BỐI CẢNH
-            </h2>
-            <h2 className="text-3xl md:text-5xl font-bold text-[#101827] mt-1">
-              & TRANG TRÍ SỰ KIỆN
+            <h2 className="text-3xl md:text-5xl pt-8 font-bold text-[#101827] text-center">
+              THIẾT KẾ SÂN KHẤU / BỐI CẢNH & TRANG TRÍ SỰ KIỆN
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-[#27abde] to-[#d81e25] rounded-full mt-4 mb-6" />
             <p className="text-gray-600 max-w-xl text-sm md:text-base leading-relaxed">
               BBS Media hỗ trợ thiết kế và thi công không gian sự kiện với phong cách hiện đại và đồng bộ hình ảnh thương hiệu.
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {DECORATIONS.map((item, idx) => {
-              const accentColor = idx === 1 ? "#d81e25" : "#27abde";
-              return (
-                <div
-                  key={item.id}
-                  className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-[#27abde]/30 transition-all duration-300"
-                >
-                  <div className="relative h-52 overflow-hidden">
-                    <Image src={PLACEHOLDER_IMG} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-[#101827]/10" />
-                    {/* Accent bar at top */}
-                    <div
-                      className="absolute top-0 left-0 right-0 h-1"
-                      style={{ backgroundColor: accentColor }}
-                    />
-                    {/* Number badge */}
-                    <div
-                      className="absolute bottom-4 right-4 w-10 h-10 rounded-full flex items-center justify-center shadow-lg"
-                      style={{ backgroundColor: accentColor }}
-                    >
-                      <span className="text-white text-xs font-bold">{String(idx + 1).padStart(2, "0")}</span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-base font-bold text-[#101827] mb-3">{item.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        {/* Vertical Showcase Rows */}
+        <div className="w-full relative z-10">
+          {DECORATIONS.map((item, idx) => (
+            <EquipmentShowcaseBlock
+              key={item.id}
+              title={item.title}
+              desc={item.desc}
+              images={item.images}
+              index={idx}
+            />
+          ))}
         </div>
       </section>
 

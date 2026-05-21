@@ -171,7 +171,7 @@ export default function ContactPage() {
               <Link href="tel:0343603760" className="inline-flex items-center justify-center rounded-xl bg-bbs-red px-7 py-4 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-bbs-red/90">
                 Liên hệ tư vấn
               </Link>
-              <Link href="/danh-muc-du-an" className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-7 py-4 text-sm font-bold uppercase tracking-widest text-deep-navy transition-colors hover:border-bbs-blue/30 hover:bg-bbs-blue/5">
+              <Link href="/du-an-tieu-bieu" className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-7 py-4 text-sm font-bold uppercase tracking-widest text-deep-navy transition-colors hover:border-bbs-blue/30 hover:bg-bbs-blue/5">
                 Xem dự án <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>

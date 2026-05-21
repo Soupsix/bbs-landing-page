@@ -662,7 +662,7 @@ export default function GioiThieuPage() {
               <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">Hãy để chúng tôi cùng bạn xây dựng hình ảnh thương hiệu chuyên nghiệp, sáng tạo và hiệu quả.</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link href="/lien-he" className="inline-flex items-center justify-center rounded-xl bg-bbs-red px-7 py-4 text-sm font-bold uppercase tracking-widest text-white hover:bg-bbs-red/90 transition-colors">Liên hệ tư vấn</Link>
-                <Link href="/danh-muc-du-an" className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-7 py-4 text-sm font-bold uppercase tracking-widest text-deep-navy hover:border-bbs-blue/30 hover:bg-bbs-blue/5 transition-colors">Xem dự án <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <Link href="/du-an-tieu-bieu" className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-7 py-4 text-sm font-bold uppercase tracking-widest text-deep-navy hover:border-bbs-blue/30 hover:bg-bbs-blue/5 transition-colors">Xem dự án <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </div>
             </div>
           </div>

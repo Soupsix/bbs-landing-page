@@ -75,7 +75,7 @@ const NAV_LINKS_VI: NavLink[] = [
   { href: "/gioi-thieu", label: "GIỚI THIỆU" },
   { href: "/dich-vu-media", label: "DỊCH VỤ MEDIA", dropdownId: "media" },
   { href: "/to-chuc-su-kien", label: "TỔ CHỨC SỰ KIỆN", dropdownId: "event" },
-  { href: "/danh-muc-du-an", label: "DANH MỤC DỰ ÁN" },
+  { href: "/du-an-tieu-bieu", label: "DỰ ÁN TIÊU BIỂU" },
   { href: "/khach-hang", label: "KHÁCH HÀNG" },
   { href: "/lien-he", label: "LIÊN HỆ" },
 ];
@@ -85,7 +85,7 @@ const NAV_LINKS_EN: NavLink[] = [
   { href: "/gioi-thieu", label: "ABOUT" },
   { href: "/dich-vu-media", label: "MEDIA SERVICES", dropdownId: "media" },
   { href: "/to-chuc-su-kien", label: "EVENT ORGANIZATION", dropdownId: "event" },
-  { href: "/danh-muc-du-an", label: "PROJECTS" },
+  { href: "/du-an-tieu-bieu", label: "PROJECTS" },
   { href: "/khach-hang", label: "CLIENTS" },
   { href: "/lien-he", label: "CONTACT" },
 ];

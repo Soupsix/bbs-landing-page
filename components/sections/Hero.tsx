@@ -48,7 +48,7 @@ export function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/danh-muc-du-an"
+                href="/du-an-tieu-bieu"
                 className="inline-flex h-13 items-center justify-center rounded-button bg-bbs-red px-8 py-4 text-sm font-bold tracking-widest uppercase text-white transition-colors hover:bg-bbs-red/90 w-full sm:w-auto"
               >
                 {t.btnPrimary}
