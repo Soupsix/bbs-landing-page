@@ -49,99 +49,101 @@ export default function ContactPage() {
 
       {/* ══════════════════════════ MAIN BLOCK ══════════════════════════ */}
       <section className="py-14 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-white">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-              {/* ── Left: CONTACT INFO ────────────────────────────── */}
-              <div className="px-8 py-10 lg:py-12 bg-[#f8fafc] flex flex-col justify-center">
-                {/* Brand */}
-                <div className="mb-8">
-                  <p className="text-bbs-blue text-xs font-bold tracking-widest uppercase mb-3">Thông tin liên hệ</p>
-                  <h3 className="text-deep-navy text-xl font-extrabold tracking-tight leading-tight">CÔNG TY TNHH TRUYỀN THÔNG BBS MEDIA</h3>
-                  <p className="text-gray-500 text-sm mt-3 leading-relaxed">
-                    Giải pháp truyền thông & sự kiện giúp doanh nghiệp tăng trưởng nhanh. Triển khai nhanh, tối ưu chi phí và tạo ra kết quả đo lường rõ ràng.
-                  </p>
-                </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white p-8 md:p-12 lg:p-16 relative">
+            {/* Subtle elegant glowing blobs */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-bbs-blue/5 rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/3" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-bbs-red/5 rounded-full blur-3xl pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
-                {/* Info items */}
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-bbs-blue/10 group-hover:bg-bbs-blue flex items-center justify-center shrink-0 transition-colors">
-                      <MapPin className="w-4 h-4 text-bbs-blue group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Địa chỉ</p>
-                      <p className="text-deep-navy font-semibold text-sm leading-relaxed">21/08/103 Vạn Phúc, Hà Đông</p>
-                    </div>
-                  </div>
-
-                  <a href="tel:0343603760" className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-bbs-blue/10 group-hover:bg-bbs-blue flex items-center justify-center shrink-0 transition-colors">
-                      <Phone className="w-4 h-4 text-bbs-blue group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Hotline</p>
-                      <p className="text-deep-navy font-semibold text-sm group-hover:text-bbs-blue transition-colors">034.360.3760 - 0368.24.8696</p>
-                    </div>
-                  </a>
-
-                  <a href="mailto:bbsmedia1368@gmail.com" className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-bbs-red/10 group-hover:bg-bbs-red flex items-center justify-center shrink-0 transition-colors">
-                      <Mail className="w-4 h-4 text-bbs-red group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Email</p>
-                      <p className="text-deep-navy font-semibold text-sm group-hover:text-bbs-red transition-colors break-all">bbsmedia1368@gmail.com</p>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://www.facebook.com/BBSProduction.media"
-                    target="_blank" rel="noopener noreferrer"
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-bbs-blue/10 group-hover:bg-blue-600 flex items-center justify-center shrink-0 transition-colors">
-                      <FacebookIcon className="w-4 h-4 text-blue-500 group-hover:text-white transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wide mb-0.5">Fanpage</p>
-                      <p className="text-deep-navy font-semibold text-sm group-hover:text-blue-600 transition-colors">BBSProduction.media</p>
-                    </div>
-                  </a>
-                </div>
-
-                {/* Company details */}
-                <div className="mt-8 pt-6 border-t border-gray-200/60">
-                  <div className="space-y-3">
-                    <div className="flex gap-2">
-                      <span className="text-gray-500 font-medium text-sm w-24 shrink-0">Mã số thuế:</span>
-                      <span className="text-deep-navy font-semibold text-sm">0111450131</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-gray-500 font-medium text-sm w-24 shrink-0">Đại diện:</span>
-                      <span className="text-deep-navy font-semibold text-sm">Hà Khánh (Founder)</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-gray-500 font-medium text-sm w-24 shrink-0">Lĩnh vực:</span>
-                      <span className="text-deep-navy font-semibold text-sm leading-relaxed">Tư vấn truyền thông – Sản xuất Media – Tổ chức sự kiện.</span>
-                    </div>
-                  </div>
-                </div>
+            <div className="relative z-10 flex flex-col">
+              {/* Brand Header */}
+              <div className="mb-10 text-left">
+                <p className="text-bbs-blue text-sm font-extrabold tracking-widest uppercase mb-3">Thông tin liên hệ</p>
+                <h3 className="text-deep-navy text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
+                  CÔNG TY TNHH TRUYỀN THÔNG BBS MEDIA
+                </h3>
+                <p className="text-gray-500 text-base md:text-lg mt-4 leading-relaxed max-w-3xl">
+                  Giải pháp truyền thông & sự kiện giúp doanh nghiệp tăng trưởng nhanh. Triển khai nhanh, tối ưu chi phí và tạo ra kết quả đo lường rõ ràng.
+                </p>
               </div>
 
-              {/* ── Right: GOOGLE MAP ────────────────────────────── */}
-              <div className="min-h-[360px] lg:min-h-full">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17728.75000344749!2d105.770344!3d20.981068999999998!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad43cc1397ef%3A0xc819f2d66fcfa455!2sBBS%20Studio%20%26%20Concepts!5e1!3m2!1svi!2s!4v1778930442433!5m2!1svi!2s"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="BBS Media Google Maps"
-                  className="min-h-[360px] lg:h-full"
-                />
+              {/* Info Items Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                {/* Item: Address */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-bbs-blue/10 group-hover:bg-bbs-blue flex items-center justify-center shrink-0 transition-all duration-300">
+                    <MapPin className="w-5 h-5 text-bbs-blue group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-wider mb-1">Địa chỉ</p>
+                    <p className="text-deep-navy font-bold text-base md:text-lg lg:text-xl leading-relaxed">
+                      21/08/103 Vạn Phúc, Hà Đông, Hà Nội
+                    </p>
+                  </div>
+                </div>
+
+                {/* Item: Hotline */}
+                <a href="tel:0343603760" className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-bbs-blue/10 group-hover:bg-bbs-blue flex items-center justify-center shrink-0 transition-all duration-300">
+                    <Phone className="w-5 h-5 text-bbs-blue group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-wider mb-1">Hotline</p>
+                    <p className="text-deep-navy font-bold text-base md:text-lg lg:text-xl group-hover:text-bbs-blue transition-colors leading-relaxed">
+                      034.360.3760 - 0368.24.8696
+                    </p>
+                  </div>
+                </a>
+
+                {/* Item: Email */}
+                <a href="mailto:bbsmedia1368@gmail.com" className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-bbs-red/10 group-hover:bg-bbs-red flex items-center justify-center shrink-0 transition-all duration-300">
+                    <Mail className="w-5 h-5 text-bbs-red group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-wider mb-1">Email</p>
+                    <p className="text-deep-navy font-bold text-base md:text-lg lg:text-xl group-hover:text-bbs-red transition-colors break-all leading-relaxed">
+                      bbsmedia1368@gmail.com
+                    </p>
+                  </div>
+                </a>
+
+                {/* Item: Fanpage */}
+                <a
+                  href="https://www.facebook.com/BBSProduction.media"
+                  target="_blank" rel="noopener noreferrer"
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-bbs-blue/10 group-hover:bg-blue-600 flex items-center justify-center shrink-0 transition-all duration-300">
+                    <FacebookIcon className="w-5 h-5 text-blue-500 group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-wider mb-1">Fanpage</p>
+                    <p className="text-deep-navy font-bold text-base md:text-lg lg:text-xl group-hover:text-blue-600 transition-colors leading-relaxed">
+                      BBSProduction.media
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              {/* Company Details Footer */}
+              <div className="mt-12 pt-8 border-t border-gray-100">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+                  <div>
+                    <span className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-wider mb-1 block">Mã số thuế:</span>
+                    <span className="text-deep-navy font-bold text-base md:text-lg">0111450131</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-wider mb-1 block">Đại diện:</span>
+                    <span className="text-deep-navy font-bold text-base md:text-lg">Hà Khánh (Owner and CEO)</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-wider mb-1 block">Lĩnh vực hoạt động:</span>
+                    <span className="text-deep-navy font-bold text-base md:text-lg leading-relaxed">
+                      Tư vấn truyền thông – Sản xuất Media – Tổ chức sự kiện
+                    </span>
+                  </div>
+                </div>
               </div>
 
             </div>

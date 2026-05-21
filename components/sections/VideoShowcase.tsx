@@ -41,14 +41,14 @@ export function VideoShowcase() {
 
           {/* Content Left */}
           <div className="lg:col-span-5 xl:col-span-5">
-            <div className="inline-flex items-center gap-2 rounded-full bg-bbs-blue/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-bbs-blue mb-5">
+            <div className="inline-flex items-center gap-2 rounded-full bg-bbs-blue/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-bbs-blue mb-5">
               Media • Event • Creative Production
             </div>
-            <h2 className="max-w-2xl text-3xl md:text-4xl lg:text-[42px] font-bold leading-[1.12] tracking-tight text-deep-navy mb-5 lg:mb-6 [text-wrap:balance]">
+            <h2 className="max-w-2xl text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-gray-900 mb-5 lg:mb-6 [text-wrap:balance]">
               {t.heading1}
               <span className="text-bbs-blue block mt-2">{t.heading2}</span>
             </h2>
-            <p className="max-w-xl text-base md:text-lg text-gray-600 leading-relaxed whitespace-pre-line">
+            <p className="max-w-xl text-base text-gray-600 leading-relaxed whitespace-pre-line">
               {t.description}
             </p>
           </div>

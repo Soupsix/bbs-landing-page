@@ -43,12 +43,12 @@ export function CTABanner() {
         </span>
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-5xl lg:text-[52px] font-bold text-deep-navy leading-tight whitespace-pre-line mb-6">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight whitespace-pre-line mb-6">
           {t.heading}
         </h2>
 
         {/* Sub text */}
-        <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mb-10">
+        <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
           {t.sub}
         </p>
 

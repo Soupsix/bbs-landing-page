@@ -31,7 +31,7 @@ export const SERVICES_VI: Service[] = [
     ],
     cta: "Nhận tư vấn",
     images: [
-      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272814/MHH03157_wgmqrn.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272812/MHH03120_jrb0fo.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272814/MHH03157_wgmqrn.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272812/MHH03120_jrb0fo.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272812/NAM06703_ttn2gp.webp",
@@ -273,7 +273,7 @@ export const SERVICES_EN: Service[] = [
     process: ["Brand survey & analysis", "Communication strategy", "Content deployment", "Measurement & optimization"],
     cta: "Get free consultation",
     images: [
-      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272814/MHH03157_wgmqrn.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272812/MHH03120_jrb0fo.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272814/MHH03157_wgmqrn.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272812/MHH03120_jrb0fo.webp",
       "https://res.cloudinary.com/dss1zawkj/image/upload/q_auto/f_auto/v1779272812/NAM06703_ttn2gp.webp",

@@ -11,56 +11,56 @@ const featuredVideos = [
     id: "video-01",
     title: "Recap Hành trình bất tử",
     category: "Event Recap",
-    thumbnail: "https://img.youtube.com/vi/Rsb4py8Bsqg/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Rsb4py8Bsqg/maxresdefault.jpg",
     youtubeEmbedUrl: "https://www.youtube.com/embed/Rsb4py8Bsqg",
   },
   {
     id: "video-02",
     title: "Khai trương VINFAST Lê Trọng Tấn - Hà Đông",
     category: "Event Production",
-    thumbnail: "https://img.youtube.com/vi/Ji3WJDQMD2k/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Ji3WJDQMD2k/maxresdefault.jpg",
     youtubeEmbedUrl: "https://www.youtube.com/embed/Ji3WJDQMD2k",
   },
   {
     id: "video-03",
     title: "KHAI TRƯƠNG VĂN PHÒNG XWORLD",
     category: "Event Production",
-    thumbnail: "https://img.youtube.com/vi/19OiVzEqcnM/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/19OiVzEqcnM/maxresdefault.jpg",
     youtubeEmbedUrl: "https://www.youtube.com/embed/19OiVzEqcnM",
   },
   {
     id: "video-04",
     title: "Khai trương cơ sở Domino Pizza",
     category: "Event Production",
-    thumbnail: "https://img.youtube.com/vi/1by2mo5Fxjc/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/1by2mo5Fxjc/maxresdefault.jpg",
     youtubeEmbedUrl: "https://www.youtube.com/embed/1by2mo5Fxjc",
   },
   {
     id: "video-05",
     title: "TVC CONG TY IN THANH BINH 4K",
     category: "TVC",
-    thumbnail: "https://img.youtube.com/vi/3i4aKBhNPrU/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/3i4aKBhNPrU/maxresdefault.jpg",
     youtubeEmbedUrl: "https://www.youtube.com/embed/3i4aKBhNPrU",
   },
   {
     id: "video-06",
     title: "Mộng K12_QLVH NUAE",
     category: "Creative Production",
-    thumbnail: "https://img.youtube.com/vi/M3Rvs8SvUl8/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/M3Rvs8SvUl8/maxresdefault.jpg",
     youtubeEmbedUrl: "https://www.youtube.com/embed/M3Rvs8SvUl8",
   },
   {
     id: "video-07",
     title: "PSC Minh Tâm & Thái Bình",
     category: "Wedding Film",
-    thumbnail: "https://img.youtube.com/vi/NIwvQ6ZQt6Q/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/NIwvQ6ZQt6Q/maxresdefault.jpg",
     youtubeEmbedUrl: "https://www.youtube.com/embed/NIwvQ6ZQt6Q",
   },
   {
     id: "video-08",
     title: "PSC Viet Anh - Ha Phuong",
     category: "Wedding Film",
-    thumbnail: "https://img.youtube.com/vi/dBMQzZiw5U4/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/dBMQzZiw5U4/maxresdefault.jpg",
     youtubeEmbedUrl: "https://www.youtube.com/embed/dBMQzZiw5U4",
   },
 ] as const;
@@ -88,7 +88,7 @@ function VideoCard({
 }) {
   return (
     <div
-      className="group relative cursor-pointer rounded-2xl overflow-hidden border border-gray-100 bg-deep-navy shadow-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-16px_rgba(16,24,39,0.35)]"
+      className="group relative cursor-pointer rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-sm h-full flex flex-col transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-16px_rgba(16,24,39,0.25)]"
       onClick={() => onOpen(video)}
       role="button"
       tabIndex={0}
@@ -96,7 +96,7 @@ function VideoCard({
       aria-label={`Phát video: ${video.title}`}
     >
       {/* Thumbnail */}
-      <div className="relative w-full aspect-video overflow-hidden">
+      <div className="relative w-full aspect-video overflow-hidden shrink-0">
         <Image
           src={video.thumbnail}
           alt={video.title}
@@ -123,8 +123,8 @@ function VideoCard({
       </div>
 
       {/* Title */}
-      <div className="px-4 py-3 bg-white">
-        <h3 className="text-sm font-bold text-deep-navy leading-snug line-clamp-2">
+      <div className="px-4 py-3 bg-white h-[76px] flex items-center shrink-0">
+        <h3 className="text-base font-bold text-gray-900 leading-snug line-clamp-2">
           {video.title}
         </h3>
       </div>
@@ -204,22 +204,22 @@ export function FeaturedProducts() {
           {/* ── Section Header ── */}
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-bbs-blue/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-bbs-blue mb-5">
+            <div className="inline-flex items-center gap-2 rounded-full bg-bbs-blue/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-bbs-blue mb-5">
               Sản phẩm nổi bật
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold leading-[1.12] tracking-tight text-deep-navy mb-5 [text-wrap:balance]">
-              Chất lượng sản phẩm luôn là tiêu chí{" "}
-              <span className="text-bbs-blue">hàng đầu</span> của BBS MEDIA
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-gray-900 mb-5 [text-wrap:balance]">
+              Chất lượng sản phẩm luôn là tiêu chí hàng đầu của{" "}
+              <span className="text-bbs-red">BBS Media</span>
             </h2>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-gray-500 leading-relaxed">
+            <p className="text-base text-gray-600 leading-relaxed">
               BBS Media mang đến giải pháp truyền thông hình ảnh hiện đại dành cho doanh
               nghiệp và thương hiệu thông qua dịch vụ Media, Event và Creative Production.
             </p>
-            <p className="text-base md:text-lg text-gray-500 leading-relaxed mt-3">
+            <p className="text-base text-gray-600 leading-relaxed mt-3">
               Chúng tôi tập trung vào việc xây dựng hình ảnh chuyên nghiệp, sản xuất nội
               dung sáng tạo và triển khai các dự án truyền thông theo phong cách cinematic
               hiện đại.
@@ -228,7 +228,7 @@ export function FeaturedProducts() {
 
           {/* ── Video Grid ── */}
           {/* mobile: 1 col | tablet: 2 col | desktop: 4 col */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6 items-stretch">
             {featuredVideos.map((video) => (
               <VideoCard key={video.id} video={video} onOpen={setActiveVideo} />
             ))}

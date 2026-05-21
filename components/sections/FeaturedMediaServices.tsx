@@ -13,13 +13,13 @@ import {
 
 export const FEATURED_MEDIA_SERVICES = [
   {
-    title: "Tư Vấn Truyền Thông",
+    title: "Tư vấn truyền thông",
     slug: "tu-van-truyen-thong",
     description: "Định hướng chiến lược truyền thông, xây dựng hình ảnh thương hiệu chuyên nghiệp.",
     icon: Lightbulb,
   },
   {
-    title: "Quay Chụp Event",
+    title: "Quay chụp event",
     slug: "quay-chup-event",
     description: "Ghi lại khoảnh khắc sự kiện với hình ảnh sắc nét, cảm xúc và cinematic.",
     icon: Camera,
@@ -31,37 +31,37 @@ export const FEATURED_MEDIA_SERVICES = [
     icon: Radio,
   },
   {
-    title: "Quay Chụp Wedding",
+    title: "Quay chụp Wedding",
     slug: "quay-chup-wedding",
     description: "Sản xuất hình ảnh cưới tự nhiên, tinh tế và giàu cảm xúc theo phong cách điện ảnh.",
     icon: Video,
   },
   {
-    title: "Quay Chụp Sản Phẩm / Thương Hiệu",
+    title: "Quay chụp sản phẩm / Thương hiệu",
     slug: "quay-chup-san-pham-thuong-hieu",
     description: "Tạo bộ ảnh và video sản phẩm nổi bật, phù hợp nhận diện thương hiệu.",
     icon: Clapperboard,
   },
   {
-    title: "Studio Sáng Tạo",
+    title: "Studio sáng tạo",
     slug: "studio-sang-tao",
     description: "Không gian sáng tạo cho lookbook, profile, campaign và nội dung social media.",
     icon: Sparkles,
   },
   {
-    title: "TVC Doanh Nghiệp",
+    title: "TVC doanh nghiệp",
     slug: "tvc-doanh-nghiep",
     description: "Sản xuất TVC, phim doanh nghiệp và video quảng cáo chuyên nghiệp.",
     icon: Tv,
   },
   {
-    title: "Viral Video / TikTok / Reels Content",
+    title: "Viral Video / TikTok / Reels",
     slug: "viral-video-tiktok-reels-content",
     description: "Phát triển nội dung ngắn bắt trend, tối ưu cho TikTok, Reels và social platforms.",
     icon: WandSparkles,
   },
   {
-    title: "Sản Xuất Video AI",
+    title: "Sản xuất video AI",
     slug: "san-xuat-video-ai",
     description: "Ứng dụng AI để tạo video sáng tạo, hiện đại và tối ưu chi phí sản xuất.",
     icon: Bot,
@@ -74,11 +74,11 @@ export function FeaturedMediaServices() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-bbs-blue/20 to-transparent" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-bbs-blue text-sm font-bold tracking-[0.25em] uppercase mb-3">
+          <p className="text-bbs-blue text-xs font-bold uppercase tracking-[0.18em] mb-3">
             Chuyên nghiệp - Sáng tạo - Tận tâm
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-deep-navy tracking-tight">
-            DỊCH VỤ TIÊU BIỂU MEDIA
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+            Dịch vụ tiêu biểu Media
           </h2>
         </div>
 
@@ -98,10 +98,10 @@ export function FeaturedMediaServices() {
                   <Icon className="h-8 w-8" strokeWidth={2.2} />
                 </div>
 
-                <h3 className="min-h-[56px] text-lg md:text-xl font-bold text-deep-navy leading-snug mb-3">
+                <h3 className="min-h-[56px] text-lg font-bold text-gray-900 leading-snug mb-3">
                   {service.title}
                 </h3>
-                <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-5">
+                <p className="text-base text-gray-600 leading-relaxed mb-5">
                   {service.description}
                 </p>
                 <Link

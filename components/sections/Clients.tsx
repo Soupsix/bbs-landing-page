@@ -7,18 +7,18 @@ import { useLanguage } from "@/components/contexts/LanguageContext";
 const CONTENT = {
   vi: {
     badge: "Khách Hàng & Đối Tác",
-    heading: "BBS MEDIA luôn là đối tác tin cậy",
+    heading: "BBS Media luôn là đối tác tin cậy",
     subtitle:
-      "BBS MEDIA luôn là đối tác tin cậy của rất nhiều doanh nghiệp, đài truyền hình, cơ quan thông tấn, báo chí lớn trên cả nước.",
+      "BBS Media luôn là đối tác tin cậy của rất nhiều doanh nghiệp, đài truyền hình, cơ quan thông tấn, báo chí lớn trên cả nước.",
     slogan: "Chúng tôi không chỉ cung cấp sản phẩm, dịch vụ mà còn đồng hành cùng Quý khách hàng",
     count: "61+",
     countLabel: "doanh nghiệp đã tin tưởng",
   },
   en: {
     badge: "Clients & Partners",
-    heading: "BBS MEDIA is always a trusted partner",
+    heading: "BBS Media is always a trusted partner",
     subtitle:
-      "BBS MEDIA is a trusted partner of many businesses, television stations, news agencies, and major press organizations nationwide.",
+      "BBS Media is a trusted partner of many businesses, television stations, news agencies, and major press organizations nationwide.",
     slogan: "We do not only provide products and services, but also accompany our valued customers",
     count: "61+",
     countLabel: "businesses have trusted us",
@@ -99,17 +99,15 @@ export function Clients() {
 
         {/* ── Header ── */}
         <div className="text-center mb-10 md:mb-14">
-          <span className="inline-flex items-center gap-2 text-bbs-blue text-xs font-bold tracking-widest uppercase mb-4">
-            <span className="block w-6 h-px bg-bbs-blue" />
+          <span className="inline-flex items-center gap-2 text-bbs-blue text-xs font-bold tracking-[0.18em] uppercase mb-4">
             {t.badge}
-            <span className="block w-6 h-px bg-bbs-blue" />
           </span>
 
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-deep-navy leading-snug mb-4 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-snug mb-4 max-w-2xl mx-auto">
             {t.heading}
           </h2>
 
-          <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-6">
+          <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6">
             {t.subtitle}
           </p>
 
@@ -152,7 +150,7 @@ export function Clients() {
           ))}
         </div>
 
-        <p className="mt-12 text-center text-lg md:text-xl font-semibold italic text-deep-navy max-w-4xl mx-auto leading-relaxed">
+        <p className="mt-12 text-center text-lg md:text-xl font-semibold italic text-gray-900 max-w-4xl mx-auto leading-relaxed">
           “{t.slogan}”
         </p>
 

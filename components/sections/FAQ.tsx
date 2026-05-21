@@ -59,8 +59,8 @@ export function FAQ() {
     <section id="faq" className="py-16 md:py-24 bg-transparent border-t border-border-gray/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold text-deep-navy mb-4">{t.header}</h2>
-          <p className="text-lg text-gray-600">{t.subHeader}</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">{t.header}</h2>
+          <p className="text-base text-gray-600 leading-relaxed">{t.subHeader}</p>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">
@@ -75,7 +75,7 @@ export function FAQ() {
                   className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
-                  <span className={`font-semibold pr-4 ${isOpen ? 'text-bbs-blue' : 'text-deep-navy'}`}>
+                  <span className={`font-semibold pr-4 ${isOpen ? 'text-bbs-blue' : 'text-gray-900'}`}>
                     {faq.question}
                   </span>
                   <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 text-bbs-blue' : ''}`} />

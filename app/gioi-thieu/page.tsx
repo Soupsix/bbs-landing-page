@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -15,6 +15,7 @@ import {
   Film,
   Headphones,
   MonitorUp,
+  Play,
   Radio,
   Rocket,
   ShieldCheck,
@@ -28,6 +29,16 @@ const cinematicImage = "https://res.cloudinary.com/dss1zawkj/image/upload/v17792
 const crewImage = "https://res.cloudinary.com/dss1zawkj/image/upload/v1779247740/MHH03182_c9ecpw.webp";
 const placeholderImage = "https://res.cloudinary.com/dss1zawkj/image/upload/v1779162613/BBS-Event_ng54cv.webp";
 const logoPlaceholder = "https://res.cloudinary.com/dss1zawkj/image/upload/v1779170871/logo_sqohf8.jpg";
+
+function PlayButton({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={`w-14 h-14 md:w-18 md:h-18 rounded-full flex items-center justify-center bg-white/20 backdrop-blur-md border border-white/35 shadow-[0_12px_40px_0_rgba(255,255,255,0.22)] ring-8 ring-white/10 transition-all duration-500 ease-out group-hover:scale-110 group-hover:bg-white/30 ${className}`}
+    >
+      <Play className="w-5 h-5 md:w-6 md:h-6 text-white ml-1 drop-shadow-md" fill="currentColor" />
+    </div>
+  );
+}
 
 const coreValues = [
   {
@@ -226,6 +237,7 @@ function SectionHeader({ eyebrow, title, description, light = false }: { eyebrow
 
 export default function GioiThieuPage() {
   const fbScrollRef = useRef<HTMLDivElement>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const scroll = (direction: "left" | "right") => {
     if (fbScrollRef.current) {
@@ -269,9 +281,34 @@ export default function GioiThieuPage() {
                 <p>Đội ngũ luôn đặt hiệu quả và giá trị thực tế lên hàng đầu. BBS Media hướng đến sự phát triển bền vững và lâu dài trong ngành truyền thông.</p>
               </div>
             </div>
-            <div className="relative h-[360px] md:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
-              <Image src={cinematicImage} alt="Giới thiệu BBS Media" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+            <div className="relative h-[360px] md:h-[520px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer">
+              {isVideoPlaying ? (
+                <iframe
+                  src="https://www.youtube.com/embed/VQcW_mwgb90?autoplay=1&modestbranding=1&rel=0"
+                  title="Giới thiệu BBS Media"
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <div className="relative w-full h-full" onClick={() => setIsVideoPlaying(true)}>
+                  <Image
+                    src={cinematicImage}
+                    alt="Giới thiệu BBS Media"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-black/30 transition-all duration-500 group-hover:bg-black/15" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                  
+                  {/* Custom Glassmorphic Play Button overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <PlayButton />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

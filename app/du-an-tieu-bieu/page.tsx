@@ -104,7 +104,7 @@ export default function ProjectsPage() {
                         {/* Left column: Text details */}
                         <div className="lg:col-span-5 flex flex-col gap-5 relative">
                           <div className="flex flex-col md:flex-row md:items-end gap-3 md:gap-4 mb-1">
-                            <span className="text-5xl md:text-6xl font-black text-[#101827]/10 leading-none">
+                            <span className="text-5xl md:text-6xl font-black text-[#101827] leading-none select-none shrink-0 inline-block">
                               {globalNumber}
                             </span>
                             <h3 className="text-2xl md:text-3xl font-bold text-[#101827] uppercase tracking-wide">

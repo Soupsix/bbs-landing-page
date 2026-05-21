@@ -10,11 +10,14 @@ const CONTENT = {
     quickLinksTitle: "Dịch vụ",
     links: [
       { href: "/dich-vu-media/tu-van-truyen-thong", label: "Tư Vấn Truyền Thông" },
-      { href: "/to-chuc-su-kien", label: "Tổ Chức Sự Kiện" },
       { href: "/dich-vu-media/quay-chup-event", label: "Quay Chụp Event" },
-      { href: "/dich-vu-media/quay-chup-wedding", label: "Wedding Cinematic" },
-      { href: "/dich-vu-media/studio-sang-tao", label: "Studio Creative" },
+      { href: "/dich-vu-media/livestream", label: "Livestream" },
+      { href: "/dich-vu-media/quay-chup-wedding", label: "Quay Chụp Wedding" },
+      { href: "/dich-vu-media/quay-chup-san-pham-thuong-hieu", label: "Sản Phẩm / Thương Hiệu" },
+      { href: "/dich-vu-media/studio-sang-tao", label: "Studio Sáng Tạo" },
       { href: "/dich-vu-media/tvc-doanh-nghiep", label: "TVC Doanh Nghiệp" },
+      { href: "/dich-vu-media/viral-video-tiktok-reels-content", label: "Viral / TikTok / Reels" },
+      { href: "/dich-vu-media/san-xuat-video-ai", label: "Sản Xuất Video AI" },
     ],
     contactTitle: "Liên hệ",
     privacy: "Chính sách bảo mật",
@@ -25,11 +28,14 @@ const CONTENT = {
     quickLinksTitle: "Services",
     links: [
       { href: "/dich-vu-media/tu-van-truyen-thong", label: "Media Consulting" },
-      { href: "/to-chuc-su-kien", label: "Event Organization" },
       { href: "/dich-vu-media/quay-chup-event", label: "Event Filming" },
+      { href: "/dich-vu-media/livestream", label: "Livestream" },
       { href: "/dich-vu-media/quay-chup-wedding", label: "Wedding Cinematic" },
+      { href: "/dich-vu-media/quay-chup-san-pham-thuong-hieu", label: "Product / Brand" },
       { href: "/dich-vu-media/studio-sang-tao", label: "Creative Studio" },
       { href: "/dich-vu-media/tvc-doanh-nghiep", label: "Corporate TVC" },
+      { href: "/dich-vu-media/viral-video-tiktok-reels-content", label: "Viral / TikTok / Reels" },
+      { href: "/dich-vu-media/san-xuat-video-ai", label: "AI Video Production" },
     ],
     contactTitle: "Contact",
     privacy: "Privacy Policy",
@@ -147,10 +153,10 @@ export function Footer() {
               {t.description}
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-bbs-blue transition-colors">
+              <a href="https://www.facebook.com/BBSProduction.media" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bbs-blue transition-colors">
                 <FacebookIcon className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-bbs-red transition-colors">
+              <a href="https://www.youtube.com/@bbsmedia-weddingevent6738/featured" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-bbs-red transition-colors">
                 <YoutubeIcon className="w-5 h-5" />
               </a>
             </div>
@@ -159,7 +165,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">{t.quickLinksTitle}</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 text-sm">
               {t.links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">

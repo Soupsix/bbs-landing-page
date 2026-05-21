@@ -122,7 +122,7 @@ export function ServiceCard({
 
         {/* ===== Content ===== */}
         <div className="p-5 pt-3 flex flex-col flex-grow">
-          <h3 className="text-lg font-bold text-deep-navy mb-2 leading-snug">
+          <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug">
             {title}
           </h3>
           <p className="text-gray-500 text-sm leading-relaxed mb-5 flex-grow">

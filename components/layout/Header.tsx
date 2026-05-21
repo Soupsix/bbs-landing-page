@@ -218,7 +218,7 @@ export function Header() {
                       className={`inline-flex items-center gap-1 text-sm font-semibold transition-colors ${
                         isActive(link.href)
                           ? "text-bbs-blue"
-                          : "text-deep-navy hover:text-bbs-blue"
+                          : "text-gray-900 hover:text-bbs-blue"
                       }`}
                     >
                       {link.label}

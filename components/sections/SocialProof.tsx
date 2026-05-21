@@ -46,7 +46,7 @@ export function SocialProof() {
 
           {/* Stat 2 */}
           <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-bold text-deep-navy mb-2">1000+</span>
+            <span className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">1000+</span>
             <span className="text-gray-500 font-medium">{t.stat1}</span>
           </div>
 
@@ -54,7 +54,7 @@ export function SocialProof() {
 
           {/* Stat 3 */}
           <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-bold text-deep-navy mb-2">100+</span>
+            <span className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">100+</span>
             <span className="text-gray-500 font-medium">{t.stat2}</span>
           </div>
 
