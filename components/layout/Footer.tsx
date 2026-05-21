@@ -69,6 +69,7 @@ export function Footer() {
   const { lang } = useLanguage();
   const t = CONTENT[lang];
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     hoTen: "",
     tenCongTy: "",
@@ -83,9 +84,52 @@ export function Footer() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    const { hoTen, tenCongTy, linhVuc, email, soDienThoai, dichVu, noiDung } = form;
+
+    if (!hoTen || !email || !soDienThoai || !dichVu || !noiDung) {
+      alert("Vui lòng điền đầy đủ thông tin bắt buộc.");
+      return;
+    }
+
+    const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+    if (!scriptUrl) {
+      alert("Chưa cấu hình đường dẫn nhận form.");
+      return;
+    }
+
+    setLoading(true);
+
+    const payload = {
+      fullName: hoTen,
+      companyName: tenCongTy,
+      businessField: linhVuc,
+      email,
+      phone: soDienThoai,
+      service: dichVu,
+      message: noiDung,
+      sourcePage: window.location.href,
+      submittedAt: new Date().toISOString(),
+    };
+
+    try {
+      await fetch(scriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(payload),
+      });
+      setSubmitted(true);
+      setForm({ hoTen: "", tenCongTy: "", linhVuc: "", email: "", soDienThoai: "", dichVu: "", noiDung: "" });
+    } catch (error) {
+      alert("Gửi thông tin chưa thành công. Vui lòng thử lại hoặc liên hệ hotline.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -136,9 +180,9 @@ export function Footer() {
                   <CheckCircle2 className="w-7 h-7 text-green-400" />
                 </div>
                 <p className="text-white font-semibold">Gửi thông tin thành công!</p>
-                <p className="text-gray-400 text-sm">Cảm ơn bạn! BBS Media sẽ liên hệ lại trong thời gian sớm nhất.</p>
+                <p className="text-gray-400 text-sm">Cảm ơn bạn! BBS Media đã nhận được thông tin và sẽ liên hệ sớm nhất.</p>
                 <button
-                  onClick={() => { setSubmitted(false); setForm({ hoTen: "", tenCongTy: "", linhVuc: "", email: "", soDienThoai: "", dichVu: "", noiDung: "" }); }}
+                  onClick={() => { setSubmitted(false); }}
                   className="mt-1 text-bbs-blue text-sm font-semibold hover:underline"
                 >
                   Gửi thêm yêu cầu
@@ -162,9 +206,9 @@ export function Footer() {
                   ))}
                 </select>
                 <textarea required name="noiDung" value={form.noiDung} onChange={handleChange} rows={3} placeholder="Nội dung cần tư vấn *" className={`${inputCls} resize-none`} />
-                <button type="submit" className="w-full flex items-center justify-center gap-2 bg-[#d81e25] hover:bg-[#b71920] text-white font-bold text-sm py-3.5 rounded-lg transition-all shadow-lg shadow-red-950/30">
+                <button disabled={loading} type="submit" className="w-full flex items-center justify-center gap-2 bg-[#d81e25] hover:bg-[#b71920] text-white font-bold text-sm py-3.5 rounded-lg transition-all shadow-lg shadow-red-950/30 disabled:opacity-70 disabled:cursor-not-allowed">
                   <Send className="w-4 h-4" />
-                  GỬI THÔNG TIN
+                  {loading ? "Đang gửi..." : "GỬI THÔNG TIN"}
                 </button>
               </form>
             )}

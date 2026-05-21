@@ -289,6 +289,7 @@ function ShowcaseBlock({ title, desc, images, Icon, index = 0 }: ShowcaseBlockPr
             src={mainImage}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, 80vw"
             className="object-cover transition-transform duration-500 group-hover/main:scale-[1.02]"
             loading="lazy"
           />
@@ -334,6 +335,7 @@ function ShowcaseBlock({ title, desc, images, Icon, index = 0 }: ShowcaseBlockPr
                 src={img}
                 alt={title}
                 fill
+                sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover transition-transform duration-300 group-hover/support:scale-105"
                 loading="lazy"
               />
@@ -395,6 +397,7 @@ function EquipmentShowcaseBlock({ title, desc, images, Icon, index = 0 }: Showca
                     src={img}
                     alt={title}
                     fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -427,6 +430,7 @@ export default function EventPage() {
           src={PLACEHOLDER_IMG}
           alt="Tổ chức sự kiện BBS Media"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -504,6 +508,7 @@ export default function EventPage() {
                       src={mainImage}
                       alt={event.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 80vw"
                       className="object-cover transition-transform duration-500 group-hover/main:scale-[1.02]"
                       priority={idx === 0}
                       loading={idx === 0 ? undefined : "lazy"}
@@ -548,6 +553,7 @@ export default function EventPage() {
                           src={img}
                           alt={event.title}
                           fill
+                          sizes="(max-width: 768px) 50vw, 25vw"
                           className="object-cover transition-transform duration-300 group-hover/support:scale-105"
                           loading="lazy"
                         />
