@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Play, X } from "lucide-react";
 
 // ─── Video Data ────────────────────────────────────────────────────────────────
@@ -11,56 +10,56 @@ const featuredVideos = [
     id: "video-01",
     title: "Recap Hành trình bất tử",
     category: "Event Recap",
-    thumbnail: "https://img.youtube.com/vi/Rsb4py8Bsqg/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/Rsb4py8Bsqg/hqdefault.jpg`,
     youtubeEmbedUrl: "https://www.youtube.com/embed/Rsb4py8Bsqg",
   },
   {
     id: "video-02",
     title: "Khai trương VINFAST Lê Trọng Tấn - Hà Đông",
     category: "Event Production",
-    thumbnail: "https://img.youtube.com/vi/Ji3WJDQMD2k/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/Ji3WJDQMD2k/hqdefault.jpg`,
     youtubeEmbedUrl: "https://www.youtube.com/embed/Ji3WJDQMD2k",
   },
   {
     id: "video-03",
     title: "KHAI TRƯƠNG VĂN PHÒNG XWORLD",
     category: "Event Production",
-    thumbnail: "https://img.youtube.com/vi/19OiVzEqcnM/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/19OiVzEqcnM/hqdefault.jpg`,
     youtubeEmbedUrl: "https://www.youtube.com/embed/19OiVzEqcnM",
   },
   {
     id: "video-04",
     title: "Khai trương cơ sở Domino Pizza",
     category: "Event Production",
-    thumbnail: "https://img.youtube.com/vi/1by2mo5Fxjc/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/1by2mo5Fxjc/hqdefault.jpg`,
     youtubeEmbedUrl: "https://www.youtube.com/embed/1by2mo5Fxjc",
   },
   {
     id: "video-05",
     title: "TVC CONG TY IN THANH BINH 4K",
     category: "TVC",
-    thumbnail: "https://img.youtube.com/vi/3i4aKBhNPrU/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/3i4aKBhNPrU/hqdefault.jpg`,
     youtubeEmbedUrl: "https://www.youtube.com/embed/3i4aKBhNPrU",
   },
   {
     id: "video-06",
     title: "Mộng K12_QLVH NUAE",
     category: "Creative Production",
-    thumbnail: "https://img.youtube.com/vi/M3Rvs8SvUl8/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/M3Rvs8SvUl8/hqdefault.jpg`,
     youtubeEmbedUrl: "https://www.youtube.com/embed/M3Rvs8SvUl8",
   },
   {
     id: "video-07",
     title: "PSC Minh Tâm & Thái Bình",
     category: "Wedding Film",
-    thumbnail: "https://img.youtube.com/vi/NIwvQ6ZQt6Q/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/NIwvQ6ZQt6Q/hqdefault.jpg`,
     youtubeEmbedUrl: "https://www.youtube.com/embed/NIwvQ6ZQt6Q",
   },
   {
     id: "video-08",
     title: "PSC Viet Anh - Ha Phuong",
     category: "Wedding Film",
-    thumbnail: "https://img.youtube.com/vi/dBMQzZiw5U4/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/dBMQzZiw5U4/hqdefault.jpg`,
     youtubeEmbedUrl: "https://www.youtube.com/embed/dBMQzZiw5U4",
   },
 ] as const;
@@ -97,12 +96,12 @@ function VideoCard({
     >
       {/* Thumbnail */}
       <div className="relative w-full aspect-video overflow-hidden shrink-0">
-        <Image
+        <img
           src={video.thumbnail}
           alt={video.title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
         />
 
         {/* Dark overlays */}

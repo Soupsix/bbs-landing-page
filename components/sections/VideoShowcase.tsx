@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Play } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
@@ -61,12 +60,12 @@ export function VideoShowcase() {
             {!playVideo ? (
               <>
                 {/* Thumbnail */}
-                <Image
-                  src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                <img
+                  src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                   alt="BBS Media Showcase"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                  sizes="(max-width: 1280px) 100vw, 1280px"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
 
                 {/* Overlay */}

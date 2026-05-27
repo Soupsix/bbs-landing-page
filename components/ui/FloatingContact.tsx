@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import { getOptimizedCloudinaryUrl, CLOUDINARY_WIDTHS } from "@/lib/cloudinary";
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 
@@ -64,11 +64,13 @@ export function FloatingContact() {
           rel="noopener noreferrer"
           className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-gray-100 bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg sm:h-12 sm:w-12 lg:h-14 lg:w-14"
         >
-          <Image
-            src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779250277/facebook_vi3kpa.png"
+          <img
+            src={getOptimizedCloudinaryUrl("https://res.cloudinary.com/dss1zawkj/image/upload/v1779250277/facebook_vi3kpa.png", CLOUDINARY_WIDTHS.logo)}
             alt="Facebook Messenger"
             width={48}
             height={48}
+            loading="lazy"
+            decoding="async"
             className="h-7 w-7 object-contain sm:h-8 sm:w-8 lg:h-9 lg:w-9"
           />
         </Link>
@@ -90,11 +92,13 @@ export function FloatingContact() {
           href="tel:0343603760"
           className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-gray-100 bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg sm:h-12 sm:w-12 lg:h-14 lg:w-14"
         >
-          <Image
-            src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779250275/phone_phyxtr.webp"
+          <img
+            src={getOptimizedCloudinaryUrl("https://res.cloudinary.com/dss1zawkj/image/upload/v1779250275/phone_phyxtr.webp", CLOUDINARY_WIDTHS.logo)}
             alt="Gọi điện thoại"
             width={48}
             height={48}
+            loading="lazy"
+            decoding="async"
             className="h-7 w-7 object-contain sm:h-8 sm:w-8 lg:h-9 lg:w-9"
           />
         </Link>
@@ -115,11 +119,13 @@ export function FloatingContact() {
           rel="noopener noreferrer"
           className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-gray-100 bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg sm:h-12 sm:w-12 lg:h-14 lg:w-14"
         >
-          <Image
-            src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779250276/zalo-icon_fmm3au.png"
+          <img
+            src={getOptimizedCloudinaryUrl("https://res.cloudinary.com/dss1zawkj/image/upload/v1779250276/zalo-icon_fmm3au.png", CLOUDINARY_WIDTHS.logo)}
             alt="Zalo"
             width={48}
             height={48}
+            loading="lazy"
+            decoding="async"
             className="h-7 w-7 object-contain sm:h-8 sm:w-8 lg:h-9 lg:w-9"
           />
         </Link>

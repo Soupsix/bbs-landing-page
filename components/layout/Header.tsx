@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, MessageCircle, Camera, Heart, Aperture, Film, Zap, Smartphone, Radio, Wind, Package, PartyPopper, Users, Tent, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/components/contexts/LanguageContext";
+import { getOptimizedCloudinaryUrl } from "@/lib/cloudinary";
 
 const FacebookIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -325,7 +326,7 @@ export function Header() {
                     : "border border-gray-200 shadow-sm hover:border-bbs-blue/40 hover:shadow-md hover:scale-105"
                     }`}
                 >
-                  <Image src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/vn-flag_oyawvw.jpg" alt="Vietnamese" fill sizes="36px" className="object-cover brightness-110 contrast-110 saturate-125" />
+                  <img src={getOptimizedCloudinaryUrl("https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/vn-flag_oyawvw.jpg", 64)} alt="Vietnamese" width={24} height={16} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover brightness-110 contrast-110 saturate-125" />
                 </button>
                 <button
                   onClick={() => setLang("en")}
@@ -335,7 +336,7 @@ export function Header() {
                     : "border border-gray-200 shadow-sm hover:border-bbs-blue/40 hover:shadow-md hover:scale-105"
                     }`}
                 >
-                  <Image src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/uk-flag_aokgbz.jpg" alt="English" fill sizes="36px" className="object-cover brightness-110 contrast-110 saturate-125" />
+                  <img src={getOptimizedCloudinaryUrl("https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/uk-flag_aokgbz.jpg", 64)} alt="English" width={24} height={16} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover brightness-110 contrast-110 saturate-125" />
                 </button>
               </div>
 
@@ -469,7 +470,7 @@ export function Header() {
                 : "border border-gray-200 shadow-sm hover:border-bbs-blue/40 hover:shadow-md hover:scale-105"
                 }`}
             >
-              <Image src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/vn-flag_oyawvw.jpg" alt="Vietnamese" fill sizes="36px" className="object-cover brightness-110 contrast-110 saturate-125" />
+              <img src={getOptimizedCloudinaryUrl("https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/vn-flag_oyawvw.jpg", 64)} alt="Vietnamese" width={24} height={16} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover brightness-110 contrast-110 saturate-125" />
             </button>
             <button
               onClick={() => setLang("en")}
@@ -479,7 +480,7 @@ export function Header() {
                 : "border border-gray-200 shadow-sm hover:border-bbs-blue/40 hover:shadow-md hover:scale-105"
                 }`}
             >
-              <Image src="https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/uk-flag_aokgbz.jpg" alt="English" fill sizes="36px" className="object-cover brightness-110 contrast-110 saturate-125" />
+              <img src={getOptimizedCloudinaryUrl("https://res.cloudinary.com/dss1zawkj/image/upload/v1779270732/uk-flag_aokgbz.jpg", 64)} alt="English" width={24} height={16} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover brightness-110 contrast-110 saturate-125" />
             </button>
           </div>
         </div>

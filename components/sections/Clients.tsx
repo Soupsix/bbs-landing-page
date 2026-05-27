@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import { useLanguage } from "@/components/contexts/LanguageContext";
 
 /* ─── Static content ─────────────────────────────────────────── */
@@ -139,11 +139,13 @@ export function Clients() {
                 cursor-pointer
               "
             >
-              <Image
+              <img
                 src={logo.src}
                 alt={logo.name}
                 width={90}
                 height={36}
+                loading="lazy"
+                decoding="async"
                 className="object-contain w-full h-full"
               />
             </div>
