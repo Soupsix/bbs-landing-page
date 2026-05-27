@@ -35,7 +35,7 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Content */}
           <div className="max-w-5xl lg:col-span-8 xl:col-span-9">
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-tight tracking-tight text-bbs-blue mb-4 uppercase [text-wrap:balance]">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold leading-tight tracking-tight text-bbs-red mb-4 uppercase [text-wrap:balance]">
               {t.brand}
             </h1>
             <p className="text-2xl md:text-3xl lg:text-[40px] font-semibold leading-snug text-gray-900 mb-6">
@@ -68,7 +68,7 @@ export function Hero() {
       </div>
 
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-bbs-blue/5 to-transparent pointer-events-none hidden lg:block" />
+      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-bbs-red/5 to-transparent pointer-events-none hidden lg:block" />
     </section>
   );
 }
