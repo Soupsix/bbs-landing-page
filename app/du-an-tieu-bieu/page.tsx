@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Project, PROJECT_GROUPS, PROJECTS, CATEGORIES } from "./data";
+import { getOptimizedCloudinaryUrl, CLOUDINARY_WIDTHS } from "@/lib/cloudinary";
 import { LayoutGrid, X, Eye, ArrowRight } from "lucide-react";
 
 export default function ProjectsPage() {
@@ -171,7 +172,7 @@ export default function ProjectsPage() {
                             onClick={() => setSelectedProject(project)}
                           >
                             <Image
-                              src={previewImages[0]}
+                              src={getOptimizedCloudinaryUrl(previewImages[0], CLOUDINARY_WIDTHS.showcase)}
                               alt={`${project.title} - Main Preview`}
                               fill
                               className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
@@ -191,7 +192,7 @@ export default function ProjectsPage() {
                                   onClick={() => setSelectedProject(project)}
                                 >
                                   <Image
-                                    src={img}
+                                    src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.thumbnail)}
                                     alt={`${project.title} - Preview ${i + 2}`}
                                     fill
                                     className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -347,7 +348,7 @@ export default function ProjectsPage() {
                         className="relative aspect-[4/3] rounded-2xl overflow-hidden group/img bg-gray-50 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
                       >
                         <Image
-                          src={img}
+                          src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.showcase)}
                           alt={`${selectedProject.title} - Ảnh ${idx + 1}`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover/img:scale-105"

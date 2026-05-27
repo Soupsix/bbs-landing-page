@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { ArrowRight, CheckCircle2, PhoneCall } from "lucide-react";
 import { useLanguage } from "@/components/contexts/LanguageContext";
 import { SERVICES_VI, SERVICES_EN } from "../data";
+import { getOptimizedCloudinaryUrl, CLOUDINARY_WIDTHS } from "@/lib/cloudinary";
 
 export default function ServiceDetailPage() {
   const { lang } = useLanguage();
@@ -43,7 +44,7 @@ export default function ServiceDetailPage() {
       <section className="relative w-full h-[55vh] md:h-[65vh] flex items-center justify-center overflow-hidden">
         {/* Background Image - Lấy ảnh đầu tiên trong mảng images làm banner */}
         <Image
-          src={service.images[0]}
+          src={getOptimizedCloudinaryUrl(service.images[0], CLOUDINARY_WIDTHS.hero)}
           alt={service.title}
           fill
           sizes="100vw"
@@ -181,7 +182,7 @@ export default function ServiceDetailPage() {
                   }`}
                 >
                   <Image
-                    src={img}
+                    src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.card)}
                     alt={lang === "vi" ? `Hình ảnh thực tế ${idx + 1}` : `Project Gallery ${idx + 1}`}
                     fill
                     sizes="(max-w: 768px) 100vw, (max-w: 1200px) 50vw, 33vw"
