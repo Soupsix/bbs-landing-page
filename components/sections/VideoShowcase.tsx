@@ -67,7 +67,6 @@ export function VideoShowcase() {
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   sizes="(max-width: 1280px) 100vw, 1280px"
-                  priority
                 />
 
                 {/* Overlay */}

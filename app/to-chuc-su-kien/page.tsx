@@ -510,8 +510,7 @@ export default function EventPage() {
                       fill
                       sizes="(max-width: 768px) 100vw, 80vw"
                       className="object-cover transition-transform duration-500 group-hover/main:scale-[1.02]"
-                      priority={idx === 0}
-                      loading={idx === 0 ? undefined : "lazy"}
+                      loading="lazy"
                     />
                   </div>
 

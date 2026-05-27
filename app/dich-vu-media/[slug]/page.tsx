@@ -46,6 +46,7 @@ export default function ServiceDetailPage() {
           src={service.images[0]}
           alt={service.title}
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
