@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { getOptimizedCloudinaryUrl, CLOUDINARY_WIDTHS } from "@/lib/cloudinary";
 
 const equipmentImages = [
   {
@@ -56,12 +56,12 @@ export function EquipmentSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* Main Large Image */}
           <div className="relative group overflow-hidden rounded-2xl lg:rounded-3xl h-[400px] lg:h-[600px] shadow-md">
-            <Image
-              src={equipmentImages[0].src}
+            <img
+              src={getOptimizedCloudinaryUrl(equipmentImages[0].src, CLOUDINARY_WIDTHS.showcase)}
               alt={equipmentImages[0].alt}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
@@ -71,12 +71,12 @@ export function EquipmentSection() {
           <div className="grid grid-cols-2 gap-4 lg:gap-6 h-[400px] lg:h-[600px]">
             {equipmentImages.slice(1).map((item, index) => (
               <div key={item.id} className="relative group overflow-hidden rounded-2xl lg:rounded-3xl shadow-md">
-                <Image
-                  src={item.src}
+                <img
+                  src={getOptimizedCloudinaryUrl(item.src, CLOUDINARY_WIDTHS.card)}
                   alt={item.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-65 group-hover:opacity-85 transition-opacity duration-500"></div>
