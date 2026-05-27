@@ -1,4 +1,5 @@
 "use client";
+import { getOptimizedCloudinaryUrl, CLOUDINARY_WIDTHS } from "@/lib/cloudinary";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -286,7 +287,7 @@ function ShowcaseBlock({ title, desc, images, Icon, index = 0 }: ShowcaseBlockPr
         {/* Main Banner Image */}
         <div className="relative w-full aspect-[16/7] rounded-2xl overflow-hidden shadow-md group/main">
           <Image
-            src={mainImage}
+            src={getOptimizedCloudinaryUrl(mainImage, CLOUDINARY_WIDTHS.showcase)}
             alt={title}
             fill
             sizes="(max-width: 768px) 100vw, 80vw"
@@ -332,7 +333,7 @@ function ShowcaseBlock({ title, desc, images, Icon, index = 0 }: ShowcaseBlockPr
           {paddedSupportingImages.map((img, i) => (
             <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group/support">
               <Image
-                src={img}
+                src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.thumbnail)}
                 alt={title}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -394,7 +395,7 @@ function EquipmentShowcaseBlock({ title, desc, images, Icon, index = 0 }: Showca
               {images.map((img, i) => (
                 <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group">
                   <Image
-                    src={img}
+                    src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.card)}
                     alt={title}
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"
@@ -505,7 +506,7 @@ export default function EventPage() {
                   {/* Main Banner Image */}
                   <div className="relative w-full aspect-[16/7] md:aspect-[16/7] rounded-2xl overflow-hidden shadow-md group/main">
                     <Image
-                      src={mainImage}
+                      src={getOptimizedCloudinaryUrl(mainImage, CLOUDINARY_WIDTHS.showcase)}
                       alt={event.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 80vw"
@@ -549,7 +550,7 @@ export default function EventPage() {
                     {supportingImages.map((img, i) => (
                       <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group/support">
                         <Image
-                          src={img}
+                          src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.thumbnail)}
                           alt={event.title}
                           fill
                           sizes="(max-width: 768px) 50vw, 25vw"

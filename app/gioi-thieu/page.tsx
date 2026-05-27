@@ -1,4 +1,5 @@
 "use client";
+import { getOptimizedCloudinaryUrl, CLOUDINARY_WIDTHS } from "@/lib/cloudinary";
 
 import { useRef, useState } from "react";
 import Image from "next/image";
@@ -250,7 +251,7 @@ export default function GioiThieuPage() {
   return (
     <main className="bg-white">
       <section className="relative min-h-[560px] flex items-center overflow-hidden">
-        <Image src={heroImage} alt="BBS Media" fill priority className="object-cover" sizes="100vw" />
+        <Image src={getOptimizedCloudinaryUrl(heroImage, CLOUDINARY_WIDTHS.hero)} alt="BBS Media" fill priority className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-deep-navy/75" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-28">
@@ -293,7 +294,7 @@ export default function GioiThieuPage() {
               ) : (
                 <div className="relative w-full h-full" onClick={() => setIsVideoPlaying(true)}>
                   <Image
-                    src={cinematicImage}
+                    src={getOptimizedCloudinaryUrl(cinematicImage, CLOUDINARY_WIDTHS.showcase)}
                     alt="Giới thiệu BBS Media"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -388,7 +389,7 @@ export default function GioiThieuPage() {
             {founders.map((founder) => (
               <article key={founder.name} className="rounded-3xl bg-white border border-gray-100 p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="relative mx-auto mb-6 h-48 w-48 md:h-56 md:w-56 rounded-full border-4 border-white bg-gray-100 shadow-xl ring-1 ring-gray-100 overflow-hidden">
-                  <Image src={founder.image} alt={founder.name} fill className="object-cover" sizes="224px" />
+                  <Image src={getOptimizedCloudinaryUrl(founder.image, CLOUDINARY_WIDTHS.logo)} alt={founder.name} fill className="object-cover" sizes="224px" />
                 </div>
                 <div>
                   <p className="text-bbs-blue font-bold uppercase tracking-widest text-xs mb-2">{founder.role}</p>
@@ -410,7 +411,7 @@ export default function GioiThieuPage() {
               return (
                 <div key={item.title} className="group rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-sm hover:shadow-xl transition-all duration-300">
                   <div className="relative h-56 md:h-64 overflow-hidden">
-                    <Image src={item.image} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 33vw" />
+                    <Image src={getOptimizedCloudinaryUrl(item.image, CLOUDINARY_WIDTHS.card)} alt={item.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 33vw" />
                   </div>
                 </div>
               );
@@ -423,7 +424,7 @@ export default function GioiThieuPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
-              <Image src={crewImage} alt="Ê-kíp tác nghiệp" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <Image src={getOptimizedCloudinaryUrl(crewImage, CLOUDINARY_WIDTHS.showcase)} alt="Ê-kíp tác nghiệp" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
             <div>
               <p className="text-bbs-blue text-sm font-bold tracking-[0.25em] uppercase mb-3">Ê-kíp</p>
@@ -448,7 +449,7 @@ export default function GioiThieuPage() {
           <div className="flex flex-wrap justify-center gap-4">
             {partnerLogos.map((logo) => (
               <div key={logo.name} className="flex h-20 w-36 items-center justify-center rounded-2xl border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
-                <Image src={logo.image || logoPlaceholder} alt={logo.name} width={112} height={48} className="max-h-12 w-auto object-contain" />
+                <Image src={getOptimizedCloudinaryUrl(logo.image || logoPlaceholder, CLOUDINARY_WIDTHS.logo)} alt={logo.name} width={112} height={48} className="max-h-12 w-auto object-contain" />
               </div>
             ))}
           </div>
@@ -463,7 +464,7 @@ export default function GioiThieuPage() {
             {activityImages.map((item, index) => (
               <article key={item.id} className={`group relative overflow-hidden rounded-2xl bg-gray-200 ${index % 5 === 0 ? "lg:row-span-2" : ""}`}>
                 <div className={`relative w-full ${index % 5 === 0 ? "h-96 lg:h-full" : "h-56"}`}>
-                  <Image src={item.image} alt={item.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 1024px) 50vw, 25vw" />
+                  <Image src={getOptimizedCloudinaryUrl(item.image, CLOUDINARY_WIDTHS.card)} alt={item.title} fill loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 1024px) 50vw, 25vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute left-4 right-4 bottom-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     <p className="text-bbs-blue text-xs font-bold uppercase tracking-widest mb-1">{item.category}</p>
@@ -537,7 +538,7 @@ export default function GioiThieuPage() {
                     className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-900 border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-bbs-blue/20 hover:border-bbs-blue/30 shrink-0 snap-start cursor-pointer"
                   >
                     <Image
-                      src={channel.image}
+                      src={getOptimizedCloudinaryUrl(channel.image, CLOUDINARY_WIDTHS.logo)}
                       alt={channel.name}
                       fill
                       className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
@@ -602,7 +603,7 @@ export default function GioiThieuPage() {
                   className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-900 border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-bbs-red/20 hover:border-bbs-red/30 cursor-pointer"
                 >
                   <Image
-                    src={channel.image}
+                    src={getOptimizedCloudinaryUrl(channel.image, CLOUDINARY_WIDTHS.logo)}
                     alt={channel.name}
                     fill
                     className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
@@ -652,7 +653,7 @@ export default function GioiThieuPage() {
                   className="group relative flex flex-col justify-end aspect-square w-64 md:w-72 rounded-2xl overflow-hidden bg-gray-900 border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-cyan-400/20 hover:border-cyan-400/30 cursor-pointer"
                 >
                   <Image
-                    src={channel.image}
+                    src={getOptimizedCloudinaryUrl(channel.image, CLOUDINARY_WIDTHS.logo)}
                     alt={channel.name}
                     fill
                     className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
