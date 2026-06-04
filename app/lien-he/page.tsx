@@ -90,7 +90,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-wider mb-1">Hotline</p>
                     <p className="text-deep-navy font-bold text-base md:text-lg lg:text-xl group-hover:text-bbs-blue transition-colors leading-relaxed">
-                      034.360.3760 - 0368.24.8696
+                      034.360.3760 - 0345.868.556
                     </p>
                   </div>
                 </a>
