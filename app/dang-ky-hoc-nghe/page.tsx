@@ -440,7 +440,7 @@ function CourseShowcaseBlock({
 
         {/* Text Details Row */}
         <div className="mt-6 mb-6">
-          {/* Title + Info - Full width on desktop */}
+          {/* Title + Info + Button */}
           <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
             <div className="max-w-3xl">
               <div className="flex items-center gap-3">
@@ -490,53 +490,9 @@ function CourseShowcaseBlock({
                 <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Phù hợp với: </span>
                 <span className="text-sm text-gray-700">{course.suitable}</span>
               </div>
-
-              {/* Roadmap Checkpoints - Full width row */}
-              <div className="mt-6 w-full">
-                <div className="flex items-center gap-2 mb-4">
-                  <TrendingUp className="w-4 h-4 text-[#27abde]" />
-                  <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Lộ trình học</span>
-                </div>
-                <div className="flex items-center">
-                  {/* Step 1 */}
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-[#27abde]/10 border-2 border-[#27abde] flex items-center justify-center">
-                      <BookOpen className="w-4 h-4 text-[#27abde]" />
-                    </div>
-                    <span className="mt-2 text-[10px] font-medium text-[#27abde] uppercase tracking-tight text-center whitespace-nowrap">Lý thuyết</span>
-                  </div>
-                  {/* Connector */}
-                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#27abde] to-[#d81e25] mx-1 min-w-[20px]"></div>
-                  {/* Step 2 */}
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-[#27abde]/10 border-2 border-[#27abde] flex items-center justify-center">
-                      <Camera className="w-4 h-4 text-[#27abde]" />
-                    </div>
-                    <span className="mt-2 text-[10px] font-medium text-[#27abde] uppercase tracking-tight text-center whitespace-nowrap">Thiết bị</span>
-                  </div>
-                  {/* Connector */}
-                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#d81e25]/60 to-[#d81e25] mx-1 min-w-[20px]"></div>
-                  {/* Step 3 */}
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-[#d81e25]/10 border-2 border-[#d81e25] flex items-center justify-center">
-                      <Wrench className="w-4 h-4 text-[#d81e25]" />
-                    </div>
-                    <span className="mt-2 text-[10px] font-medium text-[#d81e25] uppercase tracking-tight text-center whitespace-nowrap">Thực hành</span>
-                  </div>
-                  {/* Connector */}
-                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#d81e25] to-[#d81e25] mx-1 min-w-[20px]"></div>
-                  {/* Step 4 */}
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-[#d81e25] border-2 border-[#d81e25] flex items-center justify-center shadow-lg shadow-[#d81e25]/30">
-                      <Zap className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="mt-2 text-[10px] font-bold text-[#d81e25] uppercase tracking-tight text-center whitespace-nowrap">Thực chiến</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Button - Sticky on right */}
+            {/* Button */}
             <div className="flex-shrink-0 flex justify-center md:justify-end">
               <Link
                 href="/lien-he?service=dao-tao-nghe"
@@ -548,25 +504,74 @@ function CourseShowcaseBlock({
               </Link>
             </div>
           </div>
-        </div>
 
-        {/* Supporting Images Grid - Only show for non-AI courses */}
-        {!isAiCourse && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {course.images.slice(1, 5).map((img, i) => (
-              <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group/support">
-                <Image
-                  src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.thumbnail)}
-                  alt={`${course.title} ${i + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-300 group-hover/support:scale-105"
-                  loading="lazy"
-                />
+          {/* Roadmap + Supporting Images - Full width, centered */}
+          <div className="mt-10 pt-8 border-t border-gray-100/80 flex flex-col items-center w-full">
+            {/* Roadmap Checkpoints */}
+            <div className="flex flex-col items-center w-full">
+              <div className="flex items-center justify-center gap-2 mb-5">
+                <TrendingUp className="w-4 h-4 text-[#27abde]" />
+                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Lộ trình học</span>
               </div>
-            ))}
+              <div className="flex items-center justify-center w-full max-w-3xl px-2">
+                {/* Step 1 */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#27abde]/10 border-2 border-[#27abde] flex items-center justify-center">
+                    <BookOpen className="w-4 h-4 text-[#27abde]" />
+                  </div>
+                  <span className="mt-2 text-[10px] font-medium text-[#27abde] uppercase tracking-tight text-center whitespace-nowrap">Lý thuyết</span>
+                </div>
+                {/* Connector */}
+                <div className="flex-1 h-[2px] bg-gradient-to-r from-[#27abde] to-[#d81e25] mx-1 min-w-[20px]"></div>
+                {/* Step 2 */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#27abde]/10 border-2 border-[#27abde] flex items-center justify-center">
+                    <Camera className="w-4 h-4 text-[#27abde]" />
+                  </div>
+                  <span className="mt-2 text-[10px] font-medium text-[#27abde] uppercase tracking-tight text-center whitespace-nowrap">Thiết bị</span>
+                </div>
+                {/* Connector */}
+                <div className="flex-1 h-[2px] bg-gradient-to-r from-[#d81e25]/60 to-[#d81e25] mx-1 min-w-[20px]"></div>
+                {/* Step 3 */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#d81e25]/10 border-2 border-[#d81e25] flex items-center justify-center">
+                    <Wrench className="w-4 h-4 text-[#d81e25]" />
+                  </div>
+                  <span className="mt-2 text-[10px] font-medium text-[#d81e25] uppercase tracking-tight text-center whitespace-nowrap">Thực hành</span>
+                </div>
+                {/* Connector */}
+                <div className="flex-1 h-[2px] bg-gradient-to-r from-[#d81e25] to-[#d81e25] mx-1 min-w-[20px]"></div>
+                {/* Step 4 */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#d81e25] border-2 border-[#d81e25] flex items-center justify-center shadow-lg shadow-[#d81e25]/30">
+                    <Zap className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="mt-2 text-[10px] font-bold text-[#d81e25] uppercase tracking-tight text-center whitespace-nowrap">Thực chiến</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Supporting Images Grid - Only show for non-AI courses */}
+            {!isAiCourse && course.images.length > 1 && (
+              <div className="mt-8 flex justify-center w-full">
+                <div className="grid grid-cols-3 gap-4 max-w-4xl w-full">
+                  {course.images.slice(1, 4).map((img, i) => (
+                    <div key={`support-${course.id}-${i}`} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group/support">
+                      <Image
+                        src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.thumbnail)}
+                        alt={`${course.title} ${i + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 33vw, 20vw"
+                        className="object-cover transition-transform duration-300 group-hover/support:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
@@ -696,7 +701,7 @@ export default function DangKyHocNghePage() {
                 </div>
               </div>
             </div>
-            {/* 3 Academy Images */}
+            {/* 3 Academy Images - 2 on top, 1 on bottom */}
             <div className="grid grid-cols-2 gap-3">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                 <Image
@@ -704,24 +709,24 @@ export default function DangKyHocNghePage() {
                   alt="BBS Academy - Giảng viên hướng dẫn"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                   loading="lazy"
                 />
               </div>
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={getOptimizedCloudinaryUrl(ACADEMY_IMAGES[1], CLOUDINARY_WIDTHS.card)}
-                  alt="BBS Academy - Không gian học tập"
+                  src={getOptimizedCloudinaryUrl(ACADEMY_IMAGES[2], CLOUDINARY_WIDTHS.card)}
+                  alt="BBS Academy - Thiết bị học tập"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                   loading="lazy"
                 />
               </div>
-              <div className="col-span-2 relative aspect-[16/5] rounded-2xl overflow-hidden shadow-xl">
+              <div className="col-span-2 relative aspect-[21/9] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={getOptimizedCloudinaryUrl(ACADEMY_IMAGES[2], CLOUDINARY_WIDTHS.showcase)}
-                  alt="BBS Academy - Thiết bị học tập"
+                  src={getOptimizedCloudinaryUrl(ACADEMY_IMAGES[1], CLOUDINARY_WIDTHS.showcase)}
+                  alt="BBS Academy - Không gian học tập"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
@@ -854,13 +859,13 @@ export default function DangKyHocNghePage() {
                 className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex flex-col sm:flex-row">
-                  <div className="relative w-full sm:w-48 h-48 sm:h-auto flex-shrink-0">
+                  <div className="relative w-full sm:w-56 aspect-square flex-shrink-0 bg-gray-100">
                     <Image
                       src={getOptimizedCloudinaryUrl(instructor.image, CLOUDINARY_WIDTHS.card)}
                       alt={instructor.name}
                       fill
-                      sizes="(max-width: 640px) 100vw, 200px"
-                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 224px"
+                      className="object-cover object-top rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none"
                       loading="lazy"
                     />
                   </div>
