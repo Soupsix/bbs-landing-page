@@ -79,6 +79,7 @@ const NAV_LINKS_VI: NavLink[] = [
   { href: "/du-an-tieu-bieu", label: "DỰ ÁN TIÊU BIỂU" },
   { href: "/khach-hang", label: "KHÁCH HÀNG" },
   { href: "/lien-he", label: "LIÊN HỆ" },
+  { href: "/dang-ky-hoc-nghe", label: "ĐÀO TẠO NGHỀ" },
 ];
 
 const NAV_LINKS_EN: NavLink[] = [
@@ -89,6 +90,7 @@ const NAV_LINKS_EN: NavLink[] = [
   { href: "/du-an-tieu-bieu", label: "PROJECTS" },
   { href: "/khach-hang", label: "CLIENTS" },
   { href: "/lien-he", label: "CONTACT" },
+  { href: "/dang-ky-hoc-nghe", label: "TRAINING" },
 ];
 
 export function Header() {

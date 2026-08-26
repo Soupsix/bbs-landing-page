@@ -60,6 +60,7 @@ const SERVICES = [
   "TVC Doanh Nghiệp",
   "Viral Video / TikTok / Reels",
   "Sản Xuất Video AI",
+  "Đào Tạo Nghề",
 ];
 
 const inputCls =
@@ -177,7 +178,7 @@ export function Footer() {
           </div>
 
           {/* Contact Form */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-6 text-white shadow-2xl shadow-black/20 backdrop-blur-md">
+          <div id="contact-form" className="rounded-2xl border border-white/10 bg-white/[0.07] p-6 text-white shadow-2xl shadow-black/20 backdrop-blur-md">
             <p className="text-bbs-blue text-xs font-bold tracking-widest uppercase mb-2">Liên hệ ngay</p>
             <h4 className="text-white text-xl font-bold mb-5">Kết Nối Ngay Với Chúng Tôi</h4>
             {submitted ? (

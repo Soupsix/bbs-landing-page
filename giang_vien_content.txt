@@ -1,0 +1,17 @@
+GIẢNG VIÊN
+BBS Academy được giảng dạy trực tiếp bởi đội ngũ đang sản xuất tại BBS Media — không phải giảng viên lý thuyết thuần túy, mà là những người đang thực chiến trên các dự án Event, TVC, Wedding mỗi tuần.
+Giảng viên 1
+[Tên giảng viên]
+ [Chức danh — VD: Quay phim chính / Đạo diễn hình ảnh tại BBS Media]
+Kinh nghiệm: [Số năm làm nghề] năm trong lĩnh vực [quay phim Event / Wedding / TVC...]
+Dự án tiêu biểu: [Liệt kê 2-3 dự án nổi bật đã thực hiện]
+Phụ trách khóa: [VD: Quay Dựng Cơ Bản, Quay Dựng Nâng Cao]
+Chia sẻ: "[Một câu ngắn về phong cách/triết lý giảng dạy]"
+Giảng viên 2
+[Tên giảng viên]
+ [Chức danh — VD: Dựng phim trưởng / Chuyên gia Content AI tại BBS Media]
+Kinh nghiệm: [Số năm làm nghề] năm trong lĩnh vực [dựng phim / sáng tạo nội dung / ứng dụng AI...]
+Dự án tiêu biểu: [Liệt kê 2-3 dự án nổi bật đã thực hiện]
+Phụ trách khóa: [VD: Quay Dựng Cấp Tốc, Sáng Tạo Nội Dung AI]
+Chia sẻ: "[Một câu ngắn về phong cách/triết lý giảng dạy]"
+
