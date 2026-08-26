@@ -19,33 +19,36 @@ import {
   Heart,
   Sparkles,
   TrendingUp,
-  Zap
+  Zap,
+  BookOpen,
+  Camera,
+  Wrench
 } from "lucide-react";
-
-/* ── Placeholder images ── */
-const PLACEHOLDER_IMG = "/casestudy/hanhtrinhbattu.webp";
+import { getOptimizedCloudinaryUrl, CLOUDINARY_WIDTHS } from "@/lib/cloudinary";
 
 /* ── Images for sections ── */
+const HERO_IMG = "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728775/HeroDangKyNghe_tgztuv.webp";
+
 const ACADEMY_IMAGES = [
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000101/academy_1.webp",
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000102/academy_2.webp",
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000103/academy_3.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728777/giangvienhuongdan_q0v5wl.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728778/Khonggianhoctap_t9bvqm.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728778/thietbihoctap_ekzlt7.webp",
 ];
 
 const BENEFITS_IMAGES = [
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000104/benefits_1.webp",
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000112/benefits_2.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728776/Hoc_Vien_Thuc_Hanh_1_yz6nv3.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728776/Hoc_Vien_Thuc_Hanh_2_ypw6yk.webp",
 ];
 
-const ROADMAP_IMAGE = "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000105/roadmap.webp";
+const ROADMAP_IMAGE = "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728777/Hoc_Vien_BBS_Sau_Khoa_Hoc_ha5ct0.webp";
 
 const SOCIAL_PROOF_IMAGES = [
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000106/social_1.webp",
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000107/social_2.webp",
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000108/social_3.webp",
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000109/social_4.webp",
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000110/social_5.webp",
-  "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000111/social_6.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728776/Hoc_Vien_BBS_Academy_1_qd35ou.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728776/Hoc_Vien_BBS_Academy_2_ankc7j.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728777/Hoc_Vien_BBS_Academy_3_svu84c.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728777/Hoc_Vien_BBS_Academy_4_tdgo0v.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728777/Hoc_Vien_BBS_Academy_5_ubx9si.webp",
+  "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728777/Hoc_Vien_BBS_Academy_6_srcldu.webp",
 ];
 
 /* ── Section anchor nav ── */
@@ -110,15 +113,6 @@ function UserAdd(props: React.SVGProps<SVGSVGElement> & { className?: string }) 
   );
 }
 
-function Camera(props: React.SVGProps<SVGSVGElement> & { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-      <circle cx="12" cy="13" r="3"/>
-    </svg>
-  );
-}
-
 /* ── Courses data ── */
 const COURSES = [
   {
@@ -143,10 +137,10 @@ const COURSES = [
       "Tham gia buổi thực chiến",
     ],
     images: [
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000001/coban1.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000001/coban2.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000001/coban3.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000001/coban4.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787729611/0_Quay_va_dung_co_ban_pv39fl.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787729611/Quay_va_dung_co_ban_1_pg1gxb.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787729610/Quay_va_dung_co_ban_3_w8vw4s.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787729610/Quay_va_dung_co_ban_2_fezq9p.webp",
     ],
   },
   {
@@ -171,10 +165,10 @@ const COURSES = [
       "Tham gia dự án BBS Media",
     ],
     images: [
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000002/captoc1.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000002/captoc2.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000002/captoc3.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000002/captoc4.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787729652/0_Quay_va_dung_cap_toc_gjnnnm.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787729651/Quay_Dung_Cap_Toc_1_uhhw1u.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787729651/Quay_Dung_Cap_Toc_2_prf23v.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787729651/Quay_Dung_Cap_Toc_3_stnnxf.webp",
     ],
   },
   {
@@ -199,10 +193,10 @@ const COURSES = [
       "Trải nghiệm nghề trực tiếp",
     ],
     images: [
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000003/nangcao1.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000003/nangcao2.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000003/nangcao3.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000003/nangcao4.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728774/0_Quay_va_dung_nang_cao_jdzebw.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728774/Quay_Dung_Nang_Cao_1_w2fcfz.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728775/Quay_Dung_Nang_Cao_2_y86syz.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728775/Quay_Dung_Nang_Cao_3_mu85ej.webp",
     ],
   },
   {
@@ -227,10 +221,7 @@ const COURSES = [
       "Tối ưu workflow sản xuất",
     ],
     images: [
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000004/ai1.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000004/ai2.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000004/ai3.webp",
-      "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000004/ai4.webp",
+      "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728776/0_Sang_Tao_Noi_Dung_AI_jgqadw.webp",
     ],
   },
 ];
@@ -238,20 +229,20 @@ const COURSES = [
 /* ── Instructors data ── */
 const INSTRUCTORS = [
   {
-    name: "Hà Khánh",
-    role: "Giám đốc trung tâm BBS Media kiêm CEO công ty BBS Media",
-    experience: "10 năm kinh nghiệm trong lĩnh vực Media",
-    quote: "Một chiếc cần câu cơm vẫn luôn tốt hơn một chén cơm",
-    courses: ["Quay Dựng Cơ Bản", "Quay Dựng Nâng Cao"],
-    image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000005/ha_khanh.webp",
-  },
-  {
     name: "Vũ Hải",
     role: "Giảng viên trực tiếp của BBS Media",
     experience: "Hơn 8 năm kinh nghiệm trong nghề",
     quote: "Học đi đôi với hành, thực chiến từ ngày đầu",
     courses: ["Quay Dựng Cấp Tốc", "Sáng Tạo Nội Dung AI"],
-    image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1700000006/vu_hai.webp",
+    image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728778/Giang-Vien-Vu-Hai_bl44im.webp",
+  },
+  {
+    name: "Hà Khánh",
+    role: "Giám đốc trung tâm BBS Media kiêm CEO công ty BBS Media",
+    experience: "10 năm kinh nghiệm trong lĩnh vực Media",
+    quote: "Một chiếc cần câu cơm vẫn luôn tốt hơn một chén cơm",
+    courses: ["Quay Dựng Cơ Bản", "Quay Dựng Nâng Cao"],
+    image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728778/Giang-Vien-Ha-Khanh_q7fxbp.webp",
   },
 ];
 
@@ -423,18 +414,19 @@ function CourseShowcaseBlock({
   const isEven = index % 2 === 0;
   const brandColor = course.badgeColor;
   const bgClass = isEven ? "bg-white" : "bg-[#f8fafc]";
+  const isAiCourse = course.id === "ai";
 
   return (
     <div className={`w-full py-12 md:py-16 ${bgClass} border-b border-gray-100 last:border-b-0`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        {/* Main Banner Image */}
-        <div className="relative w-full aspect-[16/7] rounded-2xl overflow-hidden shadow-md group/main">
+        {/* Main Banner Image - centered */}
+        <div className="relative w-fit mx-auto rounded-2xl overflow-hidden shadow-md group/main bg-gray-100 max-w-full">
           <Image
-            src={course.images[0]}
+            src={getOptimizedCloudinaryUrl(course.images[0], CLOUDINARY_WIDTHS.showcase)}
             alt={course.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 80vw"
-            className="object-cover transition-transform duration-500 group-hover/main:scale-[1.02]"
+            width={isAiCourse ? 1402 : 2873}
+            height={isAiCourse ? 1122 : 3427}
+            className={`block w-auto h-auto ${isAiCourse ? "max-h-[500px]" : "max-h-[700px]"} object-contain transition-transform duration-500 group-hover/main:scale-[1.02]`}
             loading="lazy"
           />
           {/* Badge overlay */}
@@ -447,90 +439,134 @@ function CourseShowcaseBlock({
         </div>
 
         {/* Text Details Row */}
-        <div className="mt-6 mb-6 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3">
-              <div
-                className="p-2.5 rounded-xl flex items-center justify-center text-white shadow-sm"
+        <div className="mt-6 mb-6">
+          {/* Title + Info - Full width on desktop */}
+          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-3">
+                <div
+                  className="p-2.5 rounded-xl flex items-center justify-center text-white shadow-sm"
+                  style={{ backgroundColor: brandColor }}
+                >
+                  <course.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-[#101827] uppercase tracking-wide">
+                  {course.title}
+                </h3>
+              </div>
+
+              {/* Course Info Grid */}
+              <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Calendar className="w-4 h-4 text-[#d81e25]" />
+                  <span>{course.duration}</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Clock className="w-4 h-4 text-[#d81e25]" />
+                  <span>{course.sessions}</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Users className="w-4 h-4 text-[#d81e25]" />
+                  <span>{course.maxStudents}</span>
+                </div>
+              </div>
+
+              <p className="text-gray-600 text-sm md:text-base mt-4 leading-relaxed">
+                {course.format}
+              </p>
+
+              {/* Features */}
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+                {course.features.map((feature, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-700">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Suitable for */}
+              <div className="mt-4 p-3 bg-gray-50 rounded-xl">
+                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Phù hợp với: </span>
+                <span className="text-sm text-gray-700">{course.suitable}</span>
+              </div>
+
+              {/* Roadmap Checkpoints - Full width row */}
+              <div className="mt-6 w-full">
+                <div className="flex items-center gap-2 mb-4">
+                  <TrendingUp className="w-4 h-4 text-[#27abde]" />
+                  <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Lộ trình học</span>
+                </div>
+                <div className="flex items-center">
+                  {/* Step 1 */}
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#27abde]/10 border-2 border-[#27abde] flex items-center justify-center">
+                      <BookOpen className="w-4 h-4 text-[#27abde]" />
+                    </div>
+                    <span className="mt-2 text-[10px] font-medium text-[#27abde] uppercase tracking-tight text-center whitespace-nowrap">Lý thuyết</span>
+                  </div>
+                  {/* Connector */}
+                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#27abde] to-[#d81e25] mx-1 min-w-[20px]"></div>
+                  {/* Step 2 */}
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#27abde]/10 border-2 border-[#27abde] flex items-center justify-center">
+                      <Camera className="w-4 h-4 text-[#27abde]" />
+                    </div>
+                    <span className="mt-2 text-[10px] font-medium text-[#27abde] uppercase tracking-tight text-center whitespace-nowrap">Thiết bị</span>
+                  </div>
+                  {/* Connector */}
+                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#d81e25]/60 to-[#d81e25] mx-1 min-w-[20px]"></div>
+                  {/* Step 3 */}
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#d81e25]/10 border-2 border-[#d81e25] flex items-center justify-center">
+                      <Wrench className="w-4 h-4 text-[#d81e25]" />
+                    </div>
+                    <span className="mt-2 text-[10px] font-medium text-[#d81e25] uppercase tracking-tight text-center whitespace-nowrap">Thực hành</span>
+                  </div>
+                  {/* Connector */}
+                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#d81e25] to-[#d81e25] mx-1 min-w-[20px]"></div>
+                  {/* Step 4 */}
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#d81e25] border-2 border-[#d81e25] flex items-center justify-center shadow-lg shadow-[#d81e25]/30">
+                      <Zap className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="mt-2 text-[10px] font-bold text-[#d81e25] uppercase tracking-tight text-center whitespace-nowrap">Thực chiến</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Button - Sticky on right */}
+            <div className="flex-shrink-0 flex justify-center md:justify-end">
+              <Link
+                href="/lien-he?service=dao-tao-nghe"
+                className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-md"
                 style={{ backgroundColor: brandColor }}
               >
-                <course.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#101827] uppercase tracking-wide">
-                {course.title}
-              </h3>
+                Đăng ký ngay
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-
-            {/* Course Info Grid */}
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Calendar className="w-4 h-4 text-[#d81e25]" />
-                <span>{course.duration}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Clock className="w-4 h-4 text-[#d81e25]" />
-                <span>{course.sessions}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Users className="w-4 h-4 text-[#d81e25]" />
-                <span>{course.maxStudents}</span>
-              </div>
-            </div>
-
-            <p className="text-gray-600 text-sm md:text-base mt-4 leading-relaxed">
-              {course.format}
-            </p>
-
-            {/* Features */}
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
-              {course.features.map((feature, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Suitable for */}
-            <div className="mt-4 p-3 bg-gray-50 rounded-xl">
-              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Phù hợp với: </span>
-              <span className="text-sm text-gray-700">{course.suitable}</span>
-            </div>
-
-            {/* Roadmap preview */}
-            <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
-              <TrendingUp className="w-4 h-4 text-[#27abde]" />
-              <span>Lộ trình: Lý thuyết → Thiết bị → Thực hành → Thực chiến</span>
-            </div>
-          </div>
-
-          <div className="flex-shrink-0">
-            <Link
-              href="/lien-he?service=dao-tao-nghe"
-              className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-md"
-              style={{ backgroundColor: brandColor }}
-            >
-              Đăng ký ngay
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
 
-        {/* Supporting Images Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {course.images.slice(1, 5).map((img, i) => (
-            <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group/support">
-              <Image
-                src={img}
-                alt={`${course.title} ${i + 1}`}
-                fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover transition-transform duration-300 group-hover/support:scale-105"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
+        {/* Supporting Images Grid - Only show for non-AI courses */}
+        {!isAiCourse && (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {course.images.slice(1, 5).map((img, i) => (
+              <div key={i} className="relative aspect-video rounded-xl overflow-hidden shadow-sm group/support">
+                <Image
+                  src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.thumbnail)}
+                  alt={`${course.title} ${i + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-300 group-hover/support:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -550,7 +586,7 @@ export default function DangKyHocNghePage() {
       {/* ═══════ HERO ═══════ */}
       <section className="relative w-full min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
-          src={PLACEHOLDER_IMG}
+          src={getOptimizedCloudinaryUrl(HERO_IMG, CLOUDINARY_WIDTHS.hero)}
           alt="BBS Academy - Đào tạo nghề quay dựng"
           fill
           sizes="100vw"
@@ -664,8 +700,8 @@ export default function DangKyHocNghePage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={ACADEMY_IMAGES[0]}
-                  alt="BBS Academy - Không gian học tập"
+                  src={getOptimizedCloudinaryUrl(ACADEMY_IMAGES[0], CLOUDINARY_WIDTHS.card)}
+                  alt="BBS Academy - Giảng viên hướng dẫn"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover"
@@ -674,8 +710,8 @@ export default function DangKyHocNghePage() {
               </div>
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={ACADEMY_IMAGES[1]}
-                  alt="BBS Academy - Giảng viên hướng dẫn"
+                  src={getOptimizedCloudinaryUrl(ACADEMY_IMAGES[1], CLOUDINARY_WIDTHS.card)}
+                  alt="BBS Academy - Không gian học tập"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover"
@@ -684,7 +720,7 @@ export default function DangKyHocNghePage() {
               </div>
               <div className="col-span-2 relative aspect-[16/5] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={ACADEMY_IMAGES[2]}
+                  src={getOptimizedCloudinaryUrl(ACADEMY_IMAGES[2], CLOUDINARY_WIDTHS.showcase)}
                   alt="BBS Academy - Thiết bị học tập"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -820,7 +856,7 @@ export default function DangKyHocNghePage() {
                 <div className="flex flex-col sm:flex-row">
                   <div className="relative w-full sm:w-48 h-48 sm:h-auto flex-shrink-0">
                     <Image
-                      src={instructor.image}
+                      src={getOptimizedCloudinaryUrl(instructor.image, CLOUDINARY_WIDTHS.card)}
                       alt={instructor.name}
                       fill
                       sizes="(max-width: 640px) 100vw, 200px"
@@ -897,7 +933,7 @@ export default function DangKyHocNghePage() {
             <div className="grid grid-rows-2 gap-4">
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={BENEFITS_IMAGES[0]}
+                  src={getOptimizedCloudinaryUrl(BENEFITS_IMAGES[0], CLOUDINARY_WIDTHS.card)}
                   alt="Học viên thực hành tại BBS Academy"
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
@@ -907,7 +943,7 @@ export default function DangKyHocNghePage() {
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src={BENEFITS_IMAGES[1]}
+                  src={getOptimizedCloudinaryUrl(BENEFITS_IMAGES[1], CLOUDINARY_WIDTHS.card)}
                   alt="Học viên thực chiến tại BBS Academy"
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
@@ -975,7 +1011,7 @@ export default function DangKyHocNghePage() {
             {/* Right: Roadmap Image */}
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src={ROADMAP_IMAGE}
+                src={getOptimizedCloudinaryUrl(ROADMAP_IMAGE, CLOUDINARY_WIDTHS.card)}
                 alt="Học viên BBS Academy sau khóa học"
                 fill
                 sizes="(max-width: 1024px) 100vw, 33vw"
@@ -1012,7 +1048,7 @@ export default function DangKyHocNghePage() {
                 className="relative aspect-video rounded-2xl overflow-hidden shadow-md group hover:shadow-xl transition-all duration-300"
               >
                 <Image
-                  src={img}
+                  src={getOptimizedCloudinaryUrl(img, CLOUDINARY_WIDTHS.thumbnail)}
                   alt={`Học viên BBS Academy ${idx + 1}`}
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
