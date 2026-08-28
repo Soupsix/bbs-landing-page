@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -40,7 +40,7 @@ const BENEFITS_IMAGES = [
   "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728776/Hoc_Vien_Thuc_Hanh_2_ypw6yk.webp",
 ];
 
-const ROADMAP_IMAGE = "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728777/Hoc_Vien_BBS_Sau_Khoa_Hoc_ha5ct0.webp";
+const ROADMAP_IMAGE = "https://res.cloudinary.com/dss1zawkj/image/upload/v1787876150/Thiet_bi_1_1_dzfaqy.jpg";
 
 const SOCIAL_PROOF_IMAGES = [
   "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728776/Hoc_Vien_BBS_Academy_1_qd35ou.webp",
@@ -117,8 +117,8 @@ function UserAdd(props: React.SVGProps<SVGSVGElement> & { className?: string }) 
 const COURSES = [
   {
     id: "co-ban",
-    title: "Quay & Dựng Cơ Bản",
-    badge: "Lớp đại trà",
+    title: "Khoá quay & Dựng Cơ Bản",
+    badge: "Lớp cơ bản",
     badgeColor: "#27abde",
     duration: "03 tháng",
     sessions: "24 buổi",
@@ -145,7 +145,7 @@ const COURSES = [
   },
   {
     id: "cap-toc",
-    title: "Quay & Dựng Cấp Tốc",
+    title: "Khoá quay & Dựng Cấp Tốc",
     badge: "Kèm 1:1",
     badgeColor: "#d81e25",
     duration: "02 tháng",
@@ -173,7 +173,7 @@ const COURSES = [
   },
   {
     id: "nang-cao",
-    title: "Quay Dựng Nâng Cao",
+    title: "Khoá quay & Dựng Nâng Cao",
     badge: "Kèm 1:1",
     badgeColor: "#d81e25",
     duration: "Theo lộ trình",
@@ -233,7 +233,6 @@ const INSTRUCTORS = [
     role: "Giảng viên trực tiếp của BBS Media",
     experience: "Hơn 8 năm kinh nghiệm trong nghề",
     quote: "Học đi đôi với hành, thực chiến từ ngày đầu",
-    courses: ["Quay Dựng Cấp Tốc", "Sáng Tạo Nội Dung AI"],
     image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728778/Giang-Vien-Vu-Hai_bl44im.webp",
   },
   {
@@ -241,8 +240,21 @@ const INSTRUCTORS = [
     role: "Giám đốc trung tâm BBS Media kiêm CEO công ty BBS Media",
     experience: "10 năm kinh nghiệm trong lĩnh vực Media",
     quote: "Một chiếc cần câu cơm vẫn luôn tốt hơn một chén cơm",
-    courses: ["Quay Dựng Cơ Bản", "Quay Dựng Nâng Cao"],
     image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728778/Giang-Vien-Ha-Khanh_q7fxbp.webp",
+  },
+  {
+    name: "Bảo Nguyễn",
+    role: "Giảng viên thực hành - Trưởng phòng Media BBS Media",
+    experience: "Leader thực chiến tại BBS Media",
+    quote: "Giá trị của một người làm nghề là giá trị mà bạn có thể tạo ra",
+    image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787875978/Bao-Ng-----Giang-Vien-Thuc-Hanh_1_zvcbet.jpg",
+  },
+  {
+    name: "Mã Đức Thành",
+    role: "Giảng viên chuyên về AI - Đào tạo và sáng tạo về AI từ đời sống tới thương mại",
+    experience: "Chuyên gia AI Media",
+    quote: "Đón đầu xu hướng để bản thân sớm hơn một bước",
+    image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787875978/Ma-Duc-Thanh_1_plvdvw.jpg",
   },
 ];
 
@@ -352,7 +364,7 @@ const FAQS = [
   },
   {
     question: "Nên chọn khóa Cơ bản hay khóa Cấp tốc?",
-    answer: "Khóa Cơ bản (lớp đại trà, 3 tháng) phù hợp nếu bạn có thể sắp xếp học đều đặn 2 buổi/tuần và muốn học chắc nền tảng theo giáo trình chuẩn. Khóa Cấp tốc (kèm 1:1, 2 tháng) phù hợp nếu bạn cần học nhanh hơn, muốn giáo viên bám sát theo mục tiêu cá nhân, hoặc đã có ít nhiều nền tảng và cần rút ngắn thời gian.",
+    answer: "Khóa Cơ bản (lớp cơ bản, 3 tháng) phù hợp nếu bạn có thể sắp xếp học đều đặn 2 buổi/tuần và muốn học chắc nền tảng theo giáo trình chuẩn. Khóa Cấp tốc (kèm 1:1, 2 tháng) phù hợp nếu bạn cần học nhanh hơn, muốn giáo viên bám sát theo mục tiêu cá nhân, hoặc đã có ít nhiều nền tảng và cần rút ngắn thời gian.",
   },
   {
     question: "Học viên chưa có laptop dùng cho dựng phim thì sao?",
@@ -578,6 +590,17 @@ function CourseShowcaseBlock({
 }
 
 export default function DangKyHocNghePage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const handleScrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -646,6 +669,11 @@ export default function DangKyHocNghePage() {
                 <div className="text-3xl font-bold text-white">1:1</div>
                 <div className="text-white/80 text-xs uppercase tracking-wide">Kèm riêng</div>
               </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center min-w-[140px]">
+                <div className="text-lg font-bold text-white">Hotline</div>
+                <div className="text-white/90 text-sm">034.360.3760</div>
+                <div className="text-white/90 text-sm">034.586.8556</div>
+              </div>
             </div>
           </div>
           <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
@@ -662,6 +690,13 @@ export default function DangKyHocNghePage() {
             >
               <PhoneCall className="w-5 h-5" />
               034.360.3760
+            </a>
+            <a
+              href="tel:0345868556"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl transition-all border border-white/30"
+            >
+              <PhoneCall className="w-5 h-5" />
+              034.586.8556
             </a>
           </div>
         </div>
@@ -876,19 +911,6 @@ export default function DangKyHocNghePage() {
                       <Award className="w-4 h-4" />
                       <span>{instructor.experience}</span>
                     </div>
-                    <div className="mb-4">
-                      <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Phụ trách khóa:</span>
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {instructor.courses.map((course, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 bg-[#f8fafc] text-gray-700 text-xs rounded-lg"
-                          >
-                            {course}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
                     <blockquote className="border-l-4 border-[#27abde] pl-4 italic text-gray-600 text-sm">
                       &ldquo;{instructor.quote}&rdquo;
                     </blockquote>
@@ -1096,13 +1118,13 @@ export default function DangKyHocNghePage() {
 
             <div className="relative z-10 max-w-3xl mx-auto">
               <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold uppercase tracking-widest mb-6">
-                Đăng ký ngay
+                Xác nhận đăng ký
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Sẵn sàng bắt đầu con đường nghề Media?
+                Xác nhận đăng ký
               </h2>
               <p className="text-white/90 text-base md:text-lg mb-8 leading-relaxed">
-                Để lại thông tin, đội ngũ BBS Academy sẽ liên hệ tư vấn lộ trình phù hợp trong vòng 24 giờ.
+                Nhận lịch học, làm thủ tục nhập học và khai giảng sớm nhất.
               </p>
 
               {/* 3 Steps */}
@@ -1120,7 +1142,7 @@ export default function DangKyHocNghePage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4">
                   <div className="w-10 h-10 rounded-full bg-white text-[#d81e25] font-bold flex items-center justify-center mx-auto mb-3">3</div>
                   <h4 className="text-white font-semibold mb-1">Xác nhận khai giảng</h4>
-                  <p className="text-white/70 text-sm">Nhận lịch học, giáo trình trước ngày khai giảng tháng 9</p>
+                  <p className="text-white/70 text-sm">Nhận lịch học, làm thủ tục nhập học và khai giảng sớm nhất</p>
                 </div>
               </div>
 
@@ -1133,11 +1155,13 @@ export default function DangKyHocNghePage() {
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <a
-                  href="tel:0343603760"
+                  href={isMobile ? "tel:0343603760" : "https://www.messenger.com/t/107488542199286/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0"}
+                  target={isMobile ? undefined : "_blank"}
+                  rel={isMobile ? undefined : "noopener noreferrer"}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl transition-all border border-white/30"
                 >
                   <PhoneCall className="w-5 h-5" />
-                  034.360.3760
+                  Liên hệ
                 </a>
               </div>
             </div>
