@@ -105,10 +105,10 @@ const TARGET_AUDIENCE = [
 function UserAdd(props: React.SVGProps<SVGSVGElement> & { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-      <circle cx="9" cy="7" r="4"/>
-      <line x1="19" x2="19" y1="8" y2="14"/>
-      <line x1="22" x2="16" y1="11" y2="11"/>
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <line x1="19" x2="19" y1="8" y2="14" />
+      <line x1="22" x2="16" y1="11" y2="11" />
     </svg>
   );
 }
@@ -118,7 +118,7 @@ const COURSES = [
   {
     id: "co-ban",
     title: "Khoá quay & Dựng Cơ Bản",
-    badge: "Lớp cơ bản",
+    badge: "Lớp căn bản",
     badgeColor: "#27abde",
     duration: "03 tháng",
     sessions: "24 buổi",
@@ -233,6 +233,7 @@ const INSTRUCTORS = [
     role: "Giảng viên trực tiếp của BBS Media",
     experience: "Hơn 8 năm kinh nghiệm trong nghề",
     quote: "Học đi đôi với hành, thực chiến từ ngày đầu",
+    courses: ["Quay Dựng Cấp Tốc"],
     image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728778/Giang-Vien-Vu-Hai_bl44im.webp",
   },
   {
@@ -240,13 +241,15 @@ const INSTRUCTORS = [
     role: "Giám đốc trung tâm BBS Media kiêm CEO công ty BBS Media",
     experience: "10 năm kinh nghiệm trong lĩnh vực Media",
     quote: "Một chiếc cần câu cơm vẫn luôn tốt hơn một chén cơm",
+    courses: ["Quay Dựng Cơ Bản", "Quay Dựng Nâng Cao"],
     image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787728778/Giang-Vien-Ha-Khanh_q7fxbp.webp",
   },
   {
-    name: "Bảo Nguyễn",
+    name: "Bảo Ng",
     role: "Giảng viên thực hành - Trưởng phòng Media BBS Media",
     experience: "Leader thực chiến tại BBS Media",
     quote: "Giá trị của một người làm nghề là giá trị mà bạn có thể tạo ra",
+    courses: ["Quay Dựng Cơ Bản", "Quay Dựng Nâng Cao"],
     image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787875978/Bao-Ng-----Giang-Vien-Thuc-Hanh_1_zvcbet.jpg",
   },
   {
@@ -254,6 +257,7 @@ const INSTRUCTORS = [
     role: "Giảng viên chuyên về AI - Đào tạo và sáng tạo về AI từ đời sống tới thương mại",
     experience: "Chuyên gia AI Media",
     quote: "Đón đầu xu hướng để bản thân sớm hơn một bước",
+    courses: ["Sáng Tạo Nội Dung AI"],
     image: "https://res.cloudinary.com/dss1zawkj/image/upload/v1787875978/Ma-Duc-Thanh_1_plvdvw.jpg",
   },
 ];
@@ -323,17 +327,17 @@ const ROADMAP = [
 function Building2(props: React.SVGProps<SVGSVGElement> & { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/>
-      <path d="M9 22v-4h6v4"/>
-      <path d="M8 6h.01"/>
-      <path d="M16 6h.01"/>
-      <path d="M12 6h.01"/>
-      <path d="M12 10h.01"/>
-      <path d="M12 14h.01"/>
-      <path d="M16 10h.01"/>
-      <path d="M16 14h.01"/>
-      <path d="M8 10h.01"/>
-      <path d="M8 14h.01"/>
+      <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
+      <path d="M9 22v-4h6v4" />
+      <path d="M8 6h.01" />
+      <path d="M16 6h.01" />
+      <path d="M12 6h.01" />
+      <path d="M12 10h.01" />
+      <path d="M12 14h.01" />
+      <path d="M16 10h.01" />
+      <path d="M16 14h.01" />
+      <path d="M8 10h.01" />
+      <path d="M8 14h.01" />
     </svg>
   );
 }
@@ -341,9 +345,9 @@ function Building2(props: React.SVGProps<SVGSVGElement> & { className?: string }
 function Wallet(props: React.SVGProps<SVGSVGElement> & { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
-      <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
-      <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
+      <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
+      <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
+      <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" />
     </svg>
   );
 }
@@ -395,15 +399,13 @@ function FAQAccordion({ faqs }: { faqs: typeof FAQS }) {
               {faq.question}
             </span>
             <ChevronDown
-              className={`w-5 h-5 flex-shrink-0 text-[#d81e25] transition-transform duration-300 ${
-                openIndex === idx ? "rotate-180" : ""
-              }`}
+              className={`w-5 h-5 flex-shrink-0 text-[#d81e25] transition-transform duration-300 ${openIndex === idx ? "rotate-180" : ""
+                }`}
             />
           </button>
           <div
-            className={`overflow-hidden transition-all duration-300 ${
-              openIndex === idx ? "max-h-96" : "max-h-0"
-            }`}
+            className={`overflow-hidden transition-all duration-300 ${openIndex === idx ? "max-h-96" : "max-h-0"
+              }`}
           >
             <p className="px-5 pb-5 text-gray-600 text-sm md:text-base leading-relaxed">
               {faq.answer}
@@ -891,27 +893,42 @@ export default function DangKyHocNghePage() {
             {INSTRUCTORS.map((instructor, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
               >
-                <div className="flex flex-col sm:flex-row">
-                  <div className="relative w-full sm:w-56 aspect-square flex-shrink-0 bg-gray-100">
+                <div className="flex flex-col sm:flex-row h-full flex-1">
+                  <div className="relative w-full sm:w-56 aspect-square sm:aspect-auto sm:h-full sm:min-h-full flex-shrink-0 bg-[#051026]">
                     <Image
                       src={getOptimizedCloudinaryUrl(instructor.image, CLOUDINARY_WIDTHS.card)}
                       alt={instructor.name}
                       fill
                       sizes="(max-width: 640px) 100vw, 224px"
-                      className="object-cover object-top rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none"
+                      className="object-cover object-center rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none"
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-6 flex-1">
-                    <h3 className="text-2xl font-bold text-[#101827] mb-1">{instructor.name}</h3>
-                    <p className="text-[#d81e25] font-medium text-sm mb-3">{instructor.role}</p>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-                      <Award className="w-4 h-4" />
-                      <span>{instructor.experience}</span>
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-[#101827] mb-1">{instructor.name}</h3>
+                      <p className="text-[#d81e25] font-medium text-sm mb-3">{instructor.role}</p>
+                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+                        <Award className="w-4 h-4" />
+                        <span>{instructor.experience}</span>
+                      </div>
+                      <div className="mb-4">
+                        <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Phụ trách khóa:</span>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          {instructor.courses.map((course, i) => (
+                            <span
+                              key={i}
+                              className="px-2 py-1 bg-[#f8fafc] text-gray-700 text-xs rounded-lg"
+                            >
+                              {course}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                    <blockquote className="border-l-4 border-[#27abde] pl-4 italic text-gray-600 text-sm">
+                    <blockquote className="border-l-4 border-[#27abde] pl-4 italic text-gray-600 text-sm mt-4">
                       &ldquo;{instructor.quote}&rdquo;
                     </blockquote>
                   </div>
@@ -1118,13 +1135,13 @@ export default function DangKyHocNghePage() {
 
             <div className="relative z-10 max-w-3xl mx-auto">
               <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold uppercase tracking-widest mb-6">
-                Xác nhận đăng ký
+                Đăng ký ngay
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Xác nhận đăng ký
+                Sẵn sàng bắt đầu con đường nghề Media?
               </h2>
               <p className="text-white/90 text-base md:text-lg mb-8 leading-relaxed">
-                Nhận lịch học, làm thủ tục nhập học và khai giảng sớm nhất.
+                Để lại thông tin, đội ngũ BBS Academy sẽ liên hệ tư vấn lộ trình phù hợp trong vòng 24 giờ.
               </p>
 
               {/* 3 Steps */}
@@ -1141,8 +1158,8 @@ export default function DangKyHocNghePage() {
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4">
                   <div className="w-10 h-10 rounded-full bg-white text-[#d81e25] font-bold flex items-center justify-center mx-auto mb-3">3</div>
-                  <h4 className="text-white font-semibold mb-1">Xác nhận khai giảng</h4>
-                  <p className="text-white/70 text-sm">Nhận lịch học, làm thủ tục nhập học và khai giảng sớm nhất</p>
+                  <h4 className="text-white font-semibold mb-1">Xác nhận đăng ký</h4>
+                  <p className="text-white/70 text-sm">Nhận lịch học, giáo trình trước ngày khai giảng tháng 9</p>
                 </div>
               </div>
 
