@@ -201,7 +201,7 @@ const COURSES = [
   },
   {
     id: "ai",
-    title: "Sáng Tạo Nội Dung AI",
+    title: "Khoá sáng Tạo Nội Dung AI",
     badge: "Online",
     badgeColor: "#27abde",
     duration: "Theo lộ trình",
